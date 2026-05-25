@@ -1,0 +1,260 @@
+aid: hostfully
+name: Hostfully
+description: >-
+  Hostfully is a San Francisco-based short-term rental (STR) property
+  management platform serving vacation rental managers, property managers, and
+  hospitality operators worldwide. The Hostfully Property Management Platform
+  (PMP) provides a channel manager that syncs listings across 60+ booking
+  channels including Airbnb, Vrbo, and Booking.com (where Hostfully holds
+  preferred/elite partner status), a central calendar, unified inbox with
+  InboxAI for guest communication, direct booking site builder, automation and
+  task management, multi-unit and group-booking management, payment processing
+  via Stripe/PayPal/VRP, owner portal, mobile apps for iOS and Android, and
+  digital guidebooks. The platform manages 62,000+ properties for 40,000+
+  customers, processing 96,000+ bookings monthly. Hostfully exposes a
+  developer-grade public REST API (v3.3) and a GraphQL API for partners and
+  property managers, supporting OAuth 2.0 authorization-code, basic auth, and
+  X-HOSTFULLY-APIKEY authentication, cursor-based pagination, webhooks for
+  agency/booking/property/messaging/custom-data events, and a 10,000 calls/hour
+  per-client rate limit. The API is offered as an add-on across the Growth,
+  Pro, and Enterprise Property Management Software plans.
+type: Index
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Short-Term Rental
+  - Vacation Rental
+  - Property Management
+  - PMS
+  - Hospitality
+  - Channel Manager
+  - Direct Booking
+  - Real Estate
+  - Travel
+  - Booking
+  - Reservations
+  - Guest Communication
+  - Webhooks
+  - GraphQL
+  - OAuth 2.0
+url: https://raw.githubusercontent.com/api-evangelist/hostfully/refs/heads/main/apis.yml
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.20'
+apis:
+  - aid: hostfully:hostfully-rest-api
+    name: Hostfully REST API
+    description: >-
+      Hostfully Property Management Platform REST API v3.x covering
+      properties (single and multi-unit), leads (inquiries, booking
+      requests, bookings, group bookings, holds, cancellations, rebooking),
+      orders and order adjustments, owner adjustments, fees, photos and
+      descriptions, amenities and rules, employees and owners, guests,
+      reviews, jobs and tasks, messaging (threads, channel messages,
+      resend), custom data fields, agencies, iCal exports, DBS (Direct
+      Booking System) settings, and webhook subscriptions. Supports OAuth
+      2.0 Authorization Code Flow for partners, Basic Auth for token
+      exchange, and X-HOSTFULLY-APIKEY header for direct account access.
+      Rate-limited to 10,000 calls per hour per client; uses cursor-based
+      pagination. Sandbox and production environments available.
+    humanURL: https://dev.hostfully.com/reference/getting-started
+    tags:
+      - REST
+      - Property Management
+      - Leads
+      - Bookings
+      - Messaging
+      - Webhooks
+    properties:
+      - type: Documentation
+        url: https://dev.hostfully.com/reference/getting-started
+      - type: Documentation
+        url: https://dev.hostfully.com/reference/authentication
+      - type: Documentation
+        url: https://dev.hostfully.com/reference/version-migration-guide-for-api-v3x
+      - type: Documentation
+        url: https://dev.hostfully.com/reference/leads-flow
+      - type: Webhooks
+        url: https://dev.hostfully.com/reference/webhooks-1
+      - type: AuthenticationDocs
+        url: https://dev.hostfully.com/reference/authorizing-integration-as-a-customer
+      - type: LLMsTxt
+        url: https://dev.hostfully.com/llms.txt
+  - aid: hostfully:hostfully-graphql-api
+    name: Hostfully GraphQL API
+    description: >-
+      Hostfully GraphQL endpoint for executing queries and mutations
+      against the same underlying property-management domain as the REST
+      API. Useful for clients that need to shape responses, fetch
+      multi-resource graphs in a single round trip, or build internal
+      dashboards on top of Hostfully data.
+    humanURL: https://dev.hostfully.com/reference/hostfully-graphql-api
+    tags:
+      - GraphQL
+      - Property Management
+    properties:
+      - type: Documentation
+        url: https://dev.hostfully.com/reference/hostfully-graphql-api
+      - type: Documentation
+        url: https://dev.hostfully.com/reference/execute
+common:
+  - type: Website
+    url: https://www.hostfully.com
+  - type: DeveloperPortal
+    url: https://dev.hostfully.com
+  - type: Documentation
+    url: https://dev.hostfully.com/reference/getting-started
+  - type: HelpCenter
+    url: https://help.hostfully.com
+  - type: Pricing
+    url: https://www.hostfully.com/pricing/property-management-software/
+  - type: Plans
+    data:
+      - id: growth
+        name: Growth
+        entries:
+          - geo: Global
+            unit: 1
+            label: Property
+            price: 15
+            metric: property
+            timeFrame: month
+            description: Per-property monthly subscription (plus platform fee). Best for 1-50 listings.
+        elements:
+          - name: Full PMS (channel manager, central calendar, unified inbox)
+          - name: Direct booking site
+          - name: Multi-unit management
+          - name: Automation and task management
+          - name: Mobile app (iOS/Android)
+          - name: 24/7 support
+          - name: 1% payment gateway fee
+          - name: 0.85% direct booking fee
+        description: Entry property-management plan for small portfolios.
+      - id: pro
+        name: Pro
+        entries:
+          - geo: Global
+            unit: 1
+            label: Property
+            price: 25
+            metric: property
+            timeFrame: month
+            description: Per-property monthly subscription (plus platform fee). Best for 1-199 listings. Most popular plan.
+        elements:
+          - name: Everything in Growth
+          - name: No payment gateway fee
+          - name: No direct booking commissions
+          - name: Dedicated success manager
+          - name: Extra onboarding support
+          - name: Annual business review
+        description: Mid-tier plan for growing property managers.
+      - id: enterprise
+        name: Enterprise
+        entries:
+          - geo: Global
+            unit: 1
+            label: Property
+            price: Call
+            metric: property
+            timeFrame: month
+            description: Custom volume pricing (plus platform fee). Best for 200+ listings.
+        elements:
+          - name: Everything in Pro
+          - name: Priority support
+          - name: Tailored onboarding
+          - name: Additional 1:1 success meetings
+        description: Volume-priced plan for large portfolios and enterprises.
+      - id: open-api
+        name: Open API
+        entries:
+          - geo: Global
+            unit: 1
+            label: Add-on
+            price: Add-on
+            metric: addon
+            timeFrame: month
+            description: Available as an add-on across all PMP plans.
+        description: Developer Open API access for custom workflows and integrations.
+    name: Hostfully Property Management Software Plans
+    type: Plans
+  - type: RateLimits
+    url: https://dev.hostfully.com/reference/getting-started
+  - type: GitHubOrganization
+    url: https://github.com/hostfully
+  - type: ChannelManager
+    url: https://www.hostfully.com/property-management-software/features/channel-manager/
+  - type: Product
+    url: https://www.hostfully.com/property-management-software/
+  - type: Product
+    url: https://www.hostfully.com/digital-guidebooks/
+  - type: Feature
+    url: https://www.hostfully.com/property-management-software/features/open-api/
+  - type: Feature
+    url: https://www.hostfully.com/property-management-software/features/inbox-ai/
+  - type: Feature
+    url: https://www.hostfully.com/property-management-software/features/direct-booking-site/
+  - type: Feature
+    url: https://www.hostfully.com/property-management-software/features/automations/
+  - type: Integrations
+    url: https://www.hostfully.com/integrations/
+  - type: Partners
+    url: https://www.hostfully.com/partners/
+  - type: Blog
+    url: https://www.hostfully.com/blog/
+  - type: Customers
+    url: https://www.hostfully.com/customers/
+  - type: SignUp
+    url: https://www.hostfully.com/sign-up/
+  - type: Login
+    url: https://platform.hostfully.com/login
+  - type: Contact
+    url: https://www.hostfully.com/contact/
+  - type: About
+    url: https://www.hostfully.com/about/
+  - type: Careers
+    url: https://www.hostfully.com/careers/
+  - type: TermsOfService
+    url: https://www.hostfully.com/terms-of-service/
+  - type: PrivacyPolicy
+    url: https://www.hostfully.com/privacy-policy/
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/hostfully
+  - type: Twitter
+    url: https://twitter.com/hostfully
+  - type: Facebook
+    url: https://www.facebook.com/hostfully
+  - type: YouTube
+    url: https://www.youtube.com/@Hostfully
+  - type: Features
+    data:
+      - REST API v3.3 covering Properties, Leads, Bookings, Group Bookings, Orders, Fees, Owner Adjustments, Messaging, Webhooks, Photos, Amenities, Jobs, Custom Data, Agencies, Employees, Owners, Guests, and Reviews
+      - GraphQL API endpoint for shaped queries and mutations across the property-management domain
+      - OAuth 2.0 Authorization Code Flow for partner-to-customer authorization
+      - X-HOSTFULLY-APIKEY header authentication for direct account access
+      - Basic Auth for partner OAuth token exchange
+      - 10,000 calls per hour per client rate limit with x-ratelimit-* response headers
+      - Cursor-based pagination across list endpoints
+      - Sandbox environment for partner integration testing prior to production approval
+      - Webhooks for booking, property, messaging, custom-data, pincode, and partner-channel events with POST_JSON or POST_FORM callback formats
+      - Multi-unit (hotel) property management with master/sub-unit hierarchy
+      - Group bookings spanning multi-unit properties with main-lead and sub-lead structure
+      - Channel manager integrations with Airbnb, Vrbo, Booking.com, and 60+ OTAs (Hostfully holds Preferred/Elite Partner status)
+      - 100+ third-party software partner integrations (dynamic pricing, smart locks, cleaning, accounting, CRM, analytics)
+      - InboxAI unified messaging across channels (email, Airbnb, Vrbo, Booking.com)
+      - Direct booking site builder with DBS (Direct Booking System) settings exposed via API
+      - Per-property monthly subscription pricing across Growth ($15), Pro ($25), and Enterprise (custom) plans
+      - Open API offered as add-on across all PMP plans
+      - Digital Guidebooks product available standalone
+      - Screen & Protect guest screening and damage protection up to $50K
+      - Hostfully Devices smart-home integrations
+    sources:
+      - https://dev.hostfully.com/reference/getting-started
+      - https://dev.hostfully.com/llms.txt
+      - https://www.hostfully.com/property-management-software/features/open-api/
+      - https://www.hostfully.com/pricing/property-management-software/
+      - https://dev.hostfully.com/reference/webhooks-1
+    updated: '2026-05-25'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
