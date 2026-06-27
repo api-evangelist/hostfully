@@ -79,7 +79,7 @@ apis:
         url: https://dev.hostfully.com/reference/webhooks-1
       - type: AuthenticationDocs
         url: https://dev.hostfully.com/reference/authorizing-integration-as-a-customer
-      - type: LLMsTxt
+      - type: LlmsText
         url: https://dev.hostfully.com/llms.txt
   - aid: hostfully:hostfully-graphql-api
     name: Hostfully GraphQL API
@@ -188,13 +188,13 @@ common:
     url: https://www.hostfully.com/property-management-software/
   - type: Product
     url: https://www.hostfully.com/digital-guidebooks/
-  - type: Feature
+  - type: Features
     url: https://www.hostfully.com/property-management-software/features/open-api/
-  - type: Feature
+  - type: Features
     url: https://www.hostfully.com/property-management-software/features/inbox-ai/
-  - type: Feature
+  - type: Features
     url: https://www.hostfully.com/property-management-software/features/direct-booking-site/
-  - type: Feature
+  - type: Features
     url: https://www.hostfully.com/property-management-software/features/automations/
   - type: Integrations
     url: https://www.hostfully.com/integrations/
@@ -204,7 +204,7 @@ common:
     url: https://www.hostfully.com/blog/
   - type: Customers
     url: https://www.hostfully.com/customers/
-  - type: SignUp
+  - type: Signup
     url: https://www.hostfully.com/sign-up/
   - type: Login
     url: https://platform.hostfully.com/login
