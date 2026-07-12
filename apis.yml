@@ -99,6 +99,8 @@ apis:
       - type: Documentation
         url: https://dev.hostfully.com/reference/execute
 common:
+  - type: DomainSecurity
+    url: security/hostfully-domain-security.yml
   - type: Website
     url: https://www.hostfully.com
   - type: DeveloperPortal
