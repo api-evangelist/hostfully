@@ -1,0 +1,202 @@
+# Hostfully Property Management Platform API Documentation
+
+> Hostfully provides an open and innovative technology platform for vacation rental management companies.
+
+## API Reference
+- [Getting Started with the Hostfully API v3](https://dev.hostfully.com/reference/getting-started.md): This page will help you get started with Hostfully. You'll be up and running in a jiffy!
+- [Authentication](https://dev.hostfully.com/reference/authentication.md)
+- [Authorizing your Integration by a Customer](https://dev.hostfully.com/reference/authorizing-integration-as-a-customer.md)
+- [Leads flow](https://dev.hostfully.com/reference/leads-flow.md)
+- [Webhooks](https://dev.hostfully.com/reference/webhooks-1.md): Register webhooks and let Hostfully call you back based on specific triggered events
+- [Retrieve lead's submitted pre-arrival form](https://dev.hostfully.com/reference/retrieve-leads-submitted-pre-arrival-form.md)
+- [Version Migration Guide for API V3.X](https://dev.hostfully.com/reference/version-migration-guide-for-api-v3x.md)
+- [V3.1 - Multi Units](https://dev.hostfully.com/reference/v31-multi-units.md)
+- [V3.2 - Messaging Update](https://dev.hostfully.com/reference/v32-messaging-updates.md)
+- [v3.3 - Leads - Group bookings](https://dev.hostfully.com/reference/leads-group-bookings.md)
+- [Hostfully GraphQL Api](https://dev.hostfully.com/reference/hostfully-graphql-api.md)
+- [Get property DBS settings](https://dev.hostfully.com/reference/getpropertydbssettings.md): Retrieves Direct Booking System (DBS) configuration for a specific property
+- [Get agency DBS settings](https://dev.hostfully.com/reference/getagencydbssettings.md): Retrieves Direct Booking System (DBS) configuration for a specific agency
+- [Get an agency by UID](https://dev.hostfully.com/reference/getagency.md): Returns the agency details for the given UID, only if the API client is authorized to access it.
+- [Get agencies](https://dev.hostfully.com/reference/getagencies.md): Returns the list of agencies the API client is authorized to access.
+- [Get a specific amenity by UID](https://dev.hostfully.com/reference/getone_8.md): Returns the amenity details for the given UID.
+- [Update an existing amenity](https://dev.hostfully.com/reference/put_9.md): Updates the amenity identified by UID.
+- [Delete an amenity](https://dev.hostfully.com/reference/delete_10.md): Deletes the amenity identified by UID.
+- [Get all amenities.](https://dev.hostfully.com/reference/getall_14.md): Returns a list of amenities filtered by optional single or multi-unit property UID.
+- [Create a new amenity](https://dev.hostfully.com/reference/post_11.md): Creates an amenity for the specified single or multi-unit property UID.
+- [Get all available amenities](https://dev.hostfully.com/reference/getall_13.md): Returns the list of available amenities for the given property UID
+- [Get available property rules](https://dev.hostfully.com/reference/findall_7.md): Finds available property rules for either a property or a hotel - one of the query 'propertyUid' and 'hotelUid' must be supplied. A request containing none of the parameters or both of them will fail with 400 status.
+- [Get all custom amenities](https://dev.hostfully.com/reference/getall_12.md): Returns a list of custom amenities for the given object UID and type
+- [Create a new custom amenity](https://dev.hostfully.com/reference/post_10.md): Adds a new custom amenity to the specified object UID and type
+- [Delete a custom amenity by UID](https://dev.hostfully.com/reference/delete_9.md): Deletes the custom amenity identified by the given UID if it exists
+- [Get the custom data.](https://dev.hostfully.com/reference/getall_19.md): Fetches all custom data for either a property or a lead. Exactly one of 'propertyUid' or 'leadUid' must be provided. For leads that are main leads in a group booking, authorization is done by the multi-unit property or master unit to which the main lead is attached to.
+- [Create custom data.](https://dev.hostfully.com/reference/post_16.md): Adds or updates a custom data entry for a specific property or lead.
+- [Delete custom data.](https://dev.hostfully.com/reference/delete_15.md): Deletes a custom data entry linked to a property or lead. The field is identified by 'customDataFieldUid'. Exactly one of 'propertyUid' or 'leadUid' must be provided.
+- [Get all agency custom data fields](https://dev.hostfully.com/reference/getall_16.md): Retrieve all custom data fields associated with the specified agency.
+- [Create a custom data field](https://dev.hostfully.com/reference/post_13.md): Create a new custom data field for the given agency using the provided data.
+- [Get a custom data field](https://dev.hostfully.com/reference/getone_10.md): Fetch details of a single custom data field identified by its UID.
+- [Delete a custom data field](https://dev.hostfully.com/reference/delete_12.md): Remove the custom data field identified by the given UID.
+- [Get an employee](https://dev.hostfully.com/reference/getone_7.md): Fetch detailed information about a single employee identified by their UID.
+- [Update an employee](https://dev.hostfully.com/reference/put_8.md): Update information for the employee identified by the given UID with the provided data.
+- [Get all agency employees](https://dev.hostfully.com/reference/getall_11.md): Retrieve the list of active employees associated with the specified agency.
+- [Fetch extra guests by lead](https://dev.hostfully.com/reference/fetchextraguestsbylead.md): Retrieve the list of extra guests associated with the specified lead UID.
+- [Get fee by UID](https://dev.hostfully.com/reference/findbyuid_3.md): Retrieve details of a fee identified by its UIDwith all fee configuration fields.
+- [Update an existing fee](https://dev.hostfully.com/reference/updatefee.md): Update the fee identified by UID with the given fee data.
+- [Delete a fee](https://dev.hostfully.com/reference/deletefee.md): Delete the fee identified by the given UID.
+- [Get all property fees](https://dev.hostfully.com/reference/findall_8.md): Retrieve all fees associated with the specified property UID with all fee configuration fields.
+- [Create a new fee](https://dev.hostfully.com/reference/createfee.md): Create a fee for a property using the provided fee data.
+- [Execute a GraphQL query](https://dev.hostfully.com/reference/execute.md): Processes a GraphQL query/mutation and returns the result.
+- [Get all guests](https://dev.hostfully.com/reference/getall_10.md): Retrieve all guests associated with the specified agency UID.
+- [Get all property ICals](https://dev.hostfully.com/reference/findall_6.md): Retrieve all ICals entries associated with the specified property UID.
+- [Get a job](https://dev.hostfully.com/reference/getone_11.md): Retrieve the job identified by the provided UID.
+- [Update a job](https://dev.hostfully.com/reference/put_11.md): Update the job identified by the provided UID using the given request data.
+- [Delete a job](https://dev.hostfully.com/reference/delete_14.md): Delete the job identified by the given UID.
+- [Mark job as done](https://dev.hostfully.com/reference/markasdone.md): Changes the status of the job to 'DONE'.
+- [Decline a job](https://dev.hostfully.com/reference/declinejob.md): Changes the status of the job to 'DECLINED'.
+- [Accept a job](https://dev.hostfully.com/reference/acceptjob.md): Changes the status of the job to 'ACCEPTED'.
+- [Fetches jobs by provided filter](https://dev.hostfully.com/reference/getall_18.md): Sorts by jobStartDate in ascending order
+- [Create a new job](https://dev.hostfully.com/reference/post_15.md): Create a job using the provided request data.
+- [Search leads with filters](https://dev.hostfully.com/reference/findleads.md): One of 'propertyUid', 'agencyUid', 'leadUids' parameters is required. Endpoint will return only those leads which the api client is authorized to access.
+- [Create a new lead](https://dev.hostfully.com/reference/createlead.md): Creates given lead in the system. For further lead workflow interactions, please use resource actions available under POST .../leads/{uid}/{action} .Api client creating lead will have access to that lead's personal and confidential information.
+- [Update rental agreement URL](https://dev.hostfully.com/reference/updaterentalagreementurl.md): Allows the rental agreement URL to be update for lead directly
+- [Reopen inquiry](https://dev.hostfully.com/reference/reopen.md): Reopens the inquiry
+- [Rebook cancelled booking](https://dev.hostfully.com/reference/rebook.md): Rebooks cancelled booking
+- [Place inquiry on hold](https://dev.hostfully.com/reference/putleadonhold.md): Places an inquiry on hold. The holds lasts 24h by default, but can be changed in agency's settings
+- [Mark pre-arrival form completed](https://dev.hostfully.com/reference/markprearrivalformcompleted.md): Pre arrival form is a form that is filled in by guest upon Property Manager request with details about the stay, such as exact arrival/departure times, rental agreement signatures and populating custom-data fields.
+- [Transform inquiry to booking](https://dev.hostfully.com/reference/markasbooked.md): Transforms the inquiry to a booking
+- [Mark lead as ignored](https://dev.hostfully.com/reference/ignore.md): Marks the lead as ignored
+- [Extend hold duration](https://dev.hostfully.com/reference/extendhold.md): Extends the hold to 24h ahead. 24h is the default value. It can be changed in agency's settings
+- [Decline booking request](https://dev.hostfully.com/reference/declinebookingrequest.md): Declines the booking request
+- [Close lead](https://dev.hostfully.com/reference/close.md): Closes the lead.
+- [Cancel booking](https://dev.hostfully.com/reference/cancel.md): Cancels the booking
+- [Alter lead details](https://dev.hostfully.com/reference/changedates.md): Allows for changing lead's property, dates or guest data. Successful alteration will result in order recalculation.
+- [Accept booking request](https://dev.hostfully.com/reference/acceptbookingrequest.md): Accepts the booking request
+- [Retrieve a lead by UID](https://dev.hostfully.com/reference/findlead.md): Fetches a single lead by its unique identifier.
+- [Delete obsolete lead.](https://dev.hostfully.com/reference/removelead.md): Deleting of the lead can only be done if the lead is of proper status depending on its type. Block can always be deleted. Inquiry can only be deleted if it's been closed, ignored or rejected. Booking requests be deleted if they were not accepted, meaning if they were not turned into a booking. Booking can only be deleted if it has been cancelled.
+- [Partially update lead information](https://dev.hostfully.com/reference/patchlead.md): This call can only update CRUD-type of lead information. It cannot update anything related to lead workflow. This call will only allow for editing personal data if the api client is partner with access to lead's personal data. Otherwise, personal data fields will be ignored.
+- [Get group-booking by 'groupUid'](https://dev.hostfully.com/reference/findgroupbookingleads.md): The complete group-booking of given groupUid structure will be returned, including main lead and its sub-leads. Endpoint will only return if the api client is authorized to access the main lead.
+- [Get group-booking by 'groupUid'](https://dev.hostfully.com/reference/getgroupbooking.md): The complete group-booking of given groupUid structure will be returned, including main lead and its sub-leads. Endpoint will only return if the api client is authorized to access the main lead.
+- [Create a new group booking lead.](https://dev.hostfully.com/reference/creategroupbookinglead.md): Creates given group booking lead in the system. Api client creating lead will have access to that lead's personal and confidential information.
+- [Cancel group-booking by 'groupUid'](https://dev.hostfully.com/reference/cancelgroupbooking.md): Cancellation of the entire group booking. The main lead and all the sub leads.
+- [/api/v3.3/messages/{messageUid}/resend](https://dev.hostfully.com/reference/resendmessage.md): Resend failed message
+- [/api/v3.3/messages](https://dev.hostfully.com/reference/findallmessagesforagency.md): Retrieve messages with optional filters for agencyUid, threadUid, leadUid creation date, and pagination parameters (_limit, _cursor). Note: Either agencyUid, threadUid or leadUid must be provided.
+- [/api/v3.3/messages](https://dev.hostfully.com/reference/createmessage.md): Send message by threadUid or leadUid. Email or direct message accepted. To send a direct message, the lead must be from an available direct message channel (VRBO/Booking.com/AirBnb).
+- [/api/v3.3/messages/{messageUid}](https://dev.hostfully.com/reference/findmessagesbyuid.md): Retrieve message by uid
+- [List multi-unit properties by agency](https://dev.hostfully.com/reference/findhotelsbyagencyuid.md): Retrieves paginated list of multi-unit properties for a specific agency with optional filtering by update date
+- [Create new multi-unit property](https://dev.hostfully.com/reference/create_1.md): Creates a new multi-unit property record for the specified agency
+- [Get multi-unit property by UID](https://dev.hostfully.com/reference/findbyuid_4.md): Retrieves a single multi-unit property by its unique identifier
+- [Delete multi-unit property](https://dev.hostfully.com/reference/deletebyuid.md): Removes a multi-unit property record from the system
+- [Update multi-unit property](https://dev.hostfully.com/reference/patch_3.md): Partially updates an existing multi-unit property using JSON merge patch semantics
+- [Get order adjustments](https://dev.hostfully.com/reference/getorderadjustments.md): Returns a list of order adjustments for the specified order ID or UID.
+- [Create order adjustment](https://dev.hostfully.com/reference/createorderadjustment.md): Creates a new order adjustment for the specified order UID.
+- [Delete order adjustment](https://dev.hostfully.com/reference/deleteorderadjustment.md): Deletes an order adjustment by its UID and the Order's UID.
+- [Get orders with filters](https://dev.hostfully.com/reference/getall_9.md): Retrieves orders with optional filtering by guest UID, property UID, lead UID or update timestamp. At least one filter parameter must be provided
+- [Get owner adjustment by UID](https://dev.hostfully.com/reference/findbyuid_2.md): Retrieves a single owner adjustment by its unique identifier
+- [Update owner adjustment](https://dev.hostfully.com/reference/updateowneradjustment.md): Updates an existing owner adjustment record
+- [Delete owner adjustment](https://dev.hostfully.com/reference/deleteowneradjustmentbyuid.md): Removes an owner adjustment record from the system
+- [Get owner adjustments by property](https://dev.hostfully.com/reference/findall_5.md): Retrieves all owner adjustments for a specific property
+- [Create owner adjustment](https://dev.hostfully.com/reference/createowneradjustment.md): Creates a new owner adjustment record for the specified property
+- [Get owner details](https://dev.hostfully.com/reference/getone_6.md): Retrieves detailed information about a specific owner by their UID
+- [Remove owner from agency](https://dev.hostfully.com/reference/delete_8.md): Remove owner from agency.
+- [Update owner information](https://dev.hostfully.com/reference/patch_2.md): Partially updates owner details using JSON merge patch semantics
+- [List owners by agency](https://dev.hostfully.com/reference/getall_8.md): Retrieves all owners for a specific agency with optional search query filtering
+- [Replace photo](https://dev.hostfully.com/reference/put_7.md): Completely replaces an existing photo.
+- [Delete photo](https://dev.hostfully.com/reference/delete_7.md): Permanently removes a photo.
+- [Update photo metadata](https://dev.hostfully.com/reference/patch_1.md): Partially updates photo metadata
+- [Get photos for single/multi-unit property](https://dev.hostfully.com/reference/getall_7.md): Retrieves all photos associated with a property or hotel. Either propertyUid or hotelUid must be provided
+- [Upload new photo](https://dev.hostfully.com/reference/post_9.md): Adds a new photo to a single/multi-unit property. Supports both property and hotel photo associations
+- [Delete multiple photos](https://dev.hostfully.com/reference/deleteall.md): Batch operation to delete multiple photos at once by providing their UIDs
+- [Update pin code](https://dev.hostfully.com/reference/put_10.md): Modifies an existing pin code's details (code value or URL ...)
+- [Delete pin code](https://dev.hostfully.com/reference/delete_13.md): Revokes and removes a pin code.
+- [List pin codes](https://dev.hostfully.com/reference/getall_17.md): Retrieves pin codes for a property or lead. Either propertyUid or leadUid parameter is required
+- [Create pin code](https://dev.hostfully.com/reference/post_14.md): Generates a new pin code for property access.
+- [Get pricing periods](https://dev.hostfully.com/reference/findbypropertyuid_2.md): Retrieves pricing periods for a property within specified date range. Requires propertyUid, from and to date parameters
+- [Modify pricing period](https://dev.hostfully.com/reference/post_8.md): Creates/updates or removes a pricing period for a property. Supports SET (create/update) and REMOVE operations
+- [Bulk update pricing](https://dev.hostfully.com/reference/post_7.md): Submits a bulk pricing periods update task for asynchronous processing. Returns created asynchronous task details that can be used for checking the task progress.
+- [Check bulk update status](https://dev.hostfully.com/reference/findupdatetaskstatusbyuid.md): Returns bulk pricing periods update task's status which indicates its progress.
+- [/api/v3.3/promo-codes](https://dev.hostfully.com/reference/getall_15.md): Fetches promo codes by provided filter
+- [/api/v3.3/promo-codes](https://dev.hostfully.com/reference/post_12.md)
+- [/api/v3.3/promo-codes/{promoCodeUid}](https://dev.hostfully.com/reference/getone_9.md)
+- [/api/v3.3/promo-codes/{promoCodeUid}](https://dev.hostfully.com/reference/delete_11.md)
+- [Get property details](https://dev.hostfully.com/reference/findbypropertyuid_1.md): Retrieves detailed information about a specific property by its UID
+- [Full property update](https://dev.hostfully.com/reference/updatepropertyinfull.md): Presumes a full update to the property resource. All fields need to be present.
+- [Delete property](https://dev.hostfully.com/reference/deletepropertybyuid.md): Removes a property by uid
+- [Partial property update](https://dev.hostfully.com/reference/updatepropertypartially.md): Provides ability to partially update property resource. Not all fields need to be present
+- [List properties by agency](https://dev.hostfully.com/reference/findbyagencyuid.md): Retrieves list of properties for an agency with optional updatedSince filter
+- [Create new property](https://dev.hostfully.com/reference/createproperty.md)
+- [Get property calendar](https://dev.hostfully.com/reference/findbypropertyuid.md): Retrieves availability calendar for a specific property within a date range
+- [Get multiple property calendars](https://dev.hostfully.com/reference/findall_4.md): Retrieves availability calendars for multiple properties within a specified date range
+- [Get channel link details](https://dev.hostfully.com/reference/getone_5.md): Retrieves details of a specific channel link by its UID
+- [Update channel link](https://dev.hostfully.com/reference/put_6.md): Updates an existing property channel connection
+- [Delete channel link](https://dev.hostfully.com/reference/delete_6.md): Removes a channel connection from a property
+- [List channel links](https://dev.hostfully.com/reference/getall_6.md): Retrieves all channel links for a property, optionally filtered by channel type
+- [Create channel link](https://dev.hostfully.com/reference/post_6.md): Creates a new channel connection for a property
+- [Update property description](https://dev.hostfully.com/reference/put_5.md): Creates or updates a property description for a specific locale
+- [Delete property description](https://dev.hostfully.com/reference/delete_5.md): Removes the description of a property. The description is identified by 'propertyUid' and 'locale'
+- [Get property descriptions](https://dev.hostfully.com/reference/getall_5.md): Retrieves all descriptions for a property in all available languages
+- [View the owner of a property. This endpoint is only allowed for manager role with read access on the property](https://dev.hostfully.com/reference/getone_4.md)
+- [Delete the owner of a property. This endpoint is only allowed for manager role with edit access on the property](https://dev.hostfully.com/reference/delete_4.md)
+- [Set or modify the owner of a property. This endpoint is only allowed for manager role with edit access on the property](https://dev.hostfully.com/reference/patch.md)
+- [Get pricing rules](https://dev.hostfully.com/reference/findbypropertyuid_3.md): Retrieves all pricing rules for a property
+- [Update pricing rules](https://dev.hostfully.com/reference/update.md): Creates or updates pricing rules for a property with Airbnb override option
+- [Get rule details](https://dev.hostfully.com/reference/findbyuid_1.md): Retrieves details of a specific property rule
+- [Update property rule](https://dev.hostfully.com/reference/updatepropertyrule.md): Completely replaces a property rule configuration
+- [Delete property rule](https://dev.hostfully.com/reference/deletepropertyrule.md): Removes a rule configuration from a property
+- [Modify property rule](https://dev.hostfully.com/reference/patchpropertyrule.md): Partially updates a property rule configuration
+- [List property rules](https://dev.hostfully.com/reference/findall_3.md): Retrieves all rules configured for a property
+- [Create property rule](https://dev.hostfully.com/reference/createpropertyrule.md): Creates a new rule configuration for a property
+- [Calculate quote](https://dev.hostfully.com/reference/calculatequote.md): Calculates a rental quote for a property based on stay details
+- [Get rate multipliers for active channels](https://dev.hostfully.com/reference/findall_2.md)
+- [Update rate multipliers for active channels. If a value for some channel is not specified, then the rate multiplier for the channel will be kept unchanged.](https://dev.hostfully.com/reference/updateratemultipliers.md)
+- [Get review details](https://dev.hostfully.com/reference/getone_3.md): Retrieves details of a specific guest review
+- [Update guest review](https://dev.hostfully.com/reference/put_4.md): Completely replaces a guest review's content
+- [Delete guest review](https://dev.hostfully.com/reference/delete_3.md): Removes a guest review from the system
+- [List guest reviews](https://dev.hostfully.com/reference/getall_4.md): Retrieves paginated guest reviews for a property or lead
+- [Create guest review](https://dev.hostfully.com/reference/post_5.md): Creates a new guest review for a property
+- [Get review statistics](https://dev.hostfully.com/reference/getstatistics.md): Retrieves review statistics and analytics for a property
+- [Create reviews in bulk. The max number of reviews allowed is 100](https://dev.hostfully.com/reference/post_4.md)
+- [Get room details](https://dev.hostfully.com/reference/getone_2.md): Retrieves details of a specific room
+- [Update room](https://dev.hostfully.com/reference/put_2.md): Modifies an existing room's details
+- [Delete room](https://dev.hostfully.com/reference/delete_2.md): Removes a room from a property
+- [List property rooms](https://dev.hostfully.com/reference/getall_3.md): Retrieves all rooms for a property
+- [Create room](https://dev.hostfully.com/reference/post_3.md): Adds a new room to a property
+- [This operation adds new or updates existing property rooms. Deletes existing rooms that are not specified on the rooms list.](https://dev.hostfully.com/reference/put_3.md)
+- [Get service provider](https://dev.hostfully.com/reference/getone_1.md): Retrieves details of a specific service provider
+- [Update service provider](https://dev.hostfully.com/reference/put_1.md): Modifies an existing service provider's details
+- [Delete service provider](https://dev.hostfully.com/reference/delete_1.md): Removes a service provider from an agency
+- [List service providers](https://dev.hostfully.com/reference/getall_2.md): Retrieves all service providers for an agency
+- [Create service provider](https://dev.hostfully.com/reference/post_2.md): Adds a new service provider to an agency
+- [Get service details](https://dev.hostfully.com/reference/getone.md): Retrieves complete details of a specific service
+- [Update service](https://dev.hostfully.com/reference/put.md): Modifies all details of an existing service
+- [List services](https://dev.hostfully.com/reference/getall_1.md): Retrieves services filtered by agency, service provider or type
+- [Create service](https://dev.hostfully.com/reference/post_1.md): Adds a new service to the system
+- [Get the sub-units for an Agency.](https://dev.hostfully.com/reference/getall.md)
+- [Get tags for object](https://dev.hostfully.com/reference/tags-by-object.md): Get tags for 'objectUid' and 'objectType'.
+- [Set tags for object](https://dev.hostfully.com/reference/set-tags-for-object.md): Sets complete tags for 'objectUid' and 'objectType'.
+- [Remove tag for object](https://dev.hostfully.com/reference/remove-tag-for-object.md): Removes 'tag' for object 'objectUid' and 'objectType'.
+- [Get thread details](https://dev.hostfully.com/reference/findthreadbyuid.md): Retrieves a specific messaging thread by its unique identifier
+- [List threads](https://dev.hostfully.com/reference/findthreads.md): Retrieve threads with optional filters for agencyUid and leadUid, as well as pagination parameters (_limit, _cursor). Note: Either agencyUid or leadUid must be provided.
+- [Get transactions for an order.](https://dev.hostfully.com/reference/findall_1.md)
+- [Create transaction for an order.](https://dev.hostfully.com/reference/create.md)
+- [Get transaction by unique ID.](https://dev.hostfully.com/reference/findbyuid.md)
+- [Get unit type details](https://dev.hostfully.com/reference/findbypropertyuid_4.md): Retrieves details of a specific unit type
+- [Delete unit type](https://dev.hostfully.com/reference/deletepropertybyuid_1.md): Removes a unit type from the system
+- [Update unit type](https://dev.hostfully.com/reference/updatepropertypartially_1.md): Provides ability to partially update unit type resource. Not all fields need to be present
+- [List unit types](https://dev.hostfully.com/reference/findbyhoteluid.md): Retrieves paginated unit types for a hotel with optional updatedSince filter
+- [Get unit details](https://dev.hostfully.com/reference/findunitbyuid.md): Retrieves detailed information about a specific unit
+- [List units by type](https://dev.hostfully.com/reference/findunitsbyunittype.md): Retrieves all units belonging to a unit type
+- [Update API version](https://dev.hostfully.com/reference/updateapiversion.md): Use this endpoint to upgrade your API version. Upgrades are incremental. If for example you’re on V3, you must migrate to V3.1 before moving to V3.2.
+- [Get API version](https://dev.hostfully.com/reference/currentapiversion.md): Endpoint to retrieve your current API version.
+- [Get webhooks by affiliate id for a partner integration or agencyUid. When using agencyUid filter, an extra optional 'objectUid' parameter can be added to be used as second filter.](https://dev.hostfully.com/reference/findall.md)
+- [Create webhook](https://dev.hostfully.com/reference/post.md): Creates a new webhook for either an agency or integration partner
+- [Get webhook details](https://dev.hostfully.com/reference/findbywebhookuid.md): Retrieves details of a specific webhook
+- [Delete webhook](https://dev.hostfully.com/reference/delete.md): Removes a webhook configuration
+
+## Pages
+- [Hostfully Documentation and Help](https://dev.hostfully.com/page/property-management-system.md)
+
+## Changelog
+- [2026 - Q2 - Release of Hostfully API v3.3](https://dev.hostfully.com/changelog/2026-q2-release-of-hostfully-api-v33.md)
+- [2025 Archives](https://dev.hostfully.com/changelog/2025-archives.md)
+- [2024 Archives](https://dev.hostfully.com/changelog/2024-archives.md)
+- [Deprecation and changes to the messaging endpoints](https://dev.hostfully.com/changelog/deprecation-and-changes-to-the-messagin-endpoints.md)
+- [New lead field and beta functionality](https://dev.hostfully.com/changelog/new-lead-field-and-beta-functionality.md)
