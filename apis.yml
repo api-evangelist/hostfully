@@ -41,6 +41,22 @@ tags:
   - Hospitality
   - Channel Manager
   - Direct Booking
+  - Real-Estate
+  - Travel
+  - Booking
+  - Reservations
+  - Guest Communication
+  - Webhook
+  - GraphQL
+  - Authentication
+tags_raw:
+  - Short-Term Rental
+  - Vacation Rental
+  - Property Management
+  - PMS
+  - Hospitality
+  - Channel Manager
+  - Direct Booking
   - Real Estate
   - Travel
   - Booking
@@ -71,6 +87,13 @@ apis:
       pagination. Sandbox and production environments available.
     humanURL: https://dev.hostfully.com/reference/getting-started
     tags:
+      - REST
+      - Property Management
+      - Leads
+      - Bookings
+      - Messaging
+      - Webhook
+    tags_raw:
       - REST
       - Property Management
       - Leads
