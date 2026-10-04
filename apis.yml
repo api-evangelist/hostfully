@@ -44,6 +44,9 @@ accessModel:
 position: Producing
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/hostfully.png
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-10-03
 tags:
   - Short-Term Rental
   - Vacation Rentals
@@ -52,7 +55,7 @@ tags:
   - Hospitality
   - Channel Manager
   - Direct Booking
-  - Real-Estate
+  - Real Estate
   - Travel
   - Booking
   - Reservations
@@ -76,6 +79,7 @@ tags_raw:
   - Webhooks
   - GraphQL
   - OAuth 2.0
+  - Real-Estate
 url: https://raw.githubusercontent.com/api-evangelist/hostfully/refs/heads/main/apis.yml
 created: '2026-05-25'
 modified: '2026-05-25'
