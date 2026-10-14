@@ -1,0 +1,23 @@
+generated: '2026-10-14'
+method: derived
+source: openapi/hostfully-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: JWT-Authentication
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: OAuth Access Token
+  sources:
+  - openapi/hostfully-api-openapi.yml
+- name: Agency-API-key
+  type: apiKey
+  in: header
+  parameter: X-HOSTFULLY-APIKEY
+  description: API Key
+  sources:
+  - openapi/hostfully-api-openapi.yml

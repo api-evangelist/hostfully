@@ -1,0 +1,297 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/hostfully/main/json-schema/hostfully-fee-saving-api3-3-dto-schema.json",
+  "title": "FeeSavingApi3_3Dto",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/hostfully-api-openapi.yml#/components/schemas/FeeSavingApi3_3Dto",
+  "required": [
+    "amount",
+    "amountType",
+    "name",
+    "propertyUid",
+    "taxationRate"
+  ],
+  "type": "object",
+  "properties": {
+    "propertyUid": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "amountType": {
+      "type": "string",
+      "enum": [
+        "AMOUNT",
+        "TAX"
+      ]
+    },
+    "attestation": {
+      "type": "boolean"
+    },
+    "name": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "optional": {
+      "type": "boolean"
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "PER_NIGHT",
+        "PER_STAY",
+        "PER_GUEST_PER_NIGHT",
+        "PER_GUEST",
+        "PER_PET",
+        "PER_PET_PER_NIGHT",
+        "PERCENTAGE_OF_TOTAL",
+        "PERCENTAGE_OF_RENT"
+      ]
+    },
+    "taxationRate": {
+      "type": "number"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "CLEANING",
+        "EARLY_ARRIVAL",
+        "LATE_DEPARTURE",
+        "PET",
+        "TAX",
+        "CUSTOM"
+      ]
+    },
+    "offline": {
+      "type": "boolean"
+    },
+    "airbnbType": {
+      "type": "string",
+      "enum": [
+        "PASS_THROUGH_RESORT_FEE",
+        "PASS_THROUGH_MANAGEMENT_FEE",
+        "PASS_THROUGH_COMMUNITY_FEE",
+        "PASS_THROUGH_LINEN_FEE",
+        "PASS_THROUGH_ELECTRICITY_FEE",
+        "PASS_THROUGH_WATER_FEE",
+        "PASS_THROUGH_HEATING_FEE",
+        "PASS_THROUGH_AIR_CONDITIONING_FEE",
+        "PASS_THROUGH_UTILITY_FEE",
+        "PASS_THROUGH_PET_FEE",
+        "PASS_THROUGH_CLEANING_FEE",
+        "PASS_THROUGH_SHORT_TERM_CLEANING_FEE",
+        "PASS_THROUGH_SECURITY_DEPOSIT",
+        "PASS_THROUGH_HOTEL_TAX",
+        "PASS_THROUGH_LODGING_TAX",
+        "PASS_THROUGH_ROOM_TAX",
+        "PASS_THROUGH_TOURIST_TAX",
+        "PASS_THROUGH_TRANSIENT_OCCUPANCY_TAX",
+        "PASS_THROUGH_SALES_TAX",
+        "PASS_THROUGH_VAT_TAX",
+        "PASS_THROUGH_TOURISM_ASSESSMENT_FEE",
+        "AIRBNB_COLLECTED_TAX"
+      ]
+    },
+    "airbnbUnitType": {
+      "type": "string",
+      "enum": [
+        "PER_KILOWATT_HOUR",
+        "PER_LITER",
+        "PER_CUBIC_METER"
+      ]
+    },
+    "conditions": {
+      "$ref": "#/$defs/FeeConditionsApi3RequestDto"
+    },
+    "bookingDotComType": {
+      "type": "string",
+      "enum": [
+        "AIRPORT_SHUTTLE_FEE",
+        "AIR_CONDITIONING_FEE",
+        "CITY_TAX",
+        "CLUB_CARD_FEE",
+        "CONSERVATION_FEE",
+        "CREDIT_CARD_FEE",
+        "DESTINATION_FEE",
+        "ELECTRICITY_FEE",
+        "ENVIRONMENT_FEE",
+        "FINAL_CLEANING_FEE",
+        "GAS_FEE",
+        "GOODS_AND_SERVICES_TAX",
+        "GOVERNMENT_TAX",
+        "HEATING_FEE",
+        "HERITAGE_FEE",
+        "HOT_SPRING_TAX",
+        "HOUSEKEEPING_FEE",
+        "KITCHEN_LINEN_FEE",
+        "LINEN_FEE",
+        "LINEN_PACKAGE_FEE",
+        "LOCAL_COUNCIL_TAX",
+        "MUNICIPALITY_FEE",
+        "OIL_FEE",
+        "PETS_FEE",
+        "RESIDENTIAL_TAX",
+        "RESORT_FEE",
+        "SAUNA_FITNESS_FACILITIES_TAX",
+        "SEA_PLANE_FEE",
+        "SERVICE_CHARGE_FEE",
+        "SHUTTLE_BOAT_FEE",
+        "SKI_PASS_FEE",
+        "SPA_TAX",
+        "TOWEL_FEE",
+        "TRANSFER_FEE",
+        "TRANSIT_FEE",
+        "VAT",
+        "VISA_SUPPORT_FEE",
+        "WATER_FEE",
+        "WATER_PARK_FEE",
+        "WOOD_FEE",
+        "WRISTBAND_FEE",
+        "DESTINATION_CHARGE",
+        "DESTINATION_TAX",
+        "GALA_DINNER_FEE",
+        "GOODS_SERVICES_FLOOD_TAX",
+        "GOVERNMENT_CHARGE",
+        "HOT_SPRING_BATH",
+        "INSURANCE_FEE",
+        "INTERNET_FEE",
+        "LOCALITY_CONSERVATION_FEE",
+        "LOUNGE",
+        "PARKING_FEE",
+        "POOL",
+        "SERVICE_CHARGE_ASIA",
+        "SPA",
+        "SUSTAINABILITY_FEE",
+        "TOURISM_FEE"
+      ]
+    },
+    "hostfullyType": {
+      "type": "string",
+      "enum": [
+        "DEFAULT"
+      ]
+    },
+    "hvmiType": {
+      "type": "string",
+      "enum": [
+        "ADMINISTRATIVE_FEE",
+        "BOOKING_FEE",
+        "CLEANING_FEE",
+        "DOCK_FEE",
+        "GUEST_REGISTRATION",
+        "HOA_FEE",
+        "HOTEL_TAX",
+        "HOT_TUB_FEE",
+        "MANAGEMENT_FEE",
+        "MISCELLANEOUS_FEE",
+        "OCCUPANCY_TAX",
+        "PARKING_FEE",
+        "PER_EXTRA_PERSON_FEE",
+        "POOL_FEE",
+        "POOL_HEATING_FEE",
+        "RESORT_FEE",
+        "SECURITY_DEPOSIT_FEE",
+        "SERVICE_FEE",
+        "UTILITY_FEE",
+        "VAT_TAX",
+        "WAIVER_DAMAGE_FEE",
+        "PET_FEE",
+        "CITY_TAX",
+        "COUNTY_TAX",
+        "STATE_TAX"
+      ]
+    },
+    "vrboType": {
+      "type": "string",
+      "enum": [
+        "ADDITIONAL_BED",
+        "ADMINISTRATIVE",
+        "AIR_CONDITIONING",
+        "ARRIVAL_EARLY",
+        "ARRIVAL_LATE",
+        "ASSOCIATION_PROPERTY",
+        "BABY_BED",
+        "BOOKING_EARLY",
+        "BOOKING_LATE",
+        "CLASS",
+        "CLUB",
+        "CONCIERGE",
+        "DEPARTURE_EARLY",
+        "DEPARTURE_LATE",
+        "ELECTRICITY",
+        "EQUIPMENT",
+        "FOOD",
+        "GARDENING",
+        "GAS",
+        "HEATING",
+        "HIGH_CHAIR",
+        "HOT_TUB",
+        "INTERNET",
+        "LABOR",
+        "LAUNDRY",
+        "LINENS",
+        "LINENS_BATH",
+        "LINENS_BED",
+        "MANAGEMENT",
+        "OIL",
+        "ON_SITE_PAYMENT_METHOD",
+        "PARKING",
+        "PET",
+        "PHONE",
+        "POOL",
+        "POOL_HEATING",
+        "RENT",
+        "RESORT",
+        "SPA",
+        "TAX",
+        "TOILETRIES",
+        "TOUR",
+        "TRANSPORTATION",
+        "UTENSILS_CLEANING",
+        "UTENSILS_FOOD",
+        "VEHICLE",
+        "WAIVER_DAMAGE",
+        "WATER",
+        "WATER_CRAFT",
+        "WATER_CRAFT_MOORING",
+        "WATER_DRINKING",
+        "WOOD"
+      ]
+    },
+    "rollsIntoRent": {
+      "type": "boolean"
+    }
+  },
+  "$defs": {
+    "FeeConditionsApi3RequestDto": {
+      "type": "object",
+      "properties": {
+        "condition": {
+          "type": "string",
+          "enum": [
+            "NONE",
+            "EXEMPT_LONG_STAY",
+            "EXCLUSIVE_LONG_STAY",
+            "BY_NIGHT"
+          ]
+        },
+        "conditionsLOSDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "firstNightsApplying": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "longTermStayExemption": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}

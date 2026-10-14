@@ -1,0 +1,116 @@
+generated: '2026-10-14'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 9
+  own: 4
+  other_domain: 0
+  platform: 5
+  roles:
+  - identity
+  - other
+  - portal
+  - source
+  - support
+  - website
+hosts:
+- host: dev.hostfully.com
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - DeveloperPortal
+  - Documentation
+  - RateLimits
+  serves:
+  - docs
+  registrable_domain: hostfully.com
+  role: portal
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: help.hostfully.com
+  found_by:
+  - pointer
+  types:
+  - HelpCenter
+  serves: []
+  registrable_domain: hostfully.com
+  role: support
+  relation: own
+- host: platform.hostfully.com
+  found_by:
+  - pointer
+  types:
+  - Login
+  serves: []
+  registrable_domain: hostfully.com
+  role: identity
+  relation: own
+- host: twitter.com
+  found_by:
+  - pointer
+  types:
+  - Twitter
+  serves: []
+  registrable_domain: twitter.com
+  role: other
+  relation: platform
+- host: www.facebook.com
+  found_by:
+  - pointer
+  types:
+  - Facebook
+  serves: []
+  registrable_domain: facebook.com
+  role: other
+  relation: platform
+- host: www.hostfully.com
+  found_by:
+  - pointer
+  types:
+  - Website
+  - Pricing
+  - ChannelManager
+  - Product
+  - Features
+  - Integrations
+  - Partners
+  - Blog
+  - Customers
+  - Signup
+  - Contact
+  - About
+  - Careers
+  - TermsOfService
+  - PrivacyPolicy
+  serves: []
+  registrable_domain: hostfully.com
+  role: website
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.youtube.com
+  found_by:
+  - pointer
+  types:
+  - YouTube
+  serves: []
+  registrable_domain: youtube.com
+  role: other
+  relation: platform

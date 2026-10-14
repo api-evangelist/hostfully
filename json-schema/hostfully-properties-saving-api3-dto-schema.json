@@ -1,0 +1,1007 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/hostfully/main/json-schema/hostfully-properties-saving-api3-dto-schema.json",
+  "title": "PropertiesSavingApi3Dto",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/hostfully-api-openapi.yml#/components/schemas/PropertiesSavingApi3Dto",
+  "type": "object",
+  "properties": {
+    "agencyUid": {
+      "type": "string"
+    },
+    "hotelUid": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "$ref": "#/$defs/PropertyAddressApi3Dto"
+    },
+    "propertyType": {
+      "type": "string",
+      "enum": [
+        "HOUSE",
+        "COTTAGE",
+        "CONDO",
+        "BEDANDBREAKFAST",
+        "VILLA",
+        "CHALET",
+        "CABIN",
+        "STUDIO",
+        "ROOM",
+        "APARTMENT",
+        "HOTEL",
+        "HOSTEL",
+        "LODGE",
+        "TOWNHOUSE",
+        "DUPLEX",
+        "TRIPLEX",
+        "FOURPLEX",
+        "BUNGALOW",
+        "FARMHOUSE",
+        "BOAT",
+        "HOUSEBOAT",
+        "RESORT",
+        "PENTHOUSE",
+        "CHATEAU",
+        "GUESTHOUSE",
+        "HOMESTAY",
+        "CAMPGROUND",
+        "MOTELROOM",
+        "COUNTRYHOUSE",
+        "LOFT",
+        "DORM",
+        "TREEHOUSE",
+        "PLANE",
+        "IGLOO",
+        "RV",
+        "LIGHTHOUSE",
+        "YURT",
+        "TIPI",
+        "CAVE",
+        "ISLAND",
+        "EARTHHOUSE",
+        "HUT",
+        "TRAIN",
+        "TENT",
+        "SERVICED_APARTMENT",
+        "TINY_HOUSE",
+        "BOUTIQUE_HOTEL",
+        "APARTHOTEL",
+        "DOME_HOUSE",
+        "CYCLADIC_HOUSE",
+        "DAMMUSO",
+        "GUEST_SUITE",
+        "HERITAGE_HOTEL",
+        "HOLIDAY_PARK",
+        "KEZHAN",
+        "MINSU",
+        "PENSION",
+        "RANCH",
+        "RELIGIOUS_BUILDING",
+        "RIAD",
+        "RYOKAN",
+        "SHEPHERDS_HUT",
+        "SHIPPING_CONTAINER",
+        "TOWER",
+        "TRULLO",
+        "BARN",
+        "WINDMILL",
+        "CASA_PARTICULAR",
+        "SAMPLE",
+        "HOLIDAY_HOME",
+        "OTHER"
+      ]
+    },
+    "listingType": {
+      "type": "string",
+      "enum": [
+        "ENTIREHOME",
+        "SHAREDROOM",
+        "PRIVATEROOM",
+        "HOTELROOM"
+      ]
+    },
+    "roomType": {
+      "type": "string",
+      "enum": [
+        "Apartment",
+        "Single",
+        "Studio",
+        "Family",
+        "Twin_Double",
+        "Dormitory_room",
+        "Bed_in_Dormitory",
+        "Bungalow",
+        "Chalet",
+        "Holiday_home",
+        "Villa",
+        "Mobile_home",
+        "Tent",
+        "Quadruple",
+        "Suite",
+        "Triple",
+        "Twin",
+        "Double"
+      ]
+    },
+    "businessType": {
+      "type": "string",
+      "enum": [
+        "HOTEL",
+        "UNIT_TYPE",
+        "UNIT",
+        "STANDALONE_PROPERTY",
+        "SUB_UNIT"
+      ]
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "pictureLink": {
+      "type": "string"
+    },
+    "webLink": {
+      "type": "string"
+    },
+    "bedrooms": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "beds": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "bathrooms": {
+      "type": "string"
+    },
+    "numberOfFloors": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "area": {
+      "$ref": "#/$defs/AreaApiTO"
+    },
+    "rentalLicenseNumber": {
+      "type": "string"
+    },
+    "rentalLicenseExpirationDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "availability": {
+      "$ref": "#/$defs/PropertyAvailabilitySettingApi3Dto"
+    },
+    "pricing": {
+      "$ref": "#/$defs/PropertyPricingSettingApi3Dto"
+    },
+    "airbnbData": {
+      "$ref": "#/$defs/PropertyAirbnbDataApi3Dto"
+    },
+    "bookingDotComData": {
+      "$ref": "#/$defs/PropertyBookingDotComDataAddingApi3Dto"
+    },
+    "hvmiData": {
+      "$ref": "#/$defs/PropertyHvmiDataApi3Dto"
+    },
+    "vrboData": {
+      "$ref": "#/$defs/PropertyVrboDataApi3Dto"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "accountingId": {
+      "type": "string"
+    },
+    "showPropertyExactLocation": {
+      "type": "boolean"
+    },
+    "agentUid": {
+      "type": "string"
+    },
+    "wifiNetwork": {
+      "type": "string"
+    },
+    "wifiPassword": {
+      "type": "string"
+    },
+    "bookingNotes": {
+      "type": "string"
+    },
+    "extraNotes": {
+      "type": "string"
+    },
+    "ownerNotes": {
+      "type": "string"
+    },
+    "cancellationPolicy": {
+      "type": "string"
+    },
+    "useMinimumPriceRule": {
+      "type": "boolean"
+    },
+    "integrationsData": {
+      "$ref": "#/$defs/IntegrationsApi3DataDto"
+    },
+    "guideBookUrl": {
+      "type": "string"
+    },
+    "guideBookRecsOnlyUrl": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "AreaApiTO": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "unitType": {
+          "type": "string",
+          "enum": [
+            "SQUARE_METERS",
+            "SQUARE_FEET"
+          ]
+        }
+      }
+    },
+    "CheckInMethodDto": {
+      "type": "object",
+      "properties": {
+        "checkinMethod": {
+          "type": "string",
+          "enum": [
+            "reception",
+            "someone_will_meet",
+            "secret_spot",
+            "door_code",
+            "lock_box",
+            "instruction_will_send",
+            "instruction_contact_us",
+            "other",
+            "none"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "how": {
+          "type": "string",
+          "enum": [
+            "phone",
+            "email",
+            "sms",
+            "other"
+          ]
+        },
+        "when": {
+          "type": "string",
+          "enum": [
+            "immediate",
+            "month_before",
+            "week_before",
+            "day_of_arrival"
+          ]
+        },
+        "identifier": {
+          "type": "string"
+        }
+      }
+    },
+    "CheckInMethodsDto": {
+      "type": "object",
+      "properties": {
+        "propertyUid": {
+          "type": "string"
+        },
+        "primary": {
+          "$ref": "#/$defs/CheckInMethodDto"
+        },
+        "alternative": {
+          "$ref": "#/$defs/CheckInMethodDto"
+        }
+      }
+    },
+    "IntegrationsApi3DataDto": {
+      "type": "object",
+      "properties": {
+        "panoramicDataUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "PropertyAddressApi3Dto": {
+      "required": [
+        "address",
+        "city",
+        "countryCode",
+        "state",
+        "zipCode"
+      ],
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string",
+          "enum": [
+            "AF",
+            "AL",
+            "DZ",
+            "AS",
+            "AD",
+            "AO",
+            "AI",
+            "AG",
+            "AN",
+            "AR",
+            "AM",
+            "AW",
+            "AU",
+            "AT",
+            "AZ",
+            "BS",
+            "BH",
+            "BD",
+            "BB",
+            "BY",
+            "BE",
+            "BZ",
+            "BJ",
+            "BM",
+            "BT",
+            "BO",
+            "BA",
+            "BW",
+            "BR",
+            "BN",
+            "BG",
+            "BF",
+            "BI",
+            "BQ",
+            "KH",
+            "CM",
+            "CA",
+            "CV",
+            "KY",
+            "CF",
+            "TD",
+            "CL",
+            "CN",
+            "CX",
+            "CC",
+            "CO",
+            "KM",
+            "YT",
+            "CG",
+            "CD",
+            "CK",
+            "CR",
+            "CI",
+            "HR",
+            "CU",
+            "CW",
+            "CY",
+            "CZ",
+            "DK",
+            "DJ",
+            "DM",
+            "DO",
+            "EC",
+            "EG",
+            "SV",
+            "GQ",
+            "ER",
+            "EE",
+            "ET",
+            "FJ",
+            "FI",
+            "FK",
+            "FO",
+            "FR",
+            "GF",
+            "GA",
+            "GM",
+            "GE",
+            "DE",
+            "GH",
+            "GI",
+            "GR",
+            "GL",
+            "GD",
+            "GU",
+            "GT",
+            "GN",
+            "GW",
+            "GY",
+            "GP",
+            "HT",
+            "VA",
+            "HN",
+            "HK",
+            "HL",
+            "HU",
+            "IS",
+            "IN",
+            "ID",
+            "IR",
+            "IQ",
+            "IE",
+            "IL",
+            "IT",
+            "JM",
+            "JP",
+            "JO",
+            "KZ",
+            "KE",
+            "KI",
+            "KP",
+            "KR",
+            "KW",
+            "KG",
+            "LA",
+            "LV",
+            "LB",
+            "LC",
+            "LS",
+            "LR",
+            "LY",
+            "LI",
+            "LT",
+            "LU",
+            "MO",
+            "MQ",
+            "MK",
+            "MG",
+            "MW",
+            "MY",
+            "MV",
+            "ML",
+            "MT",
+            "MH",
+            "MR",
+            "MU",
+            "MX",
+            "FM",
+            "MD",
+            "MC",
+            "MN",
+            "MS",
+            "MA",
+            "MZ",
+            "MM",
+            "ME",
+            "NA",
+            "NR",
+            "NP",
+            "NL",
+            "NC",
+            "NZ",
+            "NI",
+            "NE",
+            "NG",
+            "NU",
+            "NF",
+            "NO",
+            "OM",
+            "PK",
+            "PW",
+            "PA",
+            "PG",
+            "PS",
+            "PY",
+            "PE",
+            "PF",
+            "PH",
+            "PL",
+            "PN",
+            "PT",
+            "PR",
+            "QA",
+            "RO",
+            "RU",
+            "RW",
+            "KN",
+            "WS",
+            "RE",
+            "PM",
+            "SH",
+            "ST",
+            "SM",
+            "SA",
+            "SN",
+            "RS",
+            "SC",
+            "SL",
+            "SG",
+            "SX",
+            "SK",
+            "SI",
+            "SB",
+            "SO",
+            "ZA",
+            "ES",
+            "LK",
+            "SR",
+            "SJ",
+            "SZ",
+            "SE",
+            "CH",
+            "SY",
+            "TC",
+            "TW",
+            "TJ",
+            "TZ",
+            "TH",
+            "TG",
+            "TO",
+            "TT",
+            "TN",
+            "TR",
+            "TM",
+            "TV",
+            "UG",
+            "UA",
+            "AE",
+            "GB",
+            "JE",
+            "IM",
+            "US",
+            "UY",
+            "UZ",
+            "VC",
+            "VU",
+            "VE",
+            "VN",
+            "VG",
+            "VI",
+            "WF",
+            "EH",
+            "YE",
+            "YU",
+            "ZM",
+            "ZW"
+          ]
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "PropertyAirbnbDataApi3Dto": {
+      "type": "object",
+      "properties": {
+        "activeForAgency": {
+          "type": "boolean"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "airbnbId": {
+          "type": "string"
+        },
+        "instantBookingGuestRequirement": {
+          "type": "string",
+          "enum": [
+            "EVERYONE",
+            "OFF",
+            "WELL_REVIEWED_GUESTS"
+          ]
+        },
+        "checkInOptionType": {
+          "type": "string",
+          "enum": [
+            "doorman_entry",
+            "lockbox",
+            "smartlock",
+            "keypad",
+            "host_checkin",
+            "other_checkin"
+          ]
+        },
+        "cancellationPolicy": {
+          "type": "string",
+          "enum": [
+            "flexible",
+            "moderate",
+            "better_strict_with_grace_period",
+            "strict",
+            "super_strict_30",
+            "super_strict_60",
+            "firm_14"
+          ]
+        },
+        "eligibleForPassThroughTaxes": {
+          "type": "boolean"
+        },
+        "allowBookingRequestAsFallback": {
+          "type": "boolean"
+        },
+        "nonRefundableRateEnabled": {
+          "type": "boolean"
+        },
+        "nonRefundableRateDiscount": {
+          "type": "number"
+        },
+        "flexibleCheckIn": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PropertyAvailabilitySettingApi3Dto": {
+      "required": [
+        "baseGuests",
+        "maxGuests"
+      ],
+      "type": "object",
+      "properties": {
+        "baseGuests": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxGuests": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        },
+        "minimumStay": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        },
+        "dayOfWeekMinimumStay": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "maximumStay": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        },
+        "minimumWeekendStay": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "allowBookingRequestsAboveMaximumStay": {
+          "type": "boolean"
+        },
+        "bookingWindow": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "turnOverDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "bookingLeadTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "allowBookingRequestWhenOutOfLeadTime": {
+          "type": "boolean"
+        },
+        "checkInTimeStart": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "checkInTimeEnd": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "checkInTimeEndFlexible": {
+          "type": "boolean"
+        },
+        "checkOutTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "daysOfTheWeekToCheckInOn": {
+          "uniqueItems": true,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "MONDAY",
+              "TUESDAY",
+              "WEDNESDAY",
+              "THURSDAY",
+              "FRIDAY",
+              "SATURDAY",
+              "SUNDAY"
+            ]
+          }
+        },
+        "hostfullyBookingStrategy": {
+          "type": "string",
+          "enum": [
+            "BOOKING_INQUIRY",
+            "BOOKING_REQUEST",
+            "INSTANT_BOOKING"
+          ]
+        },
+        "airbnbBookingStrategy": {
+          "type": "string",
+          "enum": [
+            "BOOKING_INQUIRY",
+            "BOOKING_REQUEST",
+            "INSTANT_BOOKING"
+          ]
+        },
+        "vrboBookingStrategy": {
+          "type": "string",
+          "enum": [
+            "BOOKING_INQUIRY",
+            "BOOKING_REQUEST",
+            "INSTANT_BOOKING"
+          ]
+        },
+        "bookingDotComBookingStrategy": {
+          "type": "string",
+          "enum": [
+            "BOOKING_INQUIRY",
+            "BOOKING_REQUEST",
+            "INSTANT_BOOKING"
+          ]
+        }
+      }
+    },
+    "PropertyBookingDotComDataAddingApi3Dto": {
+      "type": "object",
+      "properties": {
+        "activeForAgency": {
+          "type": "boolean"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "roomName": {
+          "type": "string"
+        },
+        "checkInMethods": {
+          "$ref": "#/$defs/CheckInMethodsDto"
+        },
+        "contactEmployeeUid": {
+          "type": "string"
+        },
+        "cancellationPolicyCode": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "PropertyHvmiDataApi3Dto": {
+      "type": "object",
+      "properties": {
+        "activeForAgency": {
+          "type": "boolean"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PropertyPricingSettingApi3Dto": {
+      "required": [
+        "dailyRate"
+      ],
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "enum": [
+            "USD",
+            "EUR",
+            "GBP",
+            "CAD",
+            "JPY",
+            "INR",
+            "MYR",
+            "AUD",
+            "KES",
+            "MXN",
+            "HKD",
+            "NZD",
+            "CHF",
+            "BRL",
+            "CLP",
+            "COP",
+            "PEN",
+            "ARS",
+            "UYU",
+            "VEF",
+            "CNY",
+            "THB",
+            "KRW",
+            "IDR",
+            "SGD",
+            "TWD",
+            "AED",
+            "ZAR",
+            "CZK",
+            "DKK",
+            "DOP",
+            "SEK",
+            "BGN",
+            "ILS",
+            "NOK",
+            "RON",
+            "RUB",
+            "PHP",
+            "VND",
+            "HUF",
+            "IKR",
+            "PLN",
+            "PYG",
+            "TRY",
+            "GTQ",
+            "VUV",
+            "JOD",
+            "SAR",
+            "EGP",
+            "TTD",
+            "MAD",
+            "CVE",
+            "BBD",
+            "AWG",
+            "BHD",
+            "NONE"
+          ]
+        },
+        "dailyRate": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "number"
+        },
+        "weekendAdjustmentRate": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "taxRate": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "ignoreTaxRateChargeOverXDays": {
+          "type": "boolean"
+        },
+        "daysOverWhichTaxRateChargeShouldBeIgnored": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "securityDeposit": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "number"
+        },
+        "cleaningFee": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "number"
+        },
+        "cleaningFeeTaxRate": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "extraGuestFee": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "number"
+        },
+        "percentageUponReservation": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "number"
+        },
+        "fullPaymentTiming": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "PropertyVrboDataApi3Dto": {
+      "type": "object",
+      "properties": {
+        "activeForAgency": {
+          "type": "boolean"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "cancellationPolicy": {
+          "type": "string",
+          "enum": [
+            "STRICT",
+            "FIRM",
+            "MODERATE",
+            "RELAXED",
+            "NO_REFUND",
+            "CUSTOM"
+          ]
+        },
+        "customPolicies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/VrboCustomCancellationPolicyApiDto"
+          }
+        },
+        "promotions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/VrboPromotionApiDto"
+          }
+        }
+      }
+    },
+    "VrboCustomCancellationPolicyApiDto": {
+      "type": "object",
+      "properties": {
+        "refundPercentage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "refundThreshold": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "VrboPromotionApiDto": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "MOBILE",
+            "MEMBER_BLUE",
+            "MEMBER_SILVER",
+            "MEMBER_GOLD"
+          ]
+        },
+        "percentage": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}

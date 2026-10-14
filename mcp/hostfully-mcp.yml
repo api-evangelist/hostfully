@@ -1,0 +1,213 @@
+generated: '2026-10-14'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/hostfully-api-openapi.yml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: derived
+note: No MCP server was found. No probe result in the dossier. Candidate tools below are derived from the 176 operation(s) in the provider's own
+  OpenAPI (40 listed); they describe what a server WOULD expose, not one that exists.
+tools:
+- name: get_agencies
+  operationId: getAgencies
+  method: GET
+  path: /api/v3.3/agencies
+  description: Get agencies
+- name: get_agency
+  operationId: getAgency
+  method: GET
+  path: /api/v3.3/agencies/{uid}
+  description: Get an agency by UID
+- name: get_all_14
+  operationId: getAll_14
+  method: GET
+  path: /api/v3.3/amenities
+  description: Get all amenities.
+- name: post_11
+  operationId: post_11
+  method: POST
+  path: /api/v3.3/amenities
+  description: Create a new amenity
+- name: get_one_8
+  operationId: getOne_8
+  method: GET
+  path: /api/v3.3/amenities/{uid}
+  description: Get a specific amenity by UID
+- name: put_9
+  operationId: put_9
+  method: PUT
+  path: /api/v3.3/amenities/{uid}
+  description: Update an existing amenity
+- name: delete_10
+  operationId: delete_10
+  method: DELETE
+  path: /api/v3.3/amenities/{uid}
+  description: Delete an amenity
+- name: get_all_13
+  operationId: getAll_13
+  method: GET
+  path: /api/v3.3/available-amenities
+  description: Get all available amenities
+- name: find_all_7
+  operationId: findAll_7
+  method: GET
+  path: /api/v3.3/available-property-rules
+  description: Get available property rules
+- name: get_all_12
+  operationId: getAll_12
+  method: GET
+  path: /api/v3.3/custom-amenities
+  description: Get all custom amenities
+- name: post_10
+  operationId: post_10
+  method: POST
+  path: /api/v3.3/custom-amenities
+  description: Create a new custom amenity
+- name: delete_9
+  operationId: delete_9
+  method: DELETE
+  path: /api/v3.3/custom-amenities/{uid}
+  description: Delete a custom amenity by UID
+- name: get_all_19
+  operationId: getAll_19
+  method: GET
+  path: /api/v3.3/custom-data
+  description: Get the custom data.
+- name: post_16
+  operationId: post_16
+  method: POST
+  path: /api/v3.3/custom-data
+  description: Create custom data.
+- name: delete_15
+  operationId: delete_15
+  method: DELETE
+  path: /api/v3.3/custom-data
+  description: Delete custom data.
+- name: get_all_16
+  operationId: getAll_16
+  method: GET
+  path: /api/v3.3/custom-data-fields
+  description: Get all agency custom data fields
+- name: post_13
+  operationId: post_13
+  method: POST
+  path: /api/v3.3/custom-data-fields
+  description: Create a custom data field
+- name: get_one_10
+  operationId: getOne_10
+  method: GET
+  path: /api/v3.3/custom-data-fields/{customDataFieldUid}
+  description: Get a custom data field
+- name: delete_12
+  operationId: delete_12
+  method: DELETE
+  path: /api/v3.3/custom-data-fields/{customDataFieldUid}
+  description: Delete a custom data field
+- name: get_agency_dbs_settings
+  operationId: getAgencyDbsSettings
+  method: GET
+  path: /api/v3.3/dbs/agencies/{agencyUid}
+  description: Get agency DBS settings
+- name: get_property_dbs_settings
+  operationId: getPropertyDbsSettings
+  method: GET
+  path: /api/v3.3/dbs/properties/{propertyUid}
+  description: Get property DBS settings
+- name: get_all_11
+  operationId: getAll_11
+  method: GET
+  path: /api/v3.3/employees
+  description: Get all agency employees
+- name: get_one_7
+  operationId: getOne_7
+  method: GET
+  path: /api/v3.3/employees/{employeeUid}
+  description: Get an employee
+- name: put_8
+  operationId: put_8
+  method: PUT
+  path: /api/v3.3/employees/{employeeUid}
+  description: Update an employee
+- name: fetch_extra_guests_by_lead
+  operationId: fetchExtraGuestsByLead
+  method: GET
+  path: /api/v3.3/extra-guests/{leadUid}
+  description: Fetch extra guests by lead
+- name: find_all_8
+  operationId: findAll_8
+  method: GET
+  path: /api/v3.3/fees
+  description: Get all property fees
+- name: create_fee
+  operationId: createFee
+  method: POST
+  path: /api/v3.3/fees
+  description: Create a new fee
+- name: find_by_uid_3
+  operationId: findByUid_3
+  method: GET
+  path: /api/v3.3/fees/{uid}
+  description: Get fee by UID
+- name: update_fee
+  operationId: updateFee
+  method: PUT
+  path: /api/v3.3/fees/{uid}
+  description: Update an existing fee
+- name: delete_fee
+  operationId: deleteFee
+  method: DELETE
+  path: /api/v3.3/fees/{uid}
+  description: Delete a fee
+- name: execute
+  operationId: execute
+  method: POST
+  path: /api/v3.3/graphql
+  description: Execute a GraphQL query
+- name: get_all_10
+  operationId: getAll_10
+  method: GET
+  path: /api/v3.3/guests/{agencyUid}
+  description: Get all guests
+- name: find_all_6
+  operationId: findAll_6
+  method: GET
+  path: /api/v3.3/icals
+  description: Get all property ICals
+- name: get_all_18
+  operationId: getAll_18
+  method: GET
+  path: /api/v3.3/jobs
+  description: Fetches jobs by provided filter
+- name: post_15
+  operationId: post_15
+  method: POST
+  path: /api/v3.3/jobs
+  description: Create a new job
+- name: get_one_11
+  operationId: getOne_11
+  method: GET
+  path: /api/v3.3/jobs/{jobUid}
+  description: Get a job
+- name: put_11
+  operationId: put_11
+  method: PUT
+  path: /api/v3.3/jobs/{jobUid}
+  description: Update a job
+- name: delete_14
+  operationId: delete_14
+  method: DELETE
+  path: /api/v3.3/jobs/{jobUid}
+  description: Delete a job
+- name: accept_job
+  operationId: acceptJob
+  method: POST
+  path: /api/v3.3/jobs/{jobUid}/accept
+  description: Accept a job
+- name: decline_job
+  operationId: declineJob
+  method: POST
+  path: /api/v3.3/jobs/{jobUid}/decline
+  description: Decline a job

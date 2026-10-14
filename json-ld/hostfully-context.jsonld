@@ -1,0 +1,1202 @@
+{
+  "@context": {
+    "@vocab": "https://hostfully.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "hostfully": "https://hostfully.com/schema#",
+    "DBSPropertyDto": "hostfully:DBSPropertyDto",
+    "url": {
+      "@id": "hostfully:url",
+      "@type": "xsd:string"
+    },
+    "enabled": {
+      "@id": "hostfully:enabled",
+      "@type": "xsd:boolean"
+    },
+    "DbsPropertyDtoWrapper": "hostfully:DbsPropertyDtoWrapper",
+    "dbs": {
+      "@id": "hostfully:dbs",
+      "@type": "@id"
+    },
+    "AgencyDbsResponseWrapper": "hostfully:AgencyDbsResponseWrapper",
+    "DBSAgencyPublicApiDto": "hostfully:DBSAgencyPublicApiDto",
+    "agencyUid": {
+      "@id": "hostfully:agencyUid",
+      "@type": "xsd:string"
+    },
+    "dbsEnabled": {
+      "@id": "hostfully:dbsEnabled",
+      "@type": "xsd:boolean"
+    },
+    "website": {
+      "@id": "hostfully:website",
+      "@type": "xsd:string"
+    },
+    "featuredProperties": {
+      "@id": "hostfully:featuredProperties",
+      "@container": "@list"
+    },
+    "AgencyApi3ResponseDto": "hostfully:AgencyApi3ResponseDto",
+    "uid": {
+      "@id": "hostfully:uid",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "hostfully:name",
+      "@type": "xsd:string"
+    },
+    "agencyEmailAddress": {
+      "@id": "hostfully:agencyEmailAddress",
+      "@type": "xsd:string"
+    },
+    "phoneNumber": {
+      "@id": "hostfully:phoneNumber",
+      "@type": "xsd:string"
+    },
+    "address1": {
+      "@id": "hostfully:address1",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "hostfully:city",
+      "@type": "xsd:string"
+    },
+    "zipCode": {
+      "@id": "hostfully:zipCode",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "hostfully:state",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "hostfully:currency",
+      "@type": "xsd:string"
+    },
+    "currencyCode": {
+      "@id": "hostfully:currencyCode",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "hostfully:countryCode",
+      "@type": "xsd:string"
+    },
+    "defaultCheckInTime": {
+      "@id": "hostfully:defaultCheckInTime",
+      "@type": "xsd:integer"
+    },
+    "defaultCheckOutTime": {
+      "@id": "hostfully:defaultCheckOutTime",
+      "@type": "xsd:integer"
+    },
+    "rentalCondition": {
+      "@id": "hostfully:rentalCondition",
+      "@type": "xsd:string"
+    },
+    "agencyConfirmed": {
+      "@id": "hostfully:agencyConfirmed",
+      "@type": "xsd:boolean"
+    },
+    "AgencyApiV3ResponseWrapper": "hostfully:AgencyApiV3ResponseWrapper",
+    "agency": {
+      "@id": "hostfully:agency",
+      "@type": "@id"
+    },
+    "Api3ResponseMetadata": "hostfully:Api3ResponseMetadata",
+    "count": {
+      "@id": "hostfully:count",
+      "@type": "xsd:integer"
+    },
+    "totalCount": {
+      "@id": "hostfully:totalCount",
+      "@type": "xsd:integer"
+    },
+    "AgenciesApiV3ResponseWrapper": "hostfully:AgenciesApiV3ResponseWrapper",
+    "agencies": {
+      "@id": "hostfully:agencies",
+      "@container": "@list"
+    },
+    "_metadata": {
+      "@id": "hostfully:_metadata",
+      "@type": "@id"
+    },
+    "AmenityApi3Dto": "hostfully:AmenityApi3Dto",
+    "amenity": {
+      "@id": "hostfully:amenity",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "hostfully:category",
+      "@type": "xsd:string"
+    },
+    "propertyUid": {
+      "@id": "hostfully:propertyUid",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "hostfully:description",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "hostfully:price",
+      "@type": "xsd:decimal"
+    },
+    "chargeFrequency": {
+      "@id": "hostfully:chargeFrequency",
+      "@type": "xsd:string"
+    },
+    "AmenityApiResponseWrapper": "hostfully:AmenityApiResponseWrapper",
+    "AmenityUpdatingApi3Dto": "hostfully:AmenityUpdatingApi3Dto",
+    "AmenitiesApiResponseWrapper": "hostfully:AmenitiesApiResponseWrapper",
+    "amenities": {
+      "@id": "hostfully:amenities",
+      "@container": "@list"
+    },
+    "AmenityAddingApi3Dto": "hostfully:AmenityAddingApi3Dto",
+    "hotelUid": {
+      "@id": "hostfully:hotelUid",
+      "@type": "xsd:string"
+    },
+    "frequency": {
+      "@id": "hostfully:frequency",
+      "@type": "xsd:string"
+    },
+    "AvailableAmenitiesApiResponseWrapper": "hostfully:AvailableAmenitiesApiResponseWrapper",
+    "AvailableAmenityApi3Dto": "hostfully:AvailableAmenityApi3Dto",
+    "channels": {
+      "@id": "hostfully:channels"
+    },
+    "AvailablePropertyRuleApi3Dto": "hostfully:AvailablePropertyRuleApi3Dto",
+    "rule": {
+      "@id": "hostfully:rule",
+      "@type": "xsd:string"
+    },
+    "AvailablePropertyRulesApiResponseWrapper": "hostfully:AvailablePropertyRulesApiResponseWrapper",
+    "availablePropertyRules": {
+      "@id": "hostfully:availablePropertyRules",
+      "@container": "@list"
+    },
+    "CustomAmenityApi3Dto": "hostfully:CustomAmenityApi3Dto",
+    "objectUid": {
+      "@id": "hostfully:objectUid",
+      "@type": "xsd:string"
+    },
+    "objectType": {
+      "@id": "hostfully:objectType",
+      "@type": "xsd:string"
+    },
+    "CustomAmenitiesApiResponseWrapper": "hostfully:CustomAmenitiesApiResponseWrapper",
+    "customAmenities": {
+      "@id": "hostfully:customAmenities",
+      "@container": "@list"
+    },
+    "CustomAmenityAddingApi3Dto": "hostfully:CustomAmenityAddingApi3Dto",
+    "CustomAmenityApiResponseWrapper": "hostfully:CustomAmenityApiResponseWrapper",
+    "customAmenity": {
+      "@id": "hostfully:customAmenity",
+      "@type": "@id"
+    },
+    "CustomDataFieldApi3Dto": "hostfully:CustomDataFieldApi3Dto",
+    "type": {
+      "@id": "hostfully:type",
+      "@type": "xsd:string"
+    },
+    "variable": {
+      "@id": "hostfully:variable",
+      "@type": "xsd:string"
+    },
+    "index": {
+      "@id": "hostfully:index",
+      "@type": "xsd:integer"
+    },
+    "minAgeToShow": {
+      "@id": "hostfully:minAgeToShow",
+      "@type": "xsd:integer"
+    },
+    "subType": {
+      "@id": "hostfully:subType",
+      "@type": "xsd:string"
+    },
+    "usage": {
+      "@id": "hostfully:usage",
+      "@type": "xsd:string"
+    },
+    "isOptional": {
+      "@id": "hostfully:isOptional",
+      "@type": "xsd:boolean"
+    },
+    "isActive": {
+      "@id": "hostfully:isActive",
+      "@type": "xsd:boolean"
+    },
+    "options": {
+      "@id": "hostfully:options",
+      "@container": "@list"
+    },
+    "CustomDataFieldOptionDto": "hostfully:CustomDataFieldOptionDto",
+    "optionText": {
+      "@id": "hostfully:optionText",
+      "@type": "xsd:string"
+    },
+    "optionValue": {
+      "@id": "hostfully:optionValue",
+      "@type": "xsd:string"
+    },
+    "sortOrder": {
+      "@id": "hostfully:sortOrder",
+      "@type": "xsd:integer"
+    },
+    "active": {
+      "@id": "hostfully:active",
+      "@type": "xsd:boolean"
+    },
+    "CustomDataApi3_1Dto": "hostfully:CustomDataApi3_1Dto",
+    "text": {
+      "@id": "hostfully:text",
+      "@type": "xsd:string"
+    },
+    "customDataField": {
+      "@id": "hostfully:customDataField",
+      "@type": "@id"
+    },
+    "leadUid": {
+      "@id": "hostfully:leadUid",
+      "@type": "xsd:string"
+    },
+    "unitUid": {
+      "@id": "hostfully:unitUid",
+      "@type": "xsd:string"
+    },
+    "CustomDataApi3ResponseWrapperCustomDataApi3_1Dto": "hostfully:CustomDataApi3ResponseWrapperCustomDataApi3_1Dto",
+    "customData": {
+      "@id": "hostfully:customData",
+      "@container": "@list"
+    },
+    "CustomDataAddingApi3Dto": "hostfully:CustomDataAddingApi3Dto",
+    "customDataFieldUid": {
+      "@id": "hostfully:customDataFieldUid",
+      "@type": "xsd:string"
+    },
+    "CustomDataApiResponseWrapperCustomDataApi3_1Dto": "hostfully:CustomDataApiResponseWrapperCustomDataApi3_1Dto",
+    "Api3ResponsePaging": "hostfully:Api3ResponsePaging",
+    "_limit": {
+      "@id": "hostfully:_limit",
+      "@type": "xsd:integer"
+    },
+    "_nextCursor": {
+      "@id": "hostfully:_nextCursor",
+      "@type": "xsd:string"
+    },
+    "CustomDataV32ResponseWrapper": "hostfully:CustomDataV32ResponseWrapper",
+    "customDataFields": {
+      "@id": "hostfully:customDataFields",
+      "@container": "@list"
+    },
+    "_paging": {
+      "@id": "hostfully:_paging",
+      "@type": "@id"
+    },
+    "CustomDataFieldAddingApi3Dto": "hostfully:CustomDataFieldAddingApi3Dto",
+    "CustomDataFieldApiResponseWrapper": "hostfully:CustomDataFieldApiResponseWrapper",
+    "EmployeeApi3Dto": "hostfully:EmployeeApi3Dto",
+    "bestProfile": {
+      "@id": "hostfully:bestProfile",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "hostfully:email",
+      "@type": "xsd:string"
+    },
+    "pictureUrl": {
+      "@id": "hostfully:pictureUrl",
+      "@type": "xsd:string"
+    },
+    "role": {
+      "@id": "hostfully:role",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "hostfully:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "hostfully:lastName",
+      "@type": "xsd:string"
+    },
+    "phoneAreaCode": {
+      "@id": "hostfully:phoneAreaCode",
+      "@type": "xsd:integer"
+    },
+    "colorCode": {
+      "@id": "hostfully:colorCode",
+      "@type": "xsd:string"
+    },
+    "EmployeeApiResponseWrapper": "hostfully:EmployeeApiResponseWrapper",
+    "employee": {
+      "@id": "hostfully:employee",
+      "@type": "@id"
+    },
+    "EmployeeApi3UpdatingDto": "hostfully:EmployeeApi3UpdatingDto",
+    "EmployeesApiResponseWrapper": "hostfully:EmployeesApiResponseWrapper",
+    "employees": {
+      "@id": "hostfully:employees",
+      "@container": "@list"
+    },
+    "ExtraGuestsApi3ResponseDto": "hostfully:ExtraGuestsApi3ResponseDto",
+    "age": {
+      "@id": "hostfully:age",
+      "@type": "xsd:integer"
+    },
+    "ExtraGuestsApiV3ResponseWrapper": "hostfully:ExtraGuestsApiV3ResponseWrapper",
+    "extraGuests": {
+      "@id": "hostfully:extraGuests",
+      "@container": "@list"
+    },
+    "FeeApi3_3Dto": "hostfully:FeeApi3_3Dto",
+    "feeId": {
+      "@id": "hostfully:feeId",
+      "@type": "xsd:integer"
+    },
+    "amount": {
+      "@id": "hostfully:amount",
+      "@type": "xsd:decimal"
+    },
+    "amountType": {
+      "@id": "hostfully:amountType",
+      "@type": "xsd:string"
+    },
+    "attestation": {
+      "@id": "hostfully:attestation",
+      "@type": "xsd:boolean"
+    },
+    "longTermStayExemption": {
+      "@id": "hostfully:longTermStayExemption",
+      "@type": "xsd:integer"
+    },
+    "optional": {
+      "@id": "hostfully:optional",
+      "@type": "xsd:boolean"
+    },
+    "scope": {
+      "@id": "hostfully:scope",
+      "@type": "xsd:string"
+    },
+    "condition": {
+      "@id": "hostfully:condition",
+      "@type": "@id"
+    },
+    "taxationRate": {
+      "@id": "hostfully:taxationRate",
+      "@type": "xsd:decimal"
+    },
+    "airbnbType": {
+      "@id": "hostfully:airbnbType",
+      "@type": "xsd:string"
+    },
+    "airbnbUnitType": {
+      "@id": "hostfully:airbnbUnitType",
+      "@type": "xsd:string"
+    },
+    "offline": {
+      "@id": "hostfully:offline",
+      "@type": "xsd:boolean"
+    },
+    "bookingDotComType": {
+      "@id": "hostfully:bookingDotComType",
+      "@type": "xsd:string"
+    },
+    "hostfullyType": {
+      "@id": "hostfully:hostfullyType",
+      "@type": "xsd:string"
+    },
+    "hvmiType": {
+      "@id": "hostfully:hvmiType",
+      "@type": "xsd:string"
+    },
+    "vrboType": {
+      "@id": "hostfully:vrboType",
+      "@type": "xsd:string"
+    },
+    "rollsIntoRent": {
+      "@id": "hostfully:rollsIntoRent",
+      "@type": "xsd:boolean"
+    },
+    "metadata": {
+      "@id": "hostfully:metadata",
+      "@type": "@id"
+    },
+    "FeeApi3_3ResponseWrapper": "hostfully:FeeApi3_3ResponseWrapper",
+    "fee": {
+      "@id": "hostfully:fee",
+      "@type": "@id"
+    },
+    "FeeConditionsApi3ResponseDto": "hostfully:FeeConditionsApi3ResponseDto",
+    "conditionsLOSDays": {
+      "@id": "hostfully:conditionsLOSDays",
+      "@type": "xsd:integer"
+    },
+    "firstNightsApplying": {
+      "@id": "hostfully:firstNightsApplying",
+      "@type": "xsd:integer"
+    },
+    "FeeMetadataApi3Dto": "hostfully:FeeMetadataApi3Dto",
+    "appliesToAllProperties": {
+      "@id": "hostfully:appliesToAllProperties",
+      "@type": "xsd:boolean"
+    },
+    "propertiesThatShareFee": {
+      "@id": "hostfully:propertiesThatShareFee",
+      "@container": "@list"
+    },
+    "TupleStringString": "hostfully:TupleStringString",
+    "left": {
+      "@id": "hostfully:left",
+      "@type": "xsd:string"
+    },
+    "right": {
+      "@id": "hostfully:right",
+      "@type": "xsd:string"
+    },
+    "FeeConditionsApi3RequestDto": "hostfully:FeeConditionsApi3RequestDto",
+    "FeeSavingApi3_3Dto": "hostfully:FeeSavingApi3_3Dto",
+    "conditions": {
+      "@id": "hostfully:conditions",
+      "@type": "@id"
+    },
+    "FeeApi3_3ResponseListWrapper": "hostfully:FeeApi3_3ResponseListWrapper",
+    "fees": {
+      "@id": "hostfully:fees",
+      "@container": "@list"
+    },
+    "GuestsApi3ResponseDto": "hostfully:GuestsApi3ResponseDto",
+    "linkedinURL": {
+      "@id": "hostfully:linkedinURL",
+      "@type": "xsd:string"
+    },
+    "mobileNumber": {
+      "@id": "hostfully:mobileNumber",
+      "@type": "xsd:string"
+    },
+    "pictureURL": {
+      "@id": "hostfully:pictureURL",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "hostfully:address",
+      "@type": "xsd:string"
+    },
+    "address2": {
+      "@id": "hostfully:address2",
+      "@type": "xsd:string"
+    },
+    "birthDate": {
+      "@id": "hostfully:birthDate",
+      "@type": "xsd:date"
+    },
+    "favoriteAirline": {
+      "@id": "hostfully:favoriteAirline",
+      "@type": "xsd:string"
+    },
+    "skypeID": {
+      "@id": "hostfully:skypeID",
+      "@type": "xsd:string"
+    },
+    "facebookURL": {
+      "@id": "hostfully:facebookURL",
+      "@type": "xsd:string"
+    },
+    "profileNotes": {
+      "@id": "hostfully:profileNotes",
+      "@type": "xsd:string"
+    },
+    "created": {
+      "@id": "hostfully:created",
+      "@type": "xsd:string"
+    },
+    "GuestsApi3ResponseWrapper": "hostfully:GuestsApi3ResponseWrapper",
+    "guests": {
+      "@id": "hostfully:guests",
+      "@container": "@list"
+    },
+    "ICalApi3ResponseDto": "hostfully:ICalApi3ResponseDto",
+    "source": {
+      "@id": "hostfully:source",
+      "@type": "xsd:string"
+    },
+    "ICalsApiResponseWrapper": "hostfully:ICalsApiResponseWrapper",
+    "icals": {
+      "@id": "hostfully:icals",
+      "@container": "@list"
+    },
+    "JobApi3_1Dto": "hostfully:JobApi3_1Dto",
+    "status": {
+      "@id": "hostfully:status",
+      "@type": "xsd:string"
+    },
+    "serviceUid": {
+      "@id": "hostfully:serviceUid",
+      "@type": "xsd:string"
+    },
+    "startZonedDateTime": {
+      "@id": "hostfully:startZonedDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "endZonedDateTime": {
+      "@id": "hostfully:endZonedDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "startLocalDateTime": {
+      "@id": "hostfully:startLocalDateTime",
+      "@type": "xsd:string"
+    },
+    "endLocalDateTime": {
+      "@id": "hostfully:endLocalDateTime",
+      "@type": "xsd:string"
+    },
+    "notes": {
+      "@id": "hostfully:notes",
+      "@type": "xsd:string"
+    },
+    "modified": {
+      "@id": "hostfully:modified",
+      "@type": "xsd:string"
+    },
+    "acceptedLocalDateTime": {
+      "@id": "hostfully:acceptedLocalDateTime",
+      "@type": "xsd:string"
+    },
+    "statusUpdateUtcDateTime": {
+      "@id": "hostfully:statusUpdateUtcDateTime",
+      "@type": "xsd:string"
+    },
+    "JobApiResponseWrapperJobApi3_1Dto": "hostfully:JobApiResponseWrapperJobApi3_1Dto",
+    "job": {
+      "@id": "hostfully:job",
+      "@type": "@id"
+    },
+    "JobApi3_1UpdatingDto": "hostfully:JobApi3_1UpdatingDto",
+    "JobsApiResponseWrapperJobApi3_1Dto": "hostfully:JobsApiResponseWrapperJobApi3_1Dto",
+    "jobs": {
+      "@id": "hostfully:jobs",
+      "@container": "@list"
+    },
+    "JobApi3_1AddingDto": "hostfully:JobApi3_1AddingDto",
+    "LeadGuestInformationForCreationApiV3Dto": "hostfully:LeadGuestInformationForCreationApiV3Dto",
+    "passportId": {
+      "@id": "hostfully:passportId",
+      "@type": "xsd:string"
+    },
+    "passportCountryCode": {
+      "@id": "hostfully:passportCountryCode",
+      "@type": "xsd:string"
+    },
+    "adultCount": {
+      "@id": "hostfully:adultCount",
+      "@type": "xsd:integer"
+    },
+    "childrenCount": {
+      "@id": "hostfully:childrenCount",
+      "@type": "xsd:integer"
+    },
+    "petCount": {
+      "@id": "hostfully:petCount",
+      "@type": "xsd:integer"
+    },
+    "infantCount": {
+      "@id": "hostfully:infantCount",
+      "@type": "xsd:integer"
+    },
+    "riskScore": {
+      "@id": "hostfully:riskScore",
+      "@type": "xsd:integer"
+    },
+    "secondaryEmail": {
+      "@id": "hostfully:secondaryEmail",
+      "@type": "xsd:string"
+    },
+    "cellPhoneNumber": {
+      "@id": "hostfully:cellPhoneNumber",
+      "@type": "xsd:string"
+    },
+    "flightNumber": {
+      "@id": "hostfully:flightNumber",
+      "@type": "xsd:string"
+    },
+    "reasonForTrip": {
+      "@id": "hostfully:reasonForTrip",
+      "@type": "xsd:string"
+    },
+    "willHaveParty": {
+      "@id": "hostfully:willHaveParty",
+      "@type": "xsd:boolean"
+    },
+    "willHaveVisit": {
+      "@id": "hostfully:willHaveVisit",
+      "@type": "xsd:boolean"
+    },
+    "preferredCurrency": {
+      "@id": "hostfully:preferredCurrency",
+      "@type": "xsd:string"
+    },
+    "preferredLocale": {
+      "@id": "hostfully:preferredLocale"
+    },
+    "arrivalLocalDateTime": {
+      "@id": "hostfully:arrivalLocalDateTime",
+      "@type": "xsd:string"
+    },
+    "departureLocalDateTime": {
+      "@id": "hostfully:departureLocalDateTime",
+      "@type": "xsd:string"
+    },
+    "LeadApiV3AssigneeDto": "hostfully:LeadApiV3AssigneeDto",
+    "LeadApiV3_1Dto": "hostfully:LeadApiV3_1Dto",
+    "checkInZonedDateTime": {
+      "@id": "hostfully:checkInZonedDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "checkOutZonedDateTime": {
+      "@id": "hostfully:checkOutZonedDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "checkInLocalDateTime": {
+      "@id": "hostfully:checkInLocalDateTime",
+      "@type": "xsd:string"
+    },
+    "checkOutLocalDateTime": {
+      "@id": "hostfully:checkOutLocalDateTime",
+      "@type": "xsd:string"
+    },
+    "channel": {
+      "@id": "hostfully:channel",
+      "@type": "xsd:string"
+    },
+    "bookedUtcDateTime": {
+      "@id": "hostfully:bookedUtcDateTime",
+      "@type": "xsd:string"
+    },
+    "externalBookingId": {
+      "@id": "hostfully:externalBookingId",
+      "@type": "xsd:string"
+    },
+    "extraNotes": {
+      "@id": "hostfully:extraNotes",
+      "@type": "xsd:string"
+    },
+    "assignee": {
+      "@id": "hostfully:assignee",
+      "@type": "@id"
+    },
+    "guestInformation": {
+      "@id": "hostfully:guestInformation",
+      "@type": "@id"
+    },
+    "referrer": {
+      "@id": "hostfully:referrer",
+      "@type": "xsd:string"
+    },
+    "LeadMetadataApiV3Dto": "hostfully:LeadMetadataApiV3Dto",
+    "createdUtcDateTime": {
+      "@id": "hostfully:createdUtcDateTime",
+      "@type": "xsd:string"
+    },
+    "updatedUtcDateTime": {
+      "@id": "hostfully:updatedUtcDateTime",
+      "@type": "xsd:string"
+    },
+    "creationCircumstances": {
+      "@id": "hostfully:creationCircumstances",
+      "@type": "xsd:string"
+    },
+    "LeadApi3ListOfResourcesResponseLeadApiV3_1Dto": "hostfully:LeadApi3ListOfResourcesResponseLeadApiV3_1Dto",
+    "leads": {
+      "@id": "hostfully:leads",
+      "@container": "@list"
+    },
+    "PriceOverridesApi3Dto": "hostfully:PriceOverridesApi3Dto",
+    "netPrice": {
+      "@id": "hostfully:netPrice",
+      "@type": "xsd:decimal"
+    },
+    "QuoteFeeOverridesApi3Dto": "hostfully:QuoteFeeOverridesApi3Dto",
+    "feeUid": {
+      "@id": "hostfully:feeUid",
+      "@type": "xsd:string"
+    },
+    "removed": {
+      "@id": "hostfully:removed",
+      "@type": "xsd:boolean"
+    },
+    "QuoteFeesOverridesApi3Dto": "hostfully:QuoteFeesOverridesApi3Dto",
+    "cleaningFee": {
+      "@id": "hostfully:cleaningFee",
+      "@type": "@id"
+    },
+    "otherFees": {
+      "@id": "hostfully:otherFees",
+      "@container": "@list"
+    },
+    "QuoteOverridesApi3Dto": "hostfully:QuoteOverridesApi3Dto",
+    "rent": {
+      "@id": "hostfully:rent",
+      "@type": "@id"
+    },
+    "securityDeposit": {
+      "@id": "hostfully:securityDeposit",
+      "@type": "xsd:decimal"
+    },
+    "totalPrice": {
+      "@id": "hostfully:totalPrice",
+      "@type": "xsd:decimal"
+    },
+    "force100PercentPaymentAtReservation": {
+      "@id": "hostfully:force100PercentPaymentAtReservation",
+      "@type": "xsd:boolean"
+    },
+    "QuoteRentOverridesApi3Dto": "hostfully:QuoteRentOverridesApi3Dto",
+    "rentBaseNetPrice": {
+      "@id": "hostfully:rentBaseNetPrice",
+      "@type": "xsd:decimal"
+    },
+    "rentNetPrice": {
+      "@id": "hostfully:rentNetPrice",
+      "@type": "xsd:decimal"
+    },
+    "extraGuestsNetPrice": {
+      "@id": "hostfully:extraGuestsNetPrice",
+      "@type": "xsd:decimal"
+    },
+    "taxAmount": {
+      "@id": "hostfully:taxAmount",
+      "@type": "xsd:decimal"
+    },
+    "extraGuestsBaseNetPrice": {
+      "@id": "hostfully:extraGuestsBaseNetPrice",
+      "@type": "xsd:decimal"
+    },
+    "LeadApiV3_1CreationDto": "hostfully:LeadApiV3_1CreationDto",
+    "checkInLocalDate": {
+      "@id": "hostfully:checkInLocalDate",
+      "@type": "xsd:date"
+    },
+    "checkOutLocalDate": {
+      "@id": "hostfully:checkOutLocalDate",
+      "@type": "xsd:date"
+    },
+    "quoteOverrides": {
+      "@id": "hostfully:quoteOverrides",
+      "@type": "@id"
+    },
+    "LeadApi3SingleResourceResponseLeadApiV3_1Dto": "hostfully:LeadApi3SingleResourceResponseLeadApiV3_1Dto",
+    "lead": {
+      "@id": "hostfully:lead",
+      "@type": "@id"
+    },
+    "LeadApiV3RentalConditionsDto": "hostfully:LeadApiV3RentalConditionsDto",
+    "rentalConditionsUrl": {
+      "@id": "hostfully:rentalConditionsUrl",
+      "@type": "xsd:string"
+    },
+    "LeadApiV3_1AlterationRequestDto": "hostfully:LeadApiV3_1AlterationRequestDto",
+    "LeadApiV3PatchDto": "hostfully:LeadApiV3PatchDto",
+    "LeadGuestInformationForPatchApiV3Dto": "hostfully:LeadGuestInformationForPatchApiV3Dto",
+    "LeadApiV3GroupBookingDto": "hostfully:LeadApiV3GroupBookingDto",
+    "mainLeadUid": {
+      "@id": "hostfully:mainLeadUid",
+      "@type": "xsd:string"
+    },
+    "groupUid": {
+      "@id": "hostfully:groupUid",
+      "@type": "xsd:string"
+    },
+    "subLeads": {
+      "@id": "hostfully:subLeads",
+      "@container": "@list"
+    },
+    "LeadApiV3GroupBookingSubLeadDto": "hostfully:LeadApiV3GroupBookingSubLeadDto",
+    "LeadApi3ListOfResourcesResponseLeadApiV3GroupBookingDto": "hostfully:LeadApi3ListOfResourcesResponseLeadApiV3GroupBookingDto",
+    "LeadApi3SingleResourceResponseLeadApiV3GroupBookingDto": "hostfully:LeadApi3SingleResourceResponseLeadApiV3GroupBookingDto",
+    "LeadApiV3GroupBookingCreationDto": "hostfully:LeadApiV3GroupBookingCreationDto",
+    "assigneeUid": {
+      "@id": "hostfully:assigneeUid",
+      "@type": "xsd:string"
+    },
+    "LeadApiV3SubLeadCreationDto": "hostfully:LeadApiV3SubLeadCreationDto",
+    "MessageAttachmentApi3_2Dto": "hostfully:MessageAttachmentApi3_2Dto",
+    "uri": {
+      "@id": "hostfully:uri",
+      "@type": "xsd:string"
+    },
+    "fileName": {
+      "@id": "hostfully:fileName",
+      "@type": "xsd:string"
+    },
+    "contentType": {
+      "@id": "hostfully:contentType",
+      "@type": "xsd:string"
+    },
+    "MessageContentApi3Dto": "hostfully:MessageContentApi3Dto",
+    "subject": {
+      "@id": "hostfully:subject",
+      "@type": "xsd:string"
+    },
+    "MessagesApi3_2ResponseDto": "hostfully:MessagesApi3_2ResponseDto",
+    "senderType": {
+      "@id": "hostfully:senderType",
+      "@type": "xsd:string"
+    },
+    "content": {
+      "@id": "hostfully:content",
+      "@type": "@id"
+    },
+    "threadUid": {
+      "@id": "hostfully:threadUid",
+      "@type": "xsd:string"
+    },
+    "attachments": {
+      "@id": "hostfully:attachments",
+      "@container": "@list"
+    },
+    "MessagesApiResponseWrapperMessagesApi3_2ResponseDto": "hostfully:MessagesApiResponseWrapperMessagesApi3_2ResponseDto",
+    "message": {
+      "@id": "hostfully:message",
+      "@type": "@id"
+    },
+    "MessagesApiListOfResourcesResponseWrapperMessagesApi3_2ResponseDto": "hostfully:MessagesApiListOfResourcesResponseWrapperMessagesApi3_2ResponseDto",
+    "messages": {
+      "@id": "hostfully:messages",
+      "@container": "@list"
+    },
+    "MessageCreationApi3_2Dto": "hostfully:MessageCreationApi3_2Dto",
+    "MessageSavingContentApi3Dto": "hostfully:MessageSavingContentApi3Dto",
+    "AddressApi3Dto": "hostfully:AddressApi3Dto",
+    "longitude": {
+      "@id": "hostfully:longitude",
+      "@type": "xsd:decimal"
+    },
+    "latitude": {
+      "@id": "hostfully:latitude",
+      "@type": "xsd:decimal"
+    },
+    "HotelPricingSettingApi3_1Dto": "hostfully:HotelPricingSettingApi3_1Dto",
+    "HotelApi3_1Dto": "hostfully:HotelApi3_1Dto",
+    "createdDateTime": {
+      "@id": "hostfully:createdDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "pricing": {
+      "@id": "hostfully:pricing",
+      "@type": "@id"
+    },
+    "mainPhotoUrl": {
+      "@id": "hostfully:mainPhotoUrl",
+      "@type": "xsd:string"
+    },
+    "accountingId": {
+      "@id": "hostfully:accountingId",
+      "@type": "xsd:string"
+    },
+    "rentalLicenseNumber": {
+      "@id": "hostfully:rentalLicenseNumber",
+      "@type": "xsd:string"
+    },
+    "rentalLicenseNumberExpiryDate": {
+      "@id": "hostfully:rentalLicenseNumberExpiryDate",
+      "@type": "xsd:date"
+    },
+    "HotelApi3_1PaginatedListWrapper": "hostfully:HotelApi3_1PaginatedListWrapper",
+    "hotels": {
+      "@id": "hostfully:hotels",
+      "@container": "@list"
+    },
+    "HotelCreationRequestApi3_1Dto": "hostfully:HotelCreationRequestApi3_1Dto",
+    "HotelApi3_1SingleResourceWrapper": "hostfully:HotelApi3_1SingleResourceWrapper",
+    "hotel": {
+      "@id": "hostfully:hotel",
+      "@type": "@id"
+    },
+    "HotelUpdateRequestApi3_1Dto": "hostfully:HotelUpdateRequestApi3_1Dto",
+    "OrderAdjustmentItemApi3Dto": "hostfully:OrderAdjustmentItemApi3Dto",
+    "transactionType": {
+      "@id": "hostfully:transactionType",
+      "@type": "xsd:string"
+    },
+    "adjustmentType": {
+      "@id": "hostfully:adjustmentType",
+      "@type": "xsd:string"
+    },
+    "note": {
+      "@id": "hostfully:note",
+      "@type": "xsd:string"
+    },
+    "externalId": {
+      "@id": "hostfully:externalId",
+      "@type": "xsd:string"
+    },
+    "OrderAdjustmentsResponseWrapper": "hostfully:OrderAdjustmentsResponseWrapper",
+    "orderAdjustmentItems": {
+      "@id": "hostfully:orderAdjustmentItems",
+      "@container": "@list"
+    },
+    "OrderAdjustmentItemAddingApi3Dto": "hostfully:OrderAdjustmentItemAddingApi3Dto",
+    "OrderAdjustmentItemApi3ResponseWrapper": "hostfully:OrderAdjustmentItemApi3ResponseWrapper",
+    "orderAdjustmentItem": {
+      "@id": "hostfully:orderAdjustmentItem",
+      "@type": "@id"
+    },
+    "DiscountGraphQLApiTO": "hostfully:DiscountGraphQLApiTO",
+    "discountCode": {
+      "@id": "hostfully:discountCode",
+      "@type": "xsd:string"
+    },
+    "discountType": {
+      "@id": "hostfully:discountType",
+      "@type": "xsd:string"
+    },
+    "percent": {
+      "@id": "hostfully:percent",
+      "@type": "xsd:decimal"
+    },
+    "OrderAdjustmentApi3Dto": "hostfully:OrderAdjustmentApi3Dto",
+    "isPaid": {
+      "@id": "hostfully:isPaid",
+      "@type": "xsd:boolean"
+    },
+    "OrderApi3Dto": "hostfully:OrderApi3Dto",
+    "creationUtcDateTime": {
+      "@id": "hostfully:creationUtcDateTime",
+      "@type": "xsd:string"
+    },
+    "services": {
+      "@id": "hostfully:services",
+      "@container": "@list"
+    },
+    "adjustments": {
+      "@id": "hostfully:adjustments",
+      "@container": "@list"
+    },
+    "rateMultiplier": {
+      "@id": "hostfully:rateMultiplier",
+      "@type": "xsd:decimal"
+    },
+    "totalAmount": {
+      "@id": "hostfully:totalAmount",
+      "@type": "xsd:decimal"
+    },
+    "totalTaxesAmount": {
+      "@id": "hostfully:totalTaxesAmount",
+      "@type": "xsd:decimal"
+    },
+    "channelCommission": {
+      "@id": "hostfully:channelCommission",
+      "@type": "@id"
+    },
+    "adjustmentItems": {
+      "@id": "hostfully:adjustmentItems",
+      "@container": "@list"
+    },
+    "externalOrderId": {
+      "@id": "hostfully:externalOrderId",
+      "@type": "xsd:string"
+    },
+    "OrderChannelCommissionApi3Dto": "hostfully:OrderChannelCommissionApi3Dto",
+    "OrderFeeApi3Dto": "hostfully:OrderFeeApi3Dto",
+    "isEditable": {
+      "@id": "hostfully:isEditable",
+      "@type": "xsd:boolean"
+    },
+    "grossAmount": {
+      "@id": "hostfully:grossAmount",
+      "@type": "xsd:decimal"
+    },
+    "grossPrice": {
+      "@id": "hostfully:grossPrice",
+      "@type": "xsd:decimal"
+    },
+    "OrderFeesApi3Dto": "hostfully:OrderFeesApi3Dto",
+    "OrderRentApi3Dto": "hostfully:OrderRentApi3Dto",
+    "rentBreakdowns": {
+      "@id": "hostfully:rentBreakdowns",
+      "@container": "@list"
+    },
+    "listPrice": {
+      "@id": "hostfully:listPrice",
+      "@type": "xsd:decimal"
+    },
+    "discount": {
+      "@id": "hostfully:discount",
+      "@type": "@id"
+    },
+    "OrderRentBreakdownApi3Dto": "hostfully:OrderRentBreakdownApi3Dto",
+    "nightlyAmount": {
+      "@id": "hostfully:nightlyAmount",
+      "@type": "xsd:decimal"
+    },
+    "nightlyDate": {
+      "@id": "hostfully:nightlyDate",
+      "@type": "xsd:date"
+    },
+    "OrderServiceApi3Dto": "hostfully:OrderServiceApi3Dto",
+    "title": {
+      "@id": "hostfully:title",
+      "@type": "xsd:string"
+    },
+    "quantity": {
+      "@id": "hostfully:quantity",
+      "@type": "xsd:integer"
+    },
+    "quantityDescription": {
+      "@id": "hostfully:quantityDescription",
+      "@type": "xsd:string"
+    },
+    "OrdersApiResponseWrapper": "hostfully:OrdersApiResponseWrapper",
+    "orders": {
+      "@id": "hostfully:orders",
+      "@container": "@list"
+    },
+    "OwnerAdjustmentApi3Dto": "hostfully:OwnerAdjustmentApi3Dto",
+    "ownerAdjustmentScheduleUid": {
+      "@id": "hostfully:ownerAdjustmentScheduleUid",
+      "@type": "xsd:string"
+    },
+    "attachedImageUrl": {
+      "@id": "hostfully:attachedImageUrl",
+      "@type": "xsd:string"
+    },
+    "currencySymbol": {
+      "@id": "hostfully:currencySymbol",
+      "@type": "xsd:string"
+    },
+    "dateAccountedFor": {
+      "@id": "hostfully:dateAccountedFor",
+      "@type": "xsd:date"
+    },
+    "OwnerAdjustmentApiResponseWrapper": "hostfully:OwnerAdjustmentApiResponseWrapper",
+    "ownerAdjustment": {
+      "@id": "hostfully:ownerAdjustment",
+      "@type": "@id"
+    },
+    "OwnerAdjustmentSavingApi3Dto": "hostfully:OwnerAdjustmentSavingApi3Dto",
+    "OwnerAdjustmentsApiResponseWrapper": "hostfully:OwnerAdjustmentsApiResponseWrapper",
+    "OwnerApi3Dto": "hostfully:OwnerApi3Dto",
+    "phoneNumberAreaCode": {
+      "@id": "hostfully:phoneNumberAreaCode",
+      "@type": "xsd:integer"
+    },
+    "businessName": {
+      "@id": "hostfully:businessName",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "hostfully:country",
+      "@type": "xsd:string"
+    },
+    "externalCalendarUrl": {
+      "@id": "hostfully:externalCalendarUrl",
+      "@type": "xsd:string"
+    },
+    "ccEmails": {
+      "@id": "hostfully:ccEmails",
+      "@type": "xsd:string"
+    },
+    "airbnbUserId": {
+      "@id": "hostfully:airbnbUserId",
+      "@type": "xsd:string"
+    },
+    "permissionTypes": {
+      "@id": "hostfully:permissionTypes",
+      "@container": "@list"
+    },
+    "agencyCommissionRate": {
+      "@id": "hostfully:agencyCommissionRate",
+      "@type": "xsd:decimal"
+    },
+    "OwnerApiResponseWrapper": "hostfully:OwnerApiResponseWrapper",
+    "owner": {
+      "@id": "hostfully:owner",
+      "@type": "@id"
+    },
+    "OwnerUpdatingApi3Dto": "hostfully:OwnerUpdatingApi3Dto",
+    "OwnersApiResponseWrapper": "hostfully:OwnersApiResponseWrapper",
+    "owners": {
+      "@id": "hostfully:owners",
+      "@container": "@list"
+    },
+    "PhotoUpdatingApi3Dto": "hostfully:PhotoUpdatingApi3Dto",
+    "airbnbRoomId": {
+      "@id": "hostfully:airbnbRoomId",
+      "@type": "xsd:string"
+    },
+    "pmpRoomUid": {
+      "@id": "hostfully:pmpRoomUid",
+      "@type": "xsd:string"
+    },
+    "displayOrder": {
+      "@id": "hostfully:displayOrder",
+      "@type": "xsd:integer"
+    },
+    "PhotoApi3Dto": "hostfully:PhotoApi3Dto",
+    "originalImageUrl": {
+      "@id": "hostfully:originalImageUrl",
+      "@type": "xsd:string"
+    },
+    "largeScaleImageUrl": {
+      "@id": "hostfully:largeScaleImageUrl",
+      "@type": "xsd:string"
+    },
+    "mediumScaleImageUrl": {
+      "@id": "hostfully:mediumScaleImageUrl",
+      "@type": "xsd:string"
+    },
+    "largeThumbnailScaleImageUrl": {
+      "@id": "hostfully:largeThumbnailScaleImageUrl",
+      "@type": "xsd:string"
+    },
+    "mediumThumbnailScaleImageUrl": {
+      "@id": "hostfully:mediumThumbnailScaleImageUrl",
+      "@type": "xsd:string"
+    },
+    "PhotoApiResponseWrapper": "hostfully:PhotoApiResponseWrapper",
+    "photo": {
+      "@id": "hostfully:photo",
+      "@type": "@id"
+    },
+    "PhotosApiResponseWrapper": "hostfully:PhotosApiResponseWrapper",
+    "photos": {
+      "@id": "hostfully:photos",
+      "@container": "@list"
+    },
+    "PhotoAddingApi3Dto": "hostfully:PhotoAddingApi3Dto",
+    "PinCodeAddingApi3_1Dto": "hostfully:PinCodeAddingApi3_1Dto",
+    "lockType": {
+      "@id": "hostfully:lockType",
+      "@type": "xsd:string"
+    },
+    "startDateTimeUTC": {
+      "@id": "hostfully:startDateTimeUTC",
+      "@type": "xsd:string"
+    },
+    "endDateTimeUTC": {
+      "@id": "hostfully:endDateTimeUTC",
+      "@type": "xsd:string"
+    },
+    "pinCode": {
+      "@id": "hostfully:pinCode",
+      "@type": "xsd:string"
+    },
+    "pinCodeUrl": {
+      "@id": "hostfully:pinCodeUrl",
+      "@type": "xsd:string"
+    },
+    "PinCodeApi3ResponseWrapperPinCodeApi3_1Dto": "hostfully:PinCodeApi3ResponseWrapperPinCodeApi3_1Dto",
+    "PinCodeApi3_1Dto": "hostfully:PinCodeApi3_1Dto"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Hostfully API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Hostfully's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-14) from openapi/hostfully-api-openapi.yml.",
+  "dcterms:created": "2026-10-14",
+  "dcterms:source": [
+    "openapi/hostfully-api-openapi.yml"
+  ]
+}

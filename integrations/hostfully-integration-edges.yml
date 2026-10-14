@@ -1,0 +1,449 @@
+generated: '2026-10-14'
+method: searched
+source:
+- https://zapier.com/apps/hostfully/integrations
+checked:
+- https://composio.dev/toolkits/hostfully
+- https://monid.ai/tools/hostfully
+- https://n8n.io/integrations/hostfully/
+- https://zapier.com/apps/hostfully/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: hostfully
+  url: https://zapier.com/apps/hostfully/integrations
+  external_url: https://www.hostfully.com/property-management-platform-feature-overview/
+  partner_tier: BRONZE
+  triggers:
+  - key: cancelled_lead
+    label: Cancelled Booking
+  - key: new_lead
+    label: New Booking
+  - key: updated_lead
+    label: Updated Booking
+  actions: []
+  searches: []
+edges:
+- partner_name: Google Calendar
+  partner: google-calendar
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/google-calendar
+  direction: third-party
+  category: Calendar
+  partner_url: https://calendar.google.com/
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/mailchimp
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://mailchimp.com/
+- partner_name: monday.com
+  partner: monday-com
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: QuickBooks Online
+  partner: quickbooks
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/quickbooks
+  direction: third-party
+  category: Accounting
+  partner_url: http://intuit.com/
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: Todoist
+  partner: todoist
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/todoist
+  direction: third-party
+  category: Task Management
+  partner_url: https://todoist.com/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: Quo
+  partner: quo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/quo
+  direction: third-party
+  category: Phone & SMS
+  partner_url: https://quo.com/?utm_source=partnership&utm_medium=partner&utm_campaign=zapier
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: Google Contacts
+  partner: google
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/google-contacts
+  direction: third-party
+  category: Contact Management
+  partner_url: https://www.google.com/contacts/
+- partner_name: Asana
+  partner: asana
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/asana
+  direction: third-party
+  category: Project Management
+  partner_url: http://asana.com/
+- partner_name: Google Ads
+  partner: google-ads
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/google-ads
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://ads.google.com/
+- partner_name: Podio
+  partner: podio
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/podio
+  direction: third-party
+  category: Project Management
+  partner_url: https://podio.com/
+- partner_name: Knack
+  partner: knack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/knack
+  direction: third-party
+  category: Databases
+  partner_url: https://www.knackhq.com/
+- partner_name: Notion
+  partner: notion
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/notion
+  direction: third-party
+  category: Task Management
+  partner_url: https://www.notion.so/
+- partner_name: Connecteam
+  partner: connecteam
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/connecteam
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://connecteam.com/?utm_source=zapier&utm_medium=partnerships&utm_content=marketplace
+- partner_name: Zoho Desk
+  partner: zoho-desk
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/zoho-desk
+  direction: third-party
+  category: Customer Support
+  partner_url: https://go.zoho.com/lC3
+- partner_name: Google Tasks
+  partner: google-tasks
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/google-tasks
+  direction: third-party
+  category: Google
+  partner_url: https://google.com/
+- partner_name: SmartSuite
+  partner: smartsuite
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/smartsuite
+  direction: third-party
+  category: Productivity
+  partner_url: https://smartsuite.com/
+- partner_name: Flodesk
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/flodesk
+  direction: third-party
+  category: Email Newsletters
+  partner_url: https://flodesk.com/
+- partner_name: Jobber
+  partner: jobber
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/jobber
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://www.getjobber.com/plp/zapier?utm_source=Zapier&utm_medium=PLP
+- partner_name: WordPress
+  partner: wordpress
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/wordpress
+  direction: third-party
+  category: Website Builders
+  partner_url: https://wordpress.org/
+- partner_name: Zoom
+  partner: zoom
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/zoom
+  direction: third-party
+  category: Video Conferencing
+  partner_url: https://www.zoom.us/
+- partner_name: Hostaway
+  partner: hostaway
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/hostaway
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://www.hostaway.com/
+- partner_name: Facebook Conversions
+  partner: facebook
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/facebook-conversions
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://developers.facebook.com/docs/marketing-api/server-side-api/guides/zapier-integration
+- partner_name: KeyNest
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/keynest-1
+  direction: third-party
+  category: Productivity
+  partner_url: https://secure.keynest.com/
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: Discord
+  partner: discord
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/discord
+  direction: third-party
+  category: Team Chat
+  partner_url: https://discordapp.com/
+- partner_name: Follow Up Boss
+  partner: follow-up-boss
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/hostfully/integrations/follow-up-boss
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: http://www.followupboss.com/
+templates:
+- title: Create Google Sheets spreadsheet rows from new Hostfully bookings
+  url: https://zapier.com/apps/google-sheets/integrations/hostfully/470956/create-google-sheets-spreadsheet-rows-from-new-hostfully-bookings
+  apps:
+  - hostfully
+  - google-sheets
+- title: Create Google Calendar events from new Hostfully reservations
+  url: https://zapier.com/apps/google-calendar/integrations/hostfully/465644/create-google-calendar-events-from-new-hostfully-reservations
+  apps:
+  - hostfully
+  - google-calendar
+- title: Send channel messages in Slack for new Hostfully bookings
+  url: https://zapier.com/apps/hostfully/integrations/slack/475696/send-channel-messages-in-slack-for-new-hostfully-bookings
+  apps:
+  - hostfully
+  - slack
+- title: Add contacts in Google Contacts from new reservations in Hostfully
+  url: https://zapier.com/apps/google-contacts/integrations/hostfully/465668/add-contacts-in-google-contacts-from-new-reservations-in-hostfully
+  apps:
+  - hostfully
+  - google-contacts
+- title: Add Mailchimp subscribers for new bookings in Hostfully
+  url: https://zapier.com/apps/hostfully/integrations/mailchimp/465661/add-mailchimp-subscribers-for-new-bookings-in-hostfully
+  apps:
+  - hostfully
+  - mailchimp
+- title: Create Asana tasks from new Hostfully bookings
+  url: https://zapier.com/apps/asana/integrations/hostfully/470962/create-asana-tasks-from-new-hostfully-bookings
+  apps:
+  - hostfully
+  - asana
+- title: Send Gmail emails for new bookings in Hostfully
+  url: https://zapier.com/apps/gmail/integrations/hostfully/465677/send-gmail-emails-for-new-bookings-in-hostfully
+  apps:
+  - hostfully
+  - gmail
+- title: Create Microsoft Excel spreadsheets for new Hostfully bookings
+  url: https://zapier.com/apps/excel/integrations/hostfully/1807545/create-microsoft-excel-spreadsheets-for-new-hostfully-bookings
+  apps:
+  - hostfully
+  - excel
+- title: Create conversion events for properties in Google Analytics 4 when new bookings occur in Hostfully
+  url: https://zapier.com/apps/google-analytics-4/integrations/hostfully/1653109/create-conversion-events-for-properties-in-google-analytics-4-when-new-bookings-occur-in-hostfully
+  apps:
+  - hostfully
+  - google-analytics-4
+- title: Create Trello cards from new Hostfully bookings
+  url: https://zapier.com/apps/hostfully/integrations/trello/470959/create-trello-cards-from-new-hostfully-bookings
+  apps:
+  - hostfully
+  - trello
+- title: Send text messages via Twilio for new bookings in Hostfully
+  url: https://zapier.com/apps/hostfully/integrations/twilio/473657/send-text-messages-via-twilio-for-new-bookings-in-hostfully
+  apps:
+  - hostfully
+  - twilio
+- title: Send SurveyMonkey surveys for new bookings in Hostfully
+  url: https://zapier.com/apps/hostfully/integrations/surveymonkey/473661/send-surveymonkey-surveys-for-new-bookings-in-hostfully
+  apps:
+  - hostfully
+  - surveymonkey
+template_total: 59

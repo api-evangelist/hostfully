@@ -1,0 +1,48 @@
+generated: '2026-10-14'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/hostfully-api-openapi.yml
+format: custom
+envelope:
+  media_type: '*/*'
+  schema: PricingPeriodsBulkUpdateTaskApiResponseWrapper
+coverage:
+  operations: 176
+  statuses_declared: 5
+problems:
+- status: 400
+  title: Bad Request
+  description: When none or both 'propertyUid' and 'hotelUid' query parameters are supplied
+  operations: 2
+  media_types:
+  - '*/*'
+  schema: AvailablePropertyRulesApiResponseWrapper
+- status: 401
+  title: Unauthorized
+  description: Unauthorized access.
+  operations: 1
+  media_types:
+  - '*/*'
+  schema: OrderAdjustmentItemApi3ResponseWrapper
+- status: 403
+  title: Forbidden
+  description: When not authorized to edit any of the specified properties
+  operations: 1
+  media_types:
+  - '*/*'
+  schema: PricingPeriodsBulkUpdateTaskApiResponseWrapper
+- status: 404
+  title: Not Found
+  description: Order not found.
+  operations: 3
+  media_types:
+  - '*/*'
+  schema: OrderAdjustmentsResponseWrapper
+- status: default
+  title: null
+  description: default response
+  operations: 2
+  media_types:
+  - application/json
+  schema: AvailablePropertyRulesApiResponseWrapper

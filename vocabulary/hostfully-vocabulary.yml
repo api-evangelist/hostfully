@@ -1,0 +1,423 @@
+generated: '2026-10-14'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/hostfully-api-openapi.yml
+vocabulary:
+  name: Hostfully Domain Vocabulary
+  description: 'Terms declared by Hostfully''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-14'
+  terms:
+  - term: Direct Booking Site
+    definition: 'Endpoint presenting read-only Hostfully''s Booking Site settings. More info at: https://help.hostfully.com/en/articles/4487522-activate-hostfully-channel'
+    tags:
+    - Resource Group
+    source: openapi/hostfully-api-openapi.yml
+  - term: DBSPropertyDto
+    definition: 'Object declared by the contract with fields: url, enabled.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/DBSPropertyDto
+  - term: DbsPropertyDtoWrapper
+    definition: 'Object declared by the contract with fields: dbs.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/DbsPropertyDtoWrapper
+  - term: AgencyDbsResponseWrapper
+    definition: 'Object declared by the contract with fields: dbs.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AgencyDbsResponseWrapper
+  - term: DBSAgencyPublicApiDto
+    definition: 'Object declared by the contract with fields: agencyUid, dbsEnabled, website, featuredProperties.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/DBSAgencyPublicApiDto
+  - term: AgencyApi3ResponseDto
+    definition: 'Object declared by the contract with fields: uid, name, agencyEmailAddress, phoneNumber, website, address1, city, zipCode, state,
+      currency, currencyCode, countryCode. (4 more)'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AgencyApi3ResponseDto
+  - term: AgencyApiV3ResponseWrapper
+    definition: 'Object declared by the contract with fields: agency.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AgencyApiV3ResponseWrapper
+  - term: Api3ResponseMetadata
+    definition: 'Object declared by the contract with fields: count, totalCount.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/Api3ResponseMetadata
+  - term: AgenciesApiV3ResponseWrapper
+    definition: 'Object declared by the contract with fields: agencies, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AgenciesApiV3ResponseWrapper
+  - term: AmenityApi3Dto
+    definition: 'Object declared by the contract with fields: uid, amenity, category, propertyUid, description, price, chargeFrequency.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AmenityApi3Dto
+  - term: AmenityApiResponseWrapper
+    definition: 'Object declared by the contract with fields: amenity.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AmenityApiResponseWrapper
+  - term: AmenityUpdatingApi3Dto
+    definition: 'Object declared by the contract with fields: description.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AmenityUpdatingApi3Dto
+  - term: AmenitiesApiResponseWrapper
+    definition: 'Object declared by the contract with fields: amenities, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AmenitiesApiResponseWrapper
+  - term: AmenityAddingApi3Dto
+    definition: 'Object declared by the contract with fields: amenity, propertyUid, hotelUid, description, price, frequency.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AmenityAddingApi3Dto
+  - term: AvailableAmenitiesApiResponseWrapper
+    definition: 'Object declared by the contract with fields: amenities, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AvailableAmenitiesApiResponseWrapper
+  - term: AvailableAmenityApi3Dto
+    definition: 'Object declared by the contract with fields: amenity, category, channels.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AvailableAmenityApi3Dto
+  - term: AvailablePropertyRuleApi3Dto
+    definition: 'Object declared by the contract with fields: rule, channels.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AvailablePropertyRuleApi3Dto
+  - term: AvailablePropertyRulesApiResponseWrapper
+    definition: 'Object declared by the contract with fields: availablePropertyRules, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/AvailablePropertyRulesApiResponseWrapper
+  - term: CustomAmenityApi3Dto
+    definition: 'Object declared by the contract with fields: uid, name, objectUid, objectType.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomAmenityApi3Dto
+  - term: CustomAmenitiesApiResponseWrapper
+    definition: 'Object declared by the contract with fields: customAmenities, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomAmenitiesApiResponseWrapper
+  - term: CustomAmenityAddingApi3Dto
+    definition: 'Object declared by the contract with fields: name, objectUid, objectType.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomAmenityAddingApi3Dto
+  - term: CustomAmenityApiResponseWrapper
+    definition: 'Object declared by the contract with fields: customAmenity.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomAmenityApiResponseWrapper
+  - term: CustomDataFieldApi3Dto
+    definition: 'Object declared by the contract with fields: agencyUid, uid, type, name, variable, index, minAgeToShow, subType, usage, isOptional,
+      isActive, options.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomDataFieldApi3Dto
+  - term: CustomDataFieldOptionDto
+    definition: 'Object declared by the contract with fields: uid, optionText, optionValue, sortOrder, active.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomDataFieldOptionDto
+  - term: CustomDataApi3_1Dto
+    definition: 'Object declared by the contract with fields: text, customDataField, propertyUid, leadUid, unitUid.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomDataApi3_1Dto
+  - term: CustomDataApi3ResponseWrapperCustomDataApi3_1Dto
+    definition: 'Object declared by the contract with fields: customData, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomDataApi3ResponseWrapperCustomDataApi3_1Dto
+  - term: CustomDataAddingApi3Dto
+    definition: 'Object declared by the contract with fields: text, customDataFieldUid, propertyUid, leadUid.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomDataAddingApi3Dto
+  - term: CustomDataApiResponseWrapperCustomDataApi3_1Dto
+    definition: 'Object declared by the contract with fields: customData.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomDataApiResponseWrapperCustomDataApi3_1Dto
+  - term: Api3ResponsePaging
+    definition: 'Object declared by the contract with fields: _limit, _nextCursor.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/Api3ResponsePaging
+  - term: CustomDataV32ResponseWrapper
+    definition: 'Object declared by the contract with fields: customDataFields, _metadata, _paging.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomDataV32ResponseWrapper
+  - term: CustomDataFieldAddingApi3Dto
+    definition: 'Object declared by the contract with fields: agencyUid, type, name, variable, index, minAgeToShow, subType, usage.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomDataFieldAddingApi3Dto
+  - term: CustomDataFieldApiResponseWrapper
+    definition: 'Object declared by the contract with fields: customDataField.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/CustomDataFieldApiResponseWrapper
+  - term: EmployeeApi3Dto
+    definition: 'Object declared by the contract with fields: uid, agencyUid, bestProfile, email, pictureUrl, role, firstName, lastName, phoneNumber,
+      phoneAreaCode, colorCode.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/EmployeeApi3Dto
+  - term: EmployeeApiResponseWrapper
+    definition: 'Object declared by the contract with fields: employee.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/EmployeeApiResponseWrapper
+  - term: EmployeeApi3UpdatingDto
+    definition: 'Object declared by the contract with fields: firstName, lastName, colorCode, phoneNumber, phoneAreaCode, pictureUrl.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/EmployeeApi3UpdatingDto
+  - term: EmployeesApiResponseWrapper
+    definition: 'Object declared by the contract with fields: employees, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/EmployeesApiResponseWrapper
+  - term: ExtraGuestsApi3ResponseDto
+    definition: 'Object declared by the contract with fields: leadUid, firstName, lastName, email, age.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/ExtraGuestsApi3ResponseDto
+  - term: ExtraGuestsApiV3ResponseWrapper
+    definition: 'Object declared by the contract with fields: extraGuests, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/ExtraGuestsApiV3ResponseWrapper
+  - term: FeeApi3_3Dto
+    definition: 'Object declared by the contract with fields: feeId, uid, propertyUid, amount, amountType, attestation, longTermStayExemption,
+      name, optional, scope, condition, taxationRate. (10 more)'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/FeeApi3_3Dto
+  - term: FeeApi3_3ResponseWrapper
+    definition: 'Object declared by the contract with fields: fee.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/FeeApi3_3ResponseWrapper
+  - term: FeeConditionsApi3ResponseDto
+    definition: 'Object declared by the contract with fields: condition, conditionsLOSDays, longTermStayExemption, firstNightsApplying.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/FeeConditionsApi3ResponseDto
+  - term: FeeMetadataApi3Dto
+    definition: 'Object declared by the contract with fields: appliesToAllProperties, propertiesThatShareFee.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/FeeMetadataApi3Dto
+  - term: TupleStringString
+    definition: 'Object declared by the contract with fields: left, right.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/TupleStringString
+  - term: FeeConditionsApi3RequestDto
+    definition: 'Object declared by the contract with fields: condition, conditionsLOSDays, firstNightsApplying, longTermStayExemption.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/FeeConditionsApi3RequestDto
+  - term: FeeSavingApi3_3Dto
+    definition: 'Object declared by the contract with fields: propertyUid, amount, amountType, attestation, name, optional, scope, taxationRate,
+      type, offline, airbnbType, airbnbUnitType. (6 more)'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/FeeSavingApi3_3Dto
+  - term: FeeApi3_3ResponseListWrapper
+    definition: 'Object declared by the contract with fields: fees, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/FeeApi3_3ResponseListWrapper
+  - term: GuestsApi3ResponseDto
+    definition: 'Object declared by the contract with fields: lastName, zipCode, linkedinURL, city, mobileNumber, pictureURL, address, address2,
+      birthDate, favoriteAirline, firstName, skypeID. (7 more)'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/GuestsApi3ResponseDto
+  - term: GuestsApi3ResponseWrapper
+    definition: 'Object declared by the contract with fields: guests, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/GuestsApi3ResponseWrapper
+  - term: ICalApi3ResponseDto
+    definition: 'Object declared by the contract with fields: url, source, name.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/ICalApi3ResponseDto
+  - term: ICalsApiResponseWrapper
+    definition: 'Object declared by the contract with fields: icals, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/ICalsApiResponseWrapper
+  - term: JobApi3_1Dto
+    definition: 'Object declared by the contract with fields: uid, status, propertyUid, serviceUid, leadUid, startZonedDateTime, endZonedDateTime,
+      startLocalDateTime, endLocalDateTime, notes, modified, unitUid. (2 more)'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/JobApi3_1Dto
+  - term: JobApiResponseWrapperJobApi3_1Dto
+    definition: 'Object declared by the contract with fields: job.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/JobApiResponseWrapperJobApi3_1Dto
+  - term: JobApi3_1UpdatingDto
+    definition: 'Object declared by the contract with fields: status, startLocalDateTime, endLocalDateTime, notes, unitUid.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/JobApi3_1UpdatingDto
+  - term: JobsApiResponseWrapperJobApi3_1Dto
+    definition: 'Object declared by the contract with fields: jobs, _metadata.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/JobsApiResponseWrapperJobApi3_1Dto
+  - term: JobApi3_1AddingDto
+    definition: 'Object declared by the contract with fields: status, propertyUid, serviceUid, leadUid, startLocalDateTime, endLocalDateTime,
+      notes, unitUid.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/JobApi3_1AddingDto
+  - term: LeadGuestInformationForCreationApiV3Dto
+    definition: Ignored for BLOCK type of a lead
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadGuestInformationForCreationApiV3Dto
+  - term: LeadApiV3AssigneeDto
+    definition: 'Object declared by the contract with fields: uid, type.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApiV3AssigneeDto
+  - term: LeadApiV3_1Dto
+    definition: 'Object declared by the contract with fields: uid, propertyUid, agencyUid, checkInZonedDateTime, checkOutZonedDateTime, checkInLocalDateTime,
+      checkOutLocalDateTime, status, type, source, channel, bookedUtcDateTime. (8 more)'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApiV3_1Dto
+  - term: LeadMetadataApiV3Dto
+    definition: 'Object declared by the contract with fields: createdUtcDateTime, updatedUtcDateTime, creationCircumstances.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadMetadataApiV3Dto
+  - term: LeadApi3ListOfResourcesResponseLeadApiV3_1Dto
+    definition: 'Object declared by the contract with fields: leads, _metadata, _paging.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApi3ListOfResourcesResponseLeadApiV3_1Dto
+  - term: PriceOverridesApi3Dto
+    definition: 'Object declared by the contract with fields: netPrice, taxationRate.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/PriceOverridesApi3Dto
+  - term: QuoteFeeOverridesApi3Dto
+    definition: 'Object declared by the contract with fields: feeId, feeUid, name, amountType, amount, taxationRate, scope, type, isOptional,
+      netPrice, enabled, removed.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/QuoteFeeOverridesApi3Dto
+  - term: QuoteFeesOverridesApi3Dto
+    definition: 'Object declared by the contract with fields: cleaningFee, otherFees.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/QuoteFeesOverridesApi3Dto
+  - term: QuoteOverridesApi3Dto
+    definition: 'Object declared by the contract with fields: rent, securityDeposit, fees, totalPrice, force100PercentPaymentAtReservation.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/QuoteOverridesApi3Dto
+  - term: QuoteRentOverridesApi3Dto
+    definition: 'Object declared by the contract with fields: rentBaseNetPrice, rentNetPrice, extraGuestsNetPrice, taxationRate, taxAmount, extraGuestsBaseNetPrice.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/QuoteRentOverridesApi3Dto
+  - term: LeadApiV3_1CreationDto
+    definition: Requires either pair of (checkInLocalDateTime, checkOutLocalDateTime) or (checkInLocalDate, checkOutLocalDate)
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApiV3_1CreationDto
+  - term: LeadApi3SingleResourceResponseLeadApiV3_1Dto
+    definition: 'Object declared by the contract with fields: lead.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto
+  - term: LeadApiV3RentalConditionsDto
+    definition: 'Object declared by the contract with fields: rentalConditionsUrl.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApiV3RentalConditionsDto
+  - term: LeadApiV3_1AlterationRequestDto
+    definition: 'Object declared by the contract with fields: checkInLocalDateTime, checkOutLocalDateTime, checkInLocalDate, checkOutLocalDate,
+      propertyUid, adultCount, childrenCount, petCount, infantCount, quoteOverrides, unitUid.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApiV3_1AlterationRequestDto
+  - term: LeadApiV3PatchDto
+    definition: 'Object declared by the contract with fields: guestInformation, notes, extraNotes.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApiV3PatchDto
+  - term: LeadGuestInformationForPatchApiV3Dto
+    definition: 'Object declared by the contract with fields: firstName, lastName, address1, address2, zipCode, city, state, countryCode, passportId,
+      passportCountryCode, riskScore, email. (11 more)'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadGuestInformationForPatchApiV3Dto
+  - term: LeadApiV3GroupBookingDto
+    definition: 'Object declared by the contract with fields: uid, propertyUid, agencyUid, checkInZonedDateTime, checkOutZonedDateTime, checkInLocalDateTime,
+      checkOutLocalDateTime, status, type, source, channel, bookedUtcDateTime. (11 more)'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApiV3GroupBookingDto
+  - term: LeadApiV3GroupBookingSubLeadDto
+    definition: Returns the reservation data of the sub-lead, along with its respective groupUid
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApiV3GroupBookingSubLeadDto
+  - term: LeadApi3ListOfResourcesResponseLeadApiV3GroupBookingDto
+    definition: 'Object declared by the contract with fields: leads, _metadata, _paging.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApi3ListOfResourcesResponseLeadApiV3GroupBookingDto
+  - term: LeadApi3SingleResourceResponseLeadApiV3GroupBookingDto
+    definition: 'Object declared by the contract with fields: lead.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3GroupBookingDto
+  - term: LeadApiV3GroupBookingCreationDto
+    definition: Requires propertyUid and hotelUid for a hotel reservation, send hotelUid null for master/sub reservation
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApiV3GroupBookingCreationDto
+  - term: LeadApiV3SubLeadCreationDto
+    definition: List of sub-leads belonging to the group-booking
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/LeadApiV3SubLeadCreationDto
+  - term: MessageAttachmentApi3_2Dto
+    definition: 'Object declared by the contract with fields: uid, uri, fileName, contentType, type.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/MessageAttachmentApi3_2Dto
+  - term: MessageContentApi3Dto
+    definition: 'Object declared by the contract with fields: subject, text.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/MessageContentApi3Dto
+  - term: MessagesApi3_2ResponseDto
+    definition: 'Object declared by the contract with fields: uid, createdUtcDateTime, status, type, senderType, content, threadUid, attachments.'
+    tags:
+    - Object
+    source: openapi/hostfully-api-openapi.yml#/components/schemas/MessagesApi3_2ResponseDto
