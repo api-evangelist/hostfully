@@ -1,0 +1,506 @@
+openapi: 3.2.0
+info:
+  title: Hostfully Orders API
+  license:
+    name: Apache 2.0
+    url: https://www.hostfully.com/
+  version: v3.0.1
+servers:
+- url: https://sandbox-api.hostfully.com
+security:
+- JWT-Authentication: []
+- Agency-API-key: []
+tags:
+- name: Orders
+paths:
+  /api/v3.3/orders:
+    get:
+      tags:
+      - Orders
+      summary: Get orders with filters
+      description: Retrieves orders with optional filtering by guest UID, property UID, lead UID or update timestamp. At least one filter parameter must be provided
+      operationId: getAll_9
+      parameters:
+      - name: guestUid
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: propertyUid
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: leadUid
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: updatedSince
+        in: query
+        required: false
+        schema:
+          type: string
+          example: '2026-04-20T11:52:36'
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdersApiResponseWrapper'
+components:
+  schemas:
+    DiscountGraphQLApiTO:
+      type: object
+      properties:
+        discountCode:
+          type: string
+        discountType:
+          type: string
+          enum:
+          - AMOUNT
+          - PERCENT
+        amount:
+          type: number
+        percent:
+          type: number
+    OrderRentApi3Dto:
+      type: object
+      properties:
+        rentNetPrice:
+          type: number
+        rentBreakdowns:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderRentBreakdownApi3Dto'
+        extraGuestsNetPrice:
+          type: number
+        listPrice:
+          type: number
+        discount:
+          $ref: '#/components/schemas/DiscountGraphQLApiTO'
+        netPrice:
+          type: number
+        taxationRate:
+          type: number
+        taxAmount:
+          type: number
+        grossPrice:
+          type: number
+    OrderAdjustmentItemApi3Dto:
+      type: object
+      properties:
+        uid:
+          type: string
+        transactionType:
+          type: string
+          enum:
+          - CHARGE
+          - REFUND
+        adjustmentType:
+          type: string
+          enum:
+          - RENT
+          - TAX
+          - FEE
+          - SERVICE
+          - RESOLUTION
+        amount:
+          type: number
+        note:
+          type: string
+        createdUtcDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        externalId:
+          type: string
+    OrderFeesApi3Dto:
+      type: object
+      properties:
+        cleaningFee:
+          $ref: '#/components/schemas/OrderFeeApi3Dto'
+        otherFees:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderFeeApi3Dto'
+    OrderAdjustmentApi3Dto:
+      type: object
+      properties:
+        isPaid:
+          type: boolean
+        amount:
+          type: number
+    OrderApi3Dto:
+      type: object
+      properties:
+        uid:
+          type: string
+        leadUid:
+          type: string
+        creationUtcDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        updatedUtcDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        rent:
+          $ref: '#/components/schemas/OrderRentApi3Dto'
+        securityDeposit:
+          type: number
+          description: "The securit deposit paid, if any, in this reservation. \n1. It is not inclusive in case the Additional Charge Option is enabled for the agency \n2. It is not inclusive for normal Security Deposit (due at check in)\n3. It is inclusive for normal Security Deposit (due at booking time)"
+        fees:
+          $ref: '#/components/schemas/OrderFeesApi3Dto'
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderServiceApi3Dto'
+        adjustments:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderAdjustmentApi3Dto'
+        rateMultiplier:
+          type: number
+        currency:
+          type: string
+          enum:
+          - USD
+          - EUR
+          - GBP
+          - CAD
+          - JPY
+          - INR
+          - MYR
+          - AUD
+          - KES
+          - MXN
+          - HKD
+          - NZD
+          - CHF
+          - BRL
+          - CLP
+          - COP
+          - PEN
+          - ARS
+          - UYU
+          - VEF
+          - CNY
+          - THB
+          - KRW
+          - IDR
+          - SGD
+          - TWD
+          - AED
+          - ZAR
+          - CZK
+          - DKK
+          - DOP
+          - SEK
+          - BGN
+          - ILS
+          - NOK
+          - RON
+          - RUB
+          - PHP
+          - VND
+          - HUF
+          - IKR
+          - PLN
+          - PYG
+          - TRY
+          - GTQ
+          - VUV
+          - JOD
+          - SAR
+          - EGP
+          - TTD
+          - MAD
+          - CVE
+          - BBD
+          - AWG
+          - BHD
+          - NONE
+        totalAmount:
+          type: number
+        totalTaxesAmount:
+          type: number
+        channelCommission:
+          $ref: '#/components/schemas/OrderChannelCommissionApi3Dto'
+        adjustmentItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderAdjustmentItemApi3Dto'
+        externalOrderId:
+          type: string
+    OrderRentBreakdownApi3Dto:
+      type: object
+      properties:
+        nightlyAmount:
+          type: number
+        nightlyDate:
+          type: string
+          format: date
+    OrderServiceApi3Dto:
+      type: object
+      properties:
+        title:
+          type: string
+        grossPrice:
+          type: number
+        quantity:
+          type: integer
+          format: int32
+        quantityDescription:
+          type: string
+        serviceUid:
+          type: string
+        uid:
+          type: string
+    Api3ResponseMetadata:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+    OrdersApiResponseWrapper:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderApi3Dto'
+        _metadata:
+          $ref: '#/components/schemas/Api3ResponseMetadata'
+    OrderChannelCommissionApi3Dto:
+      type: object
+      properties:
+        amount:
+          type: number
+    OrderFeeApi3Dto:
+      type: object
+      properties:
+        uid:
+          type: string
+        name:
+          type: string
+        amountType:
+          type: string
+          enum:
+          - AMOUNT
+          - TAX
+        isEditable:
+          type: boolean
+        netPrice:
+          type: number
+        taxationRate:
+          type: number
+        taxAmount:
+          type: number
+        grossAmount:
+          type: number
+        grossPrice:
+          type: number
+  securitySchemes:
+    JWT-Authentication:
+      type: apiKey
+      description: OAuth Access Token
+      name: Authorization
+      in: header
+    Agency-API-key:
+      type: apiKey
+      description: API Key
+      name: X-HOSTFULLY-APIKEY
+      in: header
+externalDocs:
+  description: Hostfully Documentation
+  url: https://dev.hostfully.com/v3.0/reference
+x-provenance:
+  method: searched
+  source: https://dev.hostfully.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://dev.hostfully.com/reference/acceptbookingrequest.md
+  - https://dev.hostfully.com/reference/acceptjob.md
+  - https://dev.hostfully.com/reference/calculatequote.md
+  - https://dev.hostfully.com/reference/cancel.md
+  - https://dev.hostfully.com/reference/cancelgroupbooking.md
+  - https://dev.hostfully.com/reference/changedates.md
+  - https://dev.hostfully.com/reference/close.md
+  - https://dev.hostfully.com/reference/create.md
+  - https://dev.hostfully.com/reference/create_1.md
+  - https://dev.hostfully.com/reference/createfee.md
+  - https://dev.hostfully.com/reference/creategroupbookinglead.md
+  - https://dev.hostfully.com/reference/createlead.md
+  - https://dev.hostfully.com/reference/createmessage.md
+  - https://dev.hostfully.com/reference/createorderadjustment.md
+  - https://dev.hostfully.com/reference/createowneradjustment.md
+  - https://dev.hostfully.com/reference/createproperty.md
+  - https://dev.hostfully.com/reference/createpropertyrule.md
+  - https://dev.hostfully.com/reference/currentapiversion.md
+  - https://dev.hostfully.com/reference/declinebookingrequest.md
+  - https://dev.hostfully.com/reference/declinejob.md
+  - https://dev.hostfully.com/reference/delete.md
+  - https://dev.hostfully.com/reference/delete_1.md
+  - https://dev.hostfully.com/reference/delete_10.md
+  - https://dev.hostfully.com/reference/delete_11.md
+  - https://dev.hostfully.com/reference/delete_12.md
+  - https://dev.hostfully.com/reference/delete_13.md
+  - https://dev.hostfully.com/reference/delete_14.md
+  - https://dev.hostfully.com/reference/delete_15.md
+  - https://dev.hostfully.com/reference/delete_2.md
+  - https://dev.hostfully.com/reference/delete_3.md
+  - https://dev.hostfully.com/reference/delete_4.md
+  - https://dev.hostfully.com/reference/delete_5.md
+  - https://dev.hostfully.com/reference/delete_6.md
+  - https://dev.hostfully.com/reference/delete_7.md
+  - https://dev.hostfully.com/reference/delete_8.md
+  - https://dev.hostfully.com/reference/delete_9.md
+  - https://dev.hostfully.com/reference/deleteall.md
+  - https://dev.hostfully.com/reference/deletebyuid.md
+  - https://dev.hostfully.com/reference/deletefee.md
+  - https://dev.hostfully.com/reference/deleteorderadjustment.md
+  - https://dev.hostfully.com/reference/deleteowneradjustmentbyuid.md
+  - https://dev.hostfully.com/reference/deletepropertybyuid.md
+  - https://dev.hostfully.com/reference/deletepropertybyuid_1.md
+  - https://dev.hostfully.com/reference/deletepropertyrule.md
+  - https://dev.hostfully.com/reference/execute.md
+  - https://dev.hostfully.com/reference/extendhold.md
+  - https://dev.hostfully.com/reference/fetchextraguestsbylead.md
+  - https://dev.hostfully.com/reference/findall.md
+  - https://dev.hostfully.com/reference/findall_1.md
+  - https://dev.hostfully.com/reference/findall_2.md
+  - https://dev.hostfully.com/reference/findall_3.md
+  - https://dev.hostfully.com/reference/findall_4.md
+  - https://dev.hostfully.com/reference/findall_5.md
+  - https://dev.hostfully.com/reference/findall_6.md
+  - https://dev.hostfully.com/reference/findall_7.md
+  - https://dev.hostfully.com/reference/findall_8.md
+  - https://dev.hostfully.com/reference/findallmessagesforagency.md
+  - https://dev.hostfully.com/reference/findbyagencyuid.md
+  - https://dev.hostfully.com/reference/findbyhoteluid.md
+  - https://dev.hostfully.com/reference/findbypropertyuid.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_1.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_2.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_3.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_4.md
+  - https://dev.hostfully.com/reference/findbyuid.md
+  - https://dev.hostfully.com/reference/findbyuid_1.md
+  - https://dev.hostfully.com/reference/findbyuid_2.md
+  - https://dev.hostfully.com/reference/findbyuid_3.md
+  - https://dev.hostfully.com/reference/findbyuid_4.md
+  - https://dev.hostfully.com/reference/findbywebhookuid.md
+  - https://dev.hostfully.com/reference/findgroupbookingleads.md
+  - https://dev.hostfully.com/reference/findhotelsbyagencyuid.md
+  - https://dev.hostfully.com/reference/findlead.md
+  - https://dev.hostfully.com/reference/findleads.md
+  - https://dev.hostfully.com/reference/findmessagesbyuid.md
+  - https://dev.hostfully.com/reference/findthreadbyuid.md
+  - https://dev.hostfully.com/reference/findthreads.md
+  - https://dev.hostfully.com/reference/findunitbyuid.md
+  - https://dev.hostfully.com/reference/findunitsbyunittype.md
+  - https://dev.hostfully.com/reference/findupdatetaskstatusbyuid.md
+  - https://dev.hostfully.com/reference/getagencies.md
+  - https://dev.hostfully.com/reference/getagency.md
+  - https://dev.hostfully.com/reference/getagencydbssettings.md
+  - https://dev.hostfully.com/reference/getall.md
+  - https://dev.hostfully.com/reference/getall_1.md
+  - https://dev.hostfully.com/reference/getall_10.md
+  - https://dev.hostfully.com/reference/getall_11.md
+  - https://dev.hostfully.com/reference/getall_12.md
+  - https://dev.hostfully.com/reference/getall_13.md
+  - https://dev.hostfully.com/reference/getall_14.md
+  - https://dev.hostfully.com/reference/getall_15.md
+  - https://dev.hostfully.com/reference/getall_16.md
+  - https://dev.hostfully.com/reference/getall_17.md
+  - https://dev.hostfully.com/reference/getall_18.md
+  - https://dev.hostfully.com/reference/getall_19.md
+  - https://dev.hostfully.com/reference/getall_2.md
+  - https://dev.hostfully.com/reference/getall_3.md
+  - https://dev.hostfully.com/reference/getall_4.md
+  - https://dev.hostfully.com/reference/getall_5.md
+  - https://dev.hostfully.com/reference/getall_6.md
+  - https://dev.hostfully.com/reference/getall_7.md
+  - https://dev.hostfully.com/reference/getall_8.md
+  - https://dev.hostfully.com/reference/getall_9.md
+  - https://dev.hostfully.com/reference/getgroupbooking.md
+  - https://dev.hostfully.com/reference/getone.md
+  - https://dev.hostfully.com/reference/getone_1.md
+  - https://dev.hostfully.com/reference/getone_10.md
+  - https://dev.hostfully.com/reference/getone_11.md
+  - https://dev.hostfully.com/reference/getone_2.md
+  - https://dev.hostfully.com/reference/getone_3.md
+  - https://dev.hostfully.com/reference/getone_4.md
+  - https://dev.hostfully.com/reference/getone_5.md
+  - https://dev.hostfully.com/reference/getone_6.md
+  - https://dev.hostfully.com/reference/getone_7.md
+  - https://dev.hostfully.com/reference/getone_8.md
+  - https://dev.hostfully.com/reference/getone_9.md
+  - https://dev.hostfully.com/reference/getorderadjustments.md
+  - https://dev.hostfully.com/reference/getpropertydbssettings.md
+  - https://dev.hostfully.com/reference/getstatistics.md
+  - https://dev.hostfully.com/reference/ignore.md
+  - https://dev.hostfully.com/reference/markasbooked.md
+  - https://dev.hostfully.com/reference/markasdone.md
+  - https://dev.hostfully.com/reference/markprearrivalformcompleted.md
+  - https://dev.hostfully.com/reference/patch.md
+  - https://dev.hostfully.com/reference/patch_1.md
+  - https://dev.hostfully.com/reference/patch_2.md
+  - https://dev.hostfully.com/reference/patch_3.md
+  - https://dev.hostfully.com/reference/patchlead.md
+  - https://dev.hostfully.com/reference/patchpropertyrule.md
+  - https://dev.hostfully.com/reference/post.md
+  - https://dev.hostfully.com/reference/post_1.md
+  - https://dev.hostfully.com/reference/post_10.md
+  - https://dev.hostfully.com/reference/post_11.md
+  - https://dev.hostfully.com/reference/post_12.md
+  - https://dev.hostfully.com/reference/post_13.md
+  - https://dev.hostfully.com/reference/post_14.md
+  - https://dev.hostfully.com/reference/post_15.md
+  - https://dev.hostfully.com/reference/post_16.md
+  - https://dev.hostfully.com/reference/post_2.md
+  - https://dev.hostfully.com/reference/post_3.md
+  - https://dev.hostfully.com/reference/post_4.md
+  - https://dev.hostfully.com/reference/post_5.md
+  - https://dev.hostfully.com/reference/post_6.md
+  - https://dev.hostfully.com/reference/post_7.md
+  - https://dev.hostfully.com/reference/post_8.md
+  - https://dev.hostfully.com/reference/post_9.md
+  - https://dev.hostfully.com/reference/put.md
+  - https://dev.hostfully.com/reference/put_1.md
+  - https://dev.hostfully.com/reference/put_10.md
+  - https://dev.hostfully.com/reference/put_11.md
+  - https://dev.hostfully.com/reference/put_2.md
+  - https://dev.hostfully.com/reference/put_3.md
+  - https://dev.hostfully.com/reference/put_4.md
+  - https://dev.hostfully.com/reference/put_5.md
+  - https://dev.hostfully.com/reference/put_6.md
+  - https://dev.hostfully.com/reference/put_7.md
+  - https://dev.hostfully.com/reference/put_8.md
+  - https://dev.hostfully.com/reference/put_9.md
+  - https://dev.hostfully.com/reference/putleadonhold.md
+  - https://dev.hostfully.com/reference/rebook.md
+  - https://dev.hostfully.com/reference/remove-tag-for-object.md
+  - https://dev.hostfully.com/reference/removelead.md
+  - https://dev.hostfully.com/reference/reopen.md
+  - https://dev.hostfully.com/reference/resendmessage.md
+  - https://dev.hostfully.com/reference/set-tags-for-object.md
+  - https://dev.hostfully.com/reference/tags-by-object.md
+  - https://dev.hostfully.com/reference/update.md
+  - https://dev.hostfully.com/reference/updateapiversion.md
+  - https://dev.hostfully.com/reference/updatefee.md
+  - https://dev.hostfully.com/reference/updateowneradjustment.md
+  - https://dev.hostfully.com/reference/updatepropertyinfull.md
+  - https://dev.hostfully.com/reference/updatepropertypartially.md
+  - https://dev.hostfully.com/reference/updatepropertypartially_1.md
+  - https://dev.hostfully.com/reference/updatepropertyrule.md
+  - https://dev.hostfully.com/reference/updateratemultipliers.md
+  - https://dev.hostfully.com/reference/updaterentalagreementurl.md
+  merge:
+    pages: 176
+    deduped: 773
+    conflicts_kept_first: 0

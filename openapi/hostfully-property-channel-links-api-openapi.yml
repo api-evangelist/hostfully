@@ -1,0 +1,412 @@
+openapi: 3.2.0
+info:
+  title: Hostfully Property Channel Links API
+  license:
+    name: Apache 2.0
+    url: https://www.hostfully.com/
+  version: v3.0.1
+servers:
+- url: https://sandbox-api.hostfully.com
+security:
+- JWT-Authentication: []
+- Agency-API-key: []
+tags:
+- name: Property Channel Links
+paths:
+  /api/v3.3/property-channel-links:
+    get:
+      tags:
+      - Property Channel Links
+      summary: List channel links
+      description: Retrieves all channel links for a property, optionally filtered by channel type
+      operationId: getAll_6
+      parameters:
+      - name: propertyUid
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: channel
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - HOME_TO_GO
+          - GO_LIGHTLY
+          - VACAY_MY_WAY
+          - HOMADS
+          - AIRBNB
+          - BOOKING_DOT_COM
+          - VRBO
+          - GOOGLE
+          - HVMI
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PropertyChannelLinksApiResponseWrapper'
+    post:
+      tags:
+      - Property Channel Links
+      summary: Create channel link
+      description: Creates a new channel connection for a property
+      operationId: post_6
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyChannelLinkAddingApi3Dto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PropertyChannelLinkApiResponseWrapper'
+  /api/v3.3/property-channel-links/{uid}:
+    get:
+      tags:
+      - Property Channel Links
+      summary: Get channel link details
+      description: Retrieves details of a specific channel link by its UID
+      operationId: getOne_5
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PropertyChannelLinkApiResponseWrapper'
+    put:
+      tags:
+      - Property Channel Links
+      summary: Update channel link
+      description: Updates an existing property channel connection
+      operationId: put_6
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyChannelLinkUpdatingApi3Dto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PropertyChannelLinkApiResponseWrapper'
+    delete:
+      tags:
+      - Property Channel Links
+      summary: Delete channel link
+      description: Removes a channel connection from a property
+      operationId: delete_6
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+components:
+  schemas:
+    PropertyChannelLinksApiResponseWrapper:
+      type: object
+      properties:
+        propertyChannelLinks:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyChannelLinkApi3Dto'
+        _metadata:
+          $ref: '#/components/schemas/Api3ResponseMetadata'
+    PropertyChannelLinkApiResponseWrapper:
+      type: object
+      properties:
+        propertyChannelLink:
+          $ref: '#/components/schemas/PropertyChannelLinkApi3Dto'
+    PropertyChannelLinkApi3Dto:
+      type: object
+      properties:
+        uid:
+          type: string
+        propertyUid:
+          type: string
+        channel:
+          type: string
+          description: This field might be extended with new values. Consumers of the API should handle unknown channel types and have their implementation ready for extension if needed.
+          enum:
+          - HOME_TO_GO
+          - GO_LIGHTLY
+          - VACAY_MY_WAY
+          - HOMADS
+          - AIRBNB
+          - BOOKING_DOT_COM
+          - VRBO
+          - GOOGLE
+          - HVMI
+        url:
+          type: string
+        channelId:
+          type: string
+    Api3ResponseMetadata:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+    PropertyChannelLinkAddingApi3Dto:
+      required:
+      - propertyUid
+      - url
+      type: object
+      properties:
+        propertyUid:
+          type: string
+        channel:
+          type: string
+          enum:
+          - HOME_TO_GO
+          - GO_LIGHTLY
+          - VACAY_MY_WAY
+          - HOMADS
+          - AIRBNB
+          - BOOKING_DOT_COM
+          - VRBO
+          - GOOGLE
+          - HVMI
+        url:
+          type: string
+    PropertyChannelLinkUpdatingApi3Dto:
+      required:
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+  securitySchemes:
+    JWT-Authentication:
+      type: apiKey
+      description: OAuth Access Token
+      name: Authorization
+      in: header
+    Agency-API-key:
+      type: apiKey
+      description: API Key
+      name: X-HOSTFULLY-APIKEY
+      in: header
+externalDocs:
+  description: Hostfully Documentation
+  url: https://dev.hostfully.com/v3.0/reference
+x-provenance:
+  method: searched
+  source: https://dev.hostfully.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://dev.hostfully.com/reference/acceptbookingrequest.md
+  - https://dev.hostfully.com/reference/acceptjob.md
+  - https://dev.hostfully.com/reference/calculatequote.md
+  - https://dev.hostfully.com/reference/cancel.md
+  - https://dev.hostfully.com/reference/cancelgroupbooking.md
+  - https://dev.hostfully.com/reference/changedates.md
+  - https://dev.hostfully.com/reference/close.md
+  - https://dev.hostfully.com/reference/create.md
+  - https://dev.hostfully.com/reference/create_1.md
+  - https://dev.hostfully.com/reference/createfee.md
+  - https://dev.hostfully.com/reference/creategroupbookinglead.md
+  - https://dev.hostfully.com/reference/createlead.md
+  - https://dev.hostfully.com/reference/createmessage.md
+  - https://dev.hostfully.com/reference/createorderadjustment.md
+  - https://dev.hostfully.com/reference/createowneradjustment.md
+  - https://dev.hostfully.com/reference/createproperty.md
+  - https://dev.hostfully.com/reference/createpropertyrule.md
+  - https://dev.hostfully.com/reference/currentapiversion.md
+  - https://dev.hostfully.com/reference/declinebookingrequest.md
+  - https://dev.hostfully.com/reference/declinejob.md
+  - https://dev.hostfully.com/reference/delete.md
+  - https://dev.hostfully.com/reference/delete_1.md
+  - https://dev.hostfully.com/reference/delete_10.md
+  - https://dev.hostfully.com/reference/delete_11.md
+  - https://dev.hostfully.com/reference/delete_12.md
+  - https://dev.hostfully.com/reference/delete_13.md
+  - https://dev.hostfully.com/reference/delete_14.md
+  - https://dev.hostfully.com/reference/delete_15.md
+  - https://dev.hostfully.com/reference/delete_2.md
+  - https://dev.hostfully.com/reference/delete_3.md
+  - https://dev.hostfully.com/reference/delete_4.md
+  - https://dev.hostfully.com/reference/delete_5.md
+  - https://dev.hostfully.com/reference/delete_6.md
+  - https://dev.hostfully.com/reference/delete_7.md
+  - https://dev.hostfully.com/reference/delete_8.md
+  - https://dev.hostfully.com/reference/delete_9.md
+  - https://dev.hostfully.com/reference/deleteall.md
+  - https://dev.hostfully.com/reference/deletebyuid.md
+  - https://dev.hostfully.com/reference/deletefee.md
+  - https://dev.hostfully.com/reference/deleteorderadjustment.md
+  - https://dev.hostfully.com/reference/deleteowneradjustmentbyuid.md
+  - https://dev.hostfully.com/reference/deletepropertybyuid.md
+  - https://dev.hostfully.com/reference/deletepropertybyuid_1.md
+  - https://dev.hostfully.com/reference/deletepropertyrule.md
+  - https://dev.hostfully.com/reference/execute.md
+  - https://dev.hostfully.com/reference/extendhold.md
+  - https://dev.hostfully.com/reference/fetchextraguestsbylead.md
+  - https://dev.hostfully.com/reference/findall.md
+  - https://dev.hostfully.com/reference/findall_1.md
+  - https://dev.hostfully.com/reference/findall_2.md
+  - https://dev.hostfully.com/reference/findall_3.md
+  - https://dev.hostfully.com/reference/findall_4.md
+  - https://dev.hostfully.com/reference/findall_5.md
+  - https://dev.hostfully.com/reference/findall_6.md
+  - https://dev.hostfully.com/reference/findall_7.md
+  - https://dev.hostfully.com/reference/findall_8.md
+  - https://dev.hostfully.com/reference/findallmessagesforagency.md
+  - https://dev.hostfully.com/reference/findbyagencyuid.md
+  - https://dev.hostfully.com/reference/findbyhoteluid.md
+  - https://dev.hostfully.com/reference/findbypropertyuid.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_1.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_2.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_3.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_4.md
+  - https://dev.hostfully.com/reference/findbyuid.md
+  - https://dev.hostfully.com/reference/findbyuid_1.md
+  - https://dev.hostfully.com/reference/findbyuid_2.md
+  - https://dev.hostfully.com/reference/findbyuid_3.md
+  - https://dev.hostfully.com/reference/findbyuid_4.md
+  - https://dev.hostfully.com/reference/findbywebhookuid.md
+  - https://dev.hostfully.com/reference/findgroupbookingleads.md
+  - https://dev.hostfully.com/reference/findhotelsbyagencyuid.md
+  - https://dev.hostfully.com/reference/findlead.md
+  - https://dev.hostfully.com/reference/findleads.md
+  - https://dev.hostfully.com/reference/findmessagesbyuid.md
+  - https://dev.hostfully.com/reference/findthreadbyuid.md
+  - https://dev.hostfully.com/reference/findthreads.md
+  - https://dev.hostfully.com/reference/findunitbyuid.md
+  - https://dev.hostfully.com/reference/findunitsbyunittype.md
+  - https://dev.hostfully.com/reference/findupdatetaskstatusbyuid.md
+  - https://dev.hostfully.com/reference/getagencies.md
+  - https://dev.hostfully.com/reference/getagency.md
+  - https://dev.hostfully.com/reference/getagencydbssettings.md
+  - https://dev.hostfully.com/reference/getall.md
+  - https://dev.hostfully.com/reference/getall_1.md
+  - https://dev.hostfully.com/reference/getall_10.md
+  - https://dev.hostfully.com/reference/getall_11.md
+  - https://dev.hostfully.com/reference/getall_12.md
+  - https://dev.hostfully.com/reference/getall_13.md
+  - https://dev.hostfully.com/reference/getall_14.md
+  - https://dev.hostfully.com/reference/getall_15.md
+  - https://dev.hostfully.com/reference/getall_16.md
+  - https://dev.hostfully.com/reference/getall_17.md
+  - https://dev.hostfully.com/reference/getall_18.md
+  - https://dev.hostfully.com/reference/getall_19.md
+  - https://dev.hostfully.com/reference/getall_2.md
+  - https://dev.hostfully.com/reference/getall_3.md
+  - https://dev.hostfully.com/reference/getall_4.md
+  - https://dev.hostfully.com/reference/getall_5.md
+  - https://dev.hostfully.com/reference/getall_6.md
+  - https://dev.hostfully.com/reference/getall_7.md
+  - https://dev.hostfully.com/reference/getall_8.md
+  - https://dev.hostfully.com/reference/getall_9.md
+  - https://dev.hostfully.com/reference/getgroupbooking.md
+  - https://dev.hostfully.com/reference/getone.md
+  - https://dev.hostfully.com/reference/getone_1.md
+  - https://dev.hostfully.com/reference/getone_10.md
+  - https://dev.hostfully.com/reference/getone_11.md
+  - https://dev.hostfully.com/reference/getone_2.md
+  - https://dev.hostfully.com/reference/getone_3.md
+  - https://dev.hostfully.com/reference/getone_4.md
+  - https://dev.hostfully.com/reference/getone_5.md
+  - https://dev.hostfully.com/reference/getone_6.md
+  - https://dev.hostfully.com/reference/getone_7.md
+  - https://dev.hostfully.com/reference/getone_8.md
+  - https://dev.hostfully.com/reference/getone_9.md
+  - https://dev.hostfully.com/reference/getorderadjustments.md
+  - https://dev.hostfully.com/reference/getpropertydbssettings.md
+  - https://dev.hostfully.com/reference/getstatistics.md
+  - https://dev.hostfully.com/reference/ignore.md
+  - https://dev.hostfully.com/reference/markasbooked.md
+  - https://dev.hostfully.com/reference/markasdone.md
+  - https://dev.hostfully.com/reference/markprearrivalformcompleted.md
+  - https://dev.hostfully.com/reference/patch.md
+  - https://dev.hostfully.com/reference/patch_1.md
+  - https://dev.hostfully.com/reference/patch_2.md
+  - https://dev.hostfully.com/reference/patch_3.md
+  - https://dev.hostfully.com/reference/patchlead.md
+  - https://dev.hostfully.com/reference/patchpropertyrule.md
+  - https://dev.hostfully.com/reference/post.md
+  - https://dev.hostfully.com/reference/post_1.md
+  - https://dev.hostfully.com/reference/post_10.md
+  - https://dev.hostfully.com/reference/post_11.md
+  - https://dev.hostfully.com/reference/post_12.md
+  - https://dev.hostfully.com/reference/post_13.md
+  - https://dev.hostfully.com/reference/post_14.md
+  - https://dev.hostfully.com/reference/post_15.md
+  - https://dev.hostfully.com/reference/post_16.md
+  - https://dev.hostfully.com/reference/post_2.md
+  - https://dev.hostfully.com/reference/post_3.md
+  - https://dev.hostfully.com/reference/post_4.md
+  - https://dev.hostfully.com/reference/post_5.md
+  - https://dev.hostfully.com/reference/post_6.md
+  - https://dev.hostfully.com/reference/post_7.md
+  - https://dev.hostfully.com/reference/post_8.md
+  - https://dev.hostfully.com/reference/post_9.md
+  - https://dev.hostfully.com/reference/put.md
+  - https://dev.hostfully.com/reference/put_1.md
+  - https://dev.hostfully.com/reference/put_10.md
+  - https://dev.hostfully.com/reference/put_11.md
+  - https://dev.hostfully.com/reference/put_2.md
+  - https://dev.hostfully.com/reference/put_3.md
+  - https://dev.hostfully.com/reference/put_4.md
+  - https://dev.hostfully.com/reference/put_5.md
+  - https://dev.hostfully.com/reference/put_6.md
+  - https://dev.hostfully.com/reference/put_7.md
+  - https://dev.hostfully.com/reference/put_8.md
+  - https://dev.hostfully.com/reference/put_9.md
+  - https://dev.hostfully.com/reference/putleadonhold.md
+  - https://dev.hostfully.com/reference/rebook.md
+  - https://dev.hostfully.com/reference/remove-tag-for-object.md
+  - https://dev.hostfully.com/reference/removelead.md
+  - https://dev.hostfully.com/reference/reopen.md
+  - https://dev.hostfully.com/reference/resendmessage.md
+  - https://dev.hostfully.com/reference/set-tags-for-object.md
+  - https://dev.hostfully.com/reference/tags-by-object.md
+  - https://dev.hostfully.com/reference/update.md
+  - https://dev.hostfully.com/reference/updateapiversion.md
+  - https://dev.hostfully.com/reference/updatefee.md
+  - https://dev.hostfully.com/reference/updateowneradjustment.md
+  - https://dev.hostfully.com/reference/updatepropertyinfull.md
+  - https://dev.hostfully.com/reference/updatepropertypartially.md
+  - https://dev.hostfully.com/reference/updatepropertypartially_1.md
+  - https://dev.hostfully.com/reference/updatepropertyrule.md
+  - https://dev.hostfully.com/reference/updateratemultipliers.md
+  - https://dev.hostfully.com/reference/updaterentalagreementurl.md
+  merge:
+    pages: 176
+    deduped: 773
+    conflicts_kept_first: 0

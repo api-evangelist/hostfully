@@ -1,0 +1,827 @@
+openapi: 3.2.0
+info:
+  title: Hostfully Amenities API
+  license:
+    name: Apache 2.0
+    url: https://www.hostfully.com/
+  version: v3.0.1
+servers:
+- url: https://sandbox-api.hostfully.com
+security:
+- JWT-Authentication: []
+- Agency-API-key: []
+tags:
+- name: Amenities
+paths:
+  /api/v3.3/amenities:
+    get:
+      tags:
+      - Amenities
+      summary: Get all amenities
+      description: Returns a list of amenities filtered by optional single or multi-unit property UID.
+      operationId: getAll_14
+      parameters:
+      - name: propertyUid
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: hotelUid
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AmenitiesApiResponseWrapper'
+    post:
+      tags:
+      - Amenities
+      summary: Create a new amenity
+      description: Creates an amenity for the specified single or multi-unit property UID.
+      operationId: post_11
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AmenityAddingApi3Dto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AmenityApiResponseWrapper'
+  /api/v3.3/amenities/{uid}:
+    get:
+      tags:
+      - Amenities
+      summary: Get a specific amenity by UID
+      description: Returns the amenity details for the given UID.
+      operationId: getOne_8
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AmenityApiResponseWrapper'
+    put:
+      tags:
+      - Amenities
+      summary: Update an existing amenity
+      description: Updates the amenity identified by UID.
+      operationId: put_9
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AmenityUpdatingApi3Dto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AmenityApiResponseWrapper'
+    delete:
+      tags:
+      - Amenities
+      summary: Delete an amenity
+      description: Deletes the amenity identified by UID.
+      operationId: delete_10
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+components:
+  schemas:
+    AmenityAddingApi3Dto:
+      required:
+      - amenity
+      type: object
+      properties:
+        amenity:
+          type: string
+          enum:
+          - HAS_TV
+          - HAS_CABLE_TV
+          - HAS_SMART_TV
+          - HAS_AIR_CONDITIONING
+          - HAS_HEATING
+          - HAS_KITCHEN
+          - HAS_KITCHENETTE
+          - HAS_INTERNET_WIFI
+          - HAS_PAID_WIFI
+          - HAS_WIFI_SPEED_25
+          - HAS_WIFI_SPEED_50
+          - HAS_WIFI_SPEED_100
+          - HAS_WIFI_SPEED_250
+          - HAS_WIFI_SPEED_500
+          - HAS_WASHER
+          - HAS_DRYER
+          - HAS_SHARED_WASHER
+          - HAS_SHARED_DRYER
+          - HAS_POOL
+          - HAS_POOL_ALL_YEAR
+          - HAS_POOL_SEASONAL
+          - HAS_COMMUNAL_POOL
+          - HAS_HEATED_POOL
+          - HAS_INDOOR_POOL
+          - HAS_INDOOR_POOL_ALL_YEAR
+          - HAS_INDOOR_POOL_SEASONAL
+          - HAS_FENCED_POOL
+          - HAS_FENCED_YARD
+          - HAS_HOT_TUB
+          - HAS_FREE_PARKING
+          - HAS_FREE_STREET_PARKING
+          - HAS_PAID_OFF_PREMISES_PARKING
+          - HAS_PAID_ON_PREMISES_PARKING
+          - HAS_EV_CAR_CHARGER
+          - HAS_INDOOR_FIREPLACE
+          - IS_WHEELCHAIR_ACCESSIBLE
+          - HAS_SINGLE_LEVEL
+          - HAS_SMOKE_DETECTOR
+          - HAS_FIRE_EXTINGUISHER
+          - HAS_EMERGENCY_EXIT
+          - HAS_DEADBOLT_LOCK
+          - HAS_OUTDOOR_LIGHTING
+          - HAS_ESSENTIALS
+          - HAS_BALCONY_TERRASSE
+          - HAS_BABY_HIGH_CHAIR
+          - HAS_BABY_TRAVEL_BED
+          - HAS_CDDVD_PLAYER
+          - HAS_BOARD_GAMES
+          - HAS_BARBECUE
+          - HAS_ELEVATOR
+          - HAS_DEHUMIDIFIER
+          - HAS_CEILING_FAN
+          - HAS_VENTILATION_FAN
+          - HAS_HAIR_DRYER
+          - HAS_CROCKERY_CUTLERY
+          - HAS_POTS_PANS
+          - HAS_OVEN
+          - HAS_MICROWAVE_OVEN
+          - HAS_WATER_KETTLE
+          - HAS_COFFEE_MAKER
+          - HAS_DISHWASHER
+          - HAS_TOASTER
+          - HAS_FRIDGE
+          - HAS_KITCHEN_ISLAND
+          - HAS_DINING_TABLE
+          - HAS_ALARM_SYSTEM
+          - HAS_BASKETBALL_COURT
+          - HAS_CINEMA_ROOM
+          - HAS_GATED_PROPERTY
+          - HAS_HELIPAD
+          - HAS_GYM
+          - HAS_IPOD_STATION
+          - HAS_JACUZZI
+          - HAS_STEAM_ROOM
+          - HAS_LIBRARY
+          - HAS_MASSAGE_ROOM
+          - HAS_OFFICE
+          - HAS_DESK
+          - HAS_DESK_CHAIR
+          - HAS_COMPUTER_MONITOR
+          - HAS_PRINTER
+          - HAS_POOL_TABLE
+          - HAS_PIANO
+          - HAS_SAFE_BOX
+          - HAS_CABINET_LOCKS
+          - HAS_SEA_VIEW
+          - HAS_SMART_HOME
+          - HAS_SOCCER_FIELD
+          - HAS_TENNIS
+          - HAS_TOILETRIES
+          - HAS_WINE_CELLAR
+          - HAS_WARDROBE
+          - HAS_IRON
+          - HAS_IRONING_FACILITIES
+          - HAS_SHAMPOO
+          - HAS_BREAKFAST
+          - HAS_MEAL_DELIVERY
+          - HAS_BUZZER
+          - HAS_DOORMAN
+          - HAS_CARBON_MONOXIDE_DETECTOR
+          - HAS_FIRST_AID_KIT
+          - HAS_CAT
+          - HAS_DOG
+          - HAS_OTHER_PET
+          - HAS_24_CHECKIN
+          - HAS_SAFETY_CARD
+          - HAS_HANGERS
+          - IS_LAPTOP_FRIENDLY
+          - HAS_LOCK_ON_BEDROOM
+          - HAS_PRIVATE_ENTRANCE
+          - HAS_BABY_BATH
+          - HAS_BABY_MONITOR
+          - HAS_BABYSITTER_RECOMMENDATIONS
+          - HAS_BATHTUB
+          - HAS_CHANGING_TABLE
+          - HAS_CHILDRENS_BOOKS_AND_TOYS
+          - HAS_OUTDOOR_PLAY_AREA
+          - HAS_CHILDRENS_DINNERWARE
+          - HAS_CHILDCARE
+          - HAS_FIREPLACE_GUARDS
+          - HAS_GAME_CONSOLE
+          - HAS_OUTLET_COVERS
+          - HAS_PACK_N_PLAY_TRAVEL_CRIB
+          - HAS_ROOM_DARKENING_SHADES
+          - HAS_STAIR_GATES
+          - HAS_TABLE_CORNER_GUARDS
+          - HAS_WINDOW_GUARDS
+          - HAS_LAKE_ACCESS
+          - HAS_BEACH_FRONT
+          - HAS_WATER_FRONT
+          - HAS_SKI_IN_SKI_OUT
+          - HAS_STOVE
+          - CHECK_IN_OPTION
+          - CHECK_IN_OPTION_INSTRUCTION
+          - HAS_LINENS
+          - HAS_TOWELS
+          - HAS_HOT_WATER
+          - HAS_COOKING_BASICS
+          - HAS_SURVEILLANCE
+          - HAS_GARDEN
+          - HAS_DECK_PATIO
+          - HAS_AIR_FILTER
+          - HAS_ENHANCED_CLEANING
+          - HAS_CLEANING_WITH_DISINFECTANTS
+          - HAS_HIGH_TOUCH_SURFACES_CLEANING_WITH_DISINFECTANTS
+          - HAS_IN_PERSON_CHECKIN
+          - HAS_CONTACTLESS_CHECKIN
+          - HAS_CONCIERGE
+          - HAS_OCEAN_FRONT
+          - IS_RESORT
+          - IS_RURAL
+          - HAS_TOWN
+          - HAS_WATER_VIEW
+          - IS_DOWNTOWN
+          - HAS_GOLF_COURSE_VIEW
+          - IS_LAKEFRONT
+          - HAS_MOUNTAIN
+          - IS_NEAR_OCEAN
+          - HAS_RIVER
+          - HAS_VILLAGE
+          - HAS_BEACH
+          - HAS_BEACH_VIEW
+          - IS_GOLF_COURSE_FRONT
+          - HAS_LAKE
+          - HAS_LAKE_VIEW
+          - HAS_MOUNTAIN_VIEW
+          - HAS_BAKING_SHEET
+          - HAS_BARBEQUE_UTENSILS
+          - HAS_BEACH_ESSENTIALS
+          - HAS_BIDET
+          - HAS_BIKES_FOR_RENT
+          - HAS_BLENDER
+          - HAS_BOAT_SLIP
+          - HAS_BODY_SOAP
+          - HAS_BREAD_MAKER
+          - HAS_CLEANING_PRODUCTS
+          - HAS_CLOTHES_DRYING_RACK
+          - HAS_COFFEE
+          - HAS_CONDITIONER
+          - HAS_ETHERNET_CONNECTION
+          - HAS_EXERCISE_EQUIPMENT
+          - HAS_EXTRA_PILLOWS_AND_BLANKETS
+          - HAS_FIRE_PIT
+          - HAS_FREEZER
+          - HAS_HAMMOCK
+          - HAS_LAUNDROMAT_NEARBY
+          - HAS_KAYAK
+          - HAS_MINI_FRIDGE
+          - HAS_MOSQUITO_NET
+          - HAS_OUTDOOR_KITCHEN
+          - HAS_OUTDOOR_SEATING
+          - HAS_PING_PONG_TABLE
+          - HAS_POCKET_WIFI
+          - HAS_PORTABLE_FANS
+          - HAS_RAIN_SHOWER
+          - HAS_RECORD_PLAYER
+          - HAS_RESORT_ACCESS
+          - HAS_RICE_MAKER
+          - HAS_SAFE
+          - HAS_SHOWER_GEL
+          - HAS_SOUND_SYSTEM
+          - HAS_TRASH_COMPACTER
+          - HAS_WINE_GLASSES
+          - INVOICE_PROVIDED
+        propertyUid:
+          type: string
+        hotelUid:
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          type: string
+          description: Optional field, max size is 1000
+        price:
+          type: number
+          format: double
+        frequency:
+          type: string
+          enum:
+          - PER_STAY
+          - PER_MINUTE
+          - PER_HALF_HOUR
+          - PER_HOUR
+          - PER_DAY
+          - PER_WEEK
+    AmenityApi3Dto:
+      type: object
+      properties:
+        uid:
+          type: string
+        amenity:
+          type: string
+          description: This field might be extended with new values. Consumers of the API should handle unknown amenity types and have their implementation ready for extension if need be.
+          enum:
+          - HAS_TV
+          - HAS_CABLE_TV
+          - HAS_SMART_TV
+          - HAS_AIR_CONDITIONING
+          - HAS_HEATING
+          - HAS_KITCHEN
+          - HAS_KITCHENETTE
+          - HAS_INTERNET_WIFI
+          - HAS_PAID_WIFI
+          - HAS_WIFI_SPEED_25
+          - HAS_WIFI_SPEED_50
+          - HAS_WIFI_SPEED_100
+          - HAS_WIFI_SPEED_250
+          - HAS_WIFI_SPEED_500
+          - HAS_WASHER
+          - HAS_DRYER
+          - HAS_SHARED_WASHER
+          - HAS_SHARED_DRYER
+          - HAS_POOL
+          - HAS_POOL_ALL_YEAR
+          - HAS_POOL_SEASONAL
+          - HAS_COMMUNAL_POOL
+          - HAS_HEATED_POOL
+          - HAS_INDOOR_POOL
+          - HAS_INDOOR_POOL_ALL_YEAR
+          - HAS_INDOOR_POOL_SEASONAL
+          - HAS_FENCED_POOL
+          - HAS_FENCED_YARD
+          - HAS_HOT_TUB
+          - HAS_FREE_PARKING
+          - HAS_FREE_STREET_PARKING
+          - HAS_PAID_OFF_PREMISES_PARKING
+          - HAS_PAID_ON_PREMISES_PARKING
+          - HAS_EV_CAR_CHARGER
+          - HAS_INDOOR_FIREPLACE
+          - IS_WHEELCHAIR_ACCESSIBLE
+          - HAS_SINGLE_LEVEL
+          - HAS_SMOKE_DETECTOR
+          - HAS_FIRE_EXTINGUISHER
+          - HAS_EMERGENCY_EXIT
+          - HAS_DEADBOLT_LOCK
+          - HAS_OUTDOOR_LIGHTING
+          - HAS_ESSENTIALS
+          - HAS_BALCONY_TERRASSE
+          - HAS_BABY_HIGH_CHAIR
+          - HAS_BABY_TRAVEL_BED
+          - HAS_CDDVD_PLAYER
+          - HAS_BOARD_GAMES
+          - HAS_BARBECUE
+          - HAS_ELEVATOR
+          - HAS_DEHUMIDIFIER
+          - HAS_CEILING_FAN
+          - HAS_VENTILATION_FAN
+          - HAS_HAIR_DRYER
+          - HAS_CROCKERY_CUTLERY
+          - HAS_POTS_PANS
+          - HAS_OVEN
+          - HAS_MICROWAVE_OVEN
+          - HAS_WATER_KETTLE
+          - HAS_COFFEE_MAKER
+          - HAS_DISHWASHER
+          - HAS_TOASTER
+          - HAS_FRIDGE
+          - HAS_KITCHEN_ISLAND
+          - HAS_DINING_TABLE
+          - HAS_ALARM_SYSTEM
+          - HAS_BASKETBALL_COURT
+          - HAS_CINEMA_ROOM
+          - HAS_GATED_PROPERTY
+          - HAS_HELIPAD
+          - HAS_GYM
+          - HAS_IPOD_STATION
+          - HAS_JACUZZI
+          - HAS_STEAM_ROOM
+          - HAS_LIBRARY
+          - HAS_MASSAGE_ROOM
+          - HAS_OFFICE
+          - HAS_DESK
+          - HAS_DESK_CHAIR
+          - HAS_COMPUTER_MONITOR
+          - HAS_PRINTER
+          - HAS_POOL_TABLE
+          - HAS_PIANO
+          - HAS_SAFE_BOX
+          - HAS_CABINET_LOCKS
+          - HAS_SEA_VIEW
+          - HAS_SMART_HOME
+          - HAS_SOCCER_FIELD
+          - HAS_TENNIS
+          - HAS_TOILETRIES
+          - HAS_WINE_CELLAR
+          - HAS_WARDROBE
+          - HAS_IRON
+          - HAS_IRONING_FACILITIES
+          - HAS_SHAMPOO
+          - HAS_BREAKFAST
+          - HAS_MEAL_DELIVERY
+          - HAS_BUZZER
+          - HAS_DOORMAN
+          - HAS_CARBON_MONOXIDE_DETECTOR
+          - HAS_FIRST_AID_KIT
+          - HAS_CAT
+          - HAS_DOG
+          - HAS_OTHER_PET
+          - HAS_24_CHECKIN
+          - HAS_SAFETY_CARD
+          - HAS_HANGERS
+          - IS_LAPTOP_FRIENDLY
+          - HAS_LOCK_ON_BEDROOM
+          - HAS_PRIVATE_ENTRANCE
+          - HAS_BABY_BATH
+          - HAS_BABY_MONITOR
+          - HAS_BABYSITTER_RECOMMENDATIONS
+          - HAS_BATHTUB
+          - HAS_CHANGING_TABLE
+          - HAS_CHILDRENS_BOOKS_AND_TOYS
+          - HAS_OUTDOOR_PLAY_AREA
+          - HAS_CHILDRENS_DINNERWARE
+          - HAS_CHILDCARE
+          - HAS_FIREPLACE_GUARDS
+          - HAS_GAME_CONSOLE
+          - HAS_OUTLET_COVERS
+          - HAS_PACK_N_PLAY_TRAVEL_CRIB
+          - HAS_ROOM_DARKENING_SHADES
+          - HAS_STAIR_GATES
+          - HAS_TABLE_CORNER_GUARDS
+          - HAS_WINDOW_GUARDS
+          - HAS_LAKE_ACCESS
+          - HAS_BEACH_FRONT
+          - HAS_WATER_FRONT
+          - HAS_SKI_IN_SKI_OUT
+          - HAS_STOVE
+          - CHECK_IN_OPTION
+          - CHECK_IN_OPTION_INSTRUCTION
+          - HAS_LINENS
+          - HAS_TOWELS
+          - HAS_HOT_WATER
+          - HAS_COOKING_BASICS
+          - HAS_SURVEILLANCE
+          - HAS_GARDEN
+          - HAS_DECK_PATIO
+          - HAS_AIR_FILTER
+          - HAS_ENHANCED_CLEANING
+          - HAS_CLEANING_WITH_DISINFECTANTS
+          - HAS_HIGH_TOUCH_SURFACES_CLEANING_WITH_DISINFECTANTS
+          - HAS_IN_PERSON_CHECKIN
+          - HAS_CONTACTLESS_CHECKIN
+          - HAS_CONCIERGE
+          - HAS_OCEAN_FRONT
+          - IS_RESORT
+          - IS_RURAL
+          - HAS_TOWN
+          - HAS_WATER_VIEW
+          - IS_DOWNTOWN
+          - HAS_GOLF_COURSE_VIEW
+          - IS_LAKEFRONT
+          - HAS_MOUNTAIN
+          - IS_NEAR_OCEAN
+          - HAS_RIVER
+          - HAS_VILLAGE
+          - HAS_BEACH
+          - HAS_BEACH_VIEW
+          - IS_GOLF_COURSE_FRONT
+          - HAS_LAKE
+          - HAS_LAKE_VIEW
+          - HAS_MOUNTAIN_VIEW
+          - HAS_BAKING_SHEET
+          - HAS_BARBEQUE_UTENSILS
+          - HAS_BEACH_ESSENTIALS
+          - HAS_BIDET
+          - HAS_BIKES_FOR_RENT
+          - HAS_BLENDER
+          - HAS_BOAT_SLIP
+          - HAS_BODY_SOAP
+          - HAS_BREAD_MAKER
+          - HAS_CLEANING_PRODUCTS
+          - HAS_CLOTHES_DRYING_RACK
+          - HAS_COFFEE
+          - HAS_CONDITIONER
+          - HAS_ETHERNET_CONNECTION
+          - HAS_EXERCISE_EQUIPMENT
+          - HAS_EXTRA_PILLOWS_AND_BLANKETS
+          - HAS_FIRE_PIT
+          - HAS_FREEZER
+          - HAS_HAMMOCK
+          - HAS_LAUNDROMAT_NEARBY
+          - HAS_KAYAK
+          - HAS_MINI_FRIDGE
+          - HAS_MOSQUITO_NET
+          - HAS_OUTDOOR_KITCHEN
+          - HAS_OUTDOOR_SEATING
+          - HAS_PING_PONG_TABLE
+          - HAS_POCKET_WIFI
+          - HAS_PORTABLE_FANS
+          - HAS_RAIN_SHOWER
+          - HAS_RECORD_PLAYER
+          - HAS_RESORT_ACCESS
+          - HAS_RICE_MAKER
+          - HAS_SAFE
+          - HAS_SHOWER_GEL
+          - HAS_SOUND_SYSTEM
+          - HAS_TRASH_COMPACTER
+          - HAS_WINE_GLASSES
+          - INVOICE_PROVIDED
+        category:
+          type: string
+          enum:
+          - INDOOR
+          - OUTDOOR
+          - EXTRAS
+          - FAMILY
+        propertyUid:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: double
+        chargeFrequency:
+          type: string
+          enum:
+          - PER_STAY
+          - PER_MINUTE
+          - PER_HALF_HOUR
+          - PER_HOUR
+          - PER_DAY
+          - PER_WEEK
+    AmenitiesApiResponseWrapper:
+      type: object
+      properties:
+        amenities:
+          type: array
+          items:
+            $ref: '#/components/schemas/AmenityApi3Dto'
+        _metadata:
+          $ref: '#/components/schemas/Api3ResponseMetadata'
+    Api3ResponseMetadata:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+    AmenityUpdatingApi3Dto:
+      required:
+      - description
+      type: object
+      properties:
+        description:
+          maxLength: 1000
+          minLength: 0
+          type: string
+    AmenityApiResponseWrapper:
+      type: object
+      properties:
+        amenity:
+          $ref: '#/components/schemas/AmenityApi3Dto'
+  securitySchemes:
+    JWT-Authentication:
+      type: apiKey
+      description: OAuth Access Token
+      name: Authorization
+      in: header
+    Agency-API-key:
+      type: apiKey
+      description: API Key
+      name: X-HOSTFULLY-APIKEY
+      in: header
+externalDocs:
+  description: Hostfully Documentation
+  url: https://dev.hostfully.com/v3.0/reference
+x-provenance:
+  method: searched
+  source: https://dev.hostfully.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://dev.hostfully.com/reference/acceptbookingrequest.md
+  - https://dev.hostfully.com/reference/acceptjob.md
+  - https://dev.hostfully.com/reference/calculatequote.md
+  - https://dev.hostfully.com/reference/cancel.md
+  - https://dev.hostfully.com/reference/cancelgroupbooking.md
+  - https://dev.hostfully.com/reference/changedates.md
+  - https://dev.hostfully.com/reference/close.md
+  - https://dev.hostfully.com/reference/create.md
+  - https://dev.hostfully.com/reference/create_1.md
+  - https://dev.hostfully.com/reference/createfee.md
+  - https://dev.hostfully.com/reference/creategroupbookinglead.md
+  - https://dev.hostfully.com/reference/createlead.md
+  - https://dev.hostfully.com/reference/createmessage.md
+  - https://dev.hostfully.com/reference/createorderadjustment.md
+  - https://dev.hostfully.com/reference/createowneradjustment.md
+  - https://dev.hostfully.com/reference/createproperty.md
+  - https://dev.hostfully.com/reference/createpropertyrule.md
+  - https://dev.hostfully.com/reference/currentapiversion.md
+  - https://dev.hostfully.com/reference/declinebookingrequest.md
+  - https://dev.hostfully.com/reference/declinejob.md
+  - https://dev.hostfully.com/reference/delete.md
+  - https://dev.hostfully.com/reference/delete_1.md
+  - https://dev.hostfully.com/reference/delete_10.md
+  - https://dev.hostfully.com/reference/delete_11.md
+  - https://dev.hostfully.com/reference/delete_12.md
+  - https://dev.hostfully.com/reference/delete_13.md
+  - https://dev.hostfully.com/reference/delete_14.md
+  - https://dev.hostfully.com/reference/delete_15.md
+  - https://dev.hostfully.com/reference/delete_2.md
+  - https://dev.hostfully.com/reference/delete_3.md
+  - https://dev.hostfully.com/reference/delete_4.md
+  - https://dev.hostfully.com/reference/delete_5.md
+  - https://dev.hostfully.com/reference/delete_6.md
+  - https://dev.hostfully.com/reference/delete_7.md
+  - https://dev.hostfully.com/reference/delete_8.md
+  - https://dev.hostfully.com/reference/delete_9.md
+  - https://dev.hostfully.com/reference/deleteall.md
+  - https://dev.hostfully.com/reference/deletebyuid.md
+  - https://dev.hostfully.com/reference/deletefee.md
+  - https://dev.hostfully.com/reference/deleteorderadjustment.md
+  - https://dev.hostfully.com/reference/deleteowneradjustmentbyuid.md
+  - https://dev.hostfully.com/reference/deletepropertybyuid.md
+  - https://dev.hostfully.com/reference/deletepropertybyuid_1.md
+  - https://dev.hostfully.com/reference/deletepropertyrule.md
+  - https://dev.hostfully.com/reference/execute.md
+  - https://dev.hostfully.com/reference/extendhold.md
+  - https://dev.hostfully.com/reference/fetchextraguestsbylead.md
+  - https://dev.hostfully.com/reference/findall.md
+  - https://dev.hostfully.com/reference/findall_1.md
+  - https://dev.hostfully.com/reference/findall_2.md
+  - https://dev.hostfully.com/reference/findall_3.md
+  - https://dev.hostfully.com/reference/findall_4.md
+  - https://dev.hostfully.com/reference/findall_5.md
+  - https://dev.hostfully.com/reference/findall_6.md
+  - https://dev.hostfully.com/reference/findall_7.md
+  - https://dev.hostfully.com/reference/findall_8.md
+  - https://dev.hostfully.com/reference/findallmessagesforagency.md
+  - https://dev.hostfully.com/reference/findbyagencyuid.md
+  - https://dev.hostfully.com/reference/findbyhoteluid.md
+  - https://dev.hostfully.com/reference/findbypropertyuid.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_1.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_2.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_3.md
+  - https://dev.hostfully.com/reference/findbypropertyuid_4.md
+  - https://dev.hostfully.com/reference/findbyuid.md
+  - https://dev.hostfully.com/reference/findbyuid_1.md
+  - https://dev.hostfully.com/reference/findbyuid_2.md
+  - https://dev.hostfully.com/reference/findbyuid_3.md
+  - https://dev.hostfully.com/reference/findbyuid_4.md
+  - https://dev.hostfully.com/reference/findbywebhookuid.md
+  - https://dev.hostfully.com/reference/findgroupbookingleads.md
+  - https://dev.hostfully.com/reference/findhotelsbyagencyuid.md
+  - https://dev.hostfully.com/reference/findlead.md
+  - https://dev.hostfully.com/reference/findleads.md
+  - https://dev.hostfully.com/reference/findmessagesbyuid.md
+  - https://dev.hostfully.com/reference/findthreadbyuid.md
+  - https://dev.hostfully.com/reference/findthreads.md
+  - https://dev.hostfully.com/reference/findunitbyuid.md
+  - https://dev.hostfully.com/reference/findunitsbyunittype.md
+  - https://dev.hostfully.com/reference/findupdatetaskstatusbyuid.md
+  - https://dev.hostfully.com/reference/getagencies.md
+  - https://dev.hostfully.com/reference/getagency.md
+  - https://dev.hostfully.com/reference/getagencydbssettings.md
+  - https://dev.hostfully.com/reference/getall.md
+  - https://dev.hostfully.com/reference/getall_1.md
+  - https://dev.hostfully.com/reference/getall_10.md
+  - https://dev.hostfully.com/reference/getall_11.md
+  - https://dev.hostfully.com/reference/getall_12.md
+  - https://dev.hostfully.com/reference/getall_13.md
+  - https://dev.hostfully.com/reference/getall_14.md
+  - https://dev.hostfully.com/reference/getall_15.md
+  - https://dev.hostfully.com/reference/getall_16.md
+  - https://dev.hostfully.com/reference/getall_17.md
+  - https://dev.hostfully.com/reference/getall_18.md
+  - https://dev.hostfully.com/reference/getall_19.md
+  - https://dev.hostfully.com/reference/getall_2.md
+  - https://dev.hostfully.com/reference/getall_3.md
+  - https://dev.hostfully.com/reference/getall_4.md
+  - https://dev.hostfully.com/reference/getall_5.md
+  - https://dev.hostfully.com/reference/getall_6.md
+  - https://dev.hostfully.com/reference/getall_7.md
+  - https://dev.hostfully.com/reference/getall_8.md
+  - https://dev.hostfully.com/reference/getall_9.md
+  - https://dev.hostfully.com/reference/getgroupbooking.md
+  - https://dev.hostfully.com/reference/getone.md
+  - https://dev.hostfully.com/reference/getone_1.md
+  - https://dev.hostfully.com/reference/getone_10.md
+  - https://dev.hostfully.com/reference/getone_11.md
+  - https://dev.hostfully.com/reference/getone_2.md
+  - https://dev.hostfully.com/reference/getone_3.md
+  - https://dev.hostfully.com/reference/getone_4.md
+  - https://dev.hostfully.com/reference/getone_5.md
+  - https://dev.hostfully.com/reference/getone_6.md
+  - https://dev.hostfully.com/reference/getone_7.md
+  - https://dev.hostfully.com/reference/getone_8.md
+  - https://dev.hostfully.com/reference/getone_9.md
+  - https://dev.hostfully.com/reference/getorderadjustments.md
+  - https://dev.hostfully.com/reference/getpropertydbssettings.md
+  - https://dev.hostfully.com/reference/getstatistics.md
+  - https://dev.hostfully.com/reference/ignore.md
+  - https://dev.hostfully.com/reference/markasbooked.md
+  - https://dev.hostfully.com/reference/markasdone.md
+  - https://dev.hostfully.com/reference/markprearrivalformcompleted.md
+  - https://dev.hostfully.com/reference/patch.md
+  - https://dev.hostfully.com/reference/patch_1.md
+  - https://dev.hostfully.com/reference/patch_2.md
+  - https://dev.hostfully.com/reference/patch_3.md
+  - https://dev.hostfully.com/reference/patchlead.md
+  - https://dev.hostfully.com/reference/patchpropertyrule.md
+  - https://dev.hostfully.com/reference/post.md
+  - https://dev.hostfully.com/reference/post_1.md
+  - https://dev.hostfully.com/reference/post_10.md
+  - https://dev.hostfully.com/reference/post_11.md
+  - https://dev.hostfully.com/reference/post_12.md
+  - https://dev.hostfully.com/reference/post_13.md
+  - https://dev.hostfully.com/reference/post_14.md
+  - https://dev.hostfully.com/reference/post_15.md
+  - https://dev.hostfully.com/reference/post_16.md
+  - https://dev.hostfully.com/reference/post_2.md
+  - https://dev.hostfully.com/reference/post_3.md
+  - https://dev.hostfully.com/reference/post_4.md
+  - https://dev.hostfully.com/reference/post_5.md
+  - https://dev.hostfully.com/reference/post_6.md
+  - https://dev.hostfully.com/reference/post_7.md
+  - https://dev.hostfully.com/reference/post_8.md
+  - https://dev.hostfully.com/reference/post_9.md
+  - https://dev.hostfully.com/reference/put.md
+  - https://dev.hostfully.com/reference/put_1.md
+  - https://dev.hostfully.com/reference/put_10.md
+  - https://dev.hostfully.com/reference/put_11.md
+  - https://dev.hostfully.com/reference/put_2.md
+  - https://dev.hostfully.com/reference/put_3.md
+  - https://dev.hostfully.com/reference/put_4.md
+  - https://dev.hostfully.com/reference/put_5.md
+  - https://dev.hostfully.com/reference/put_6.md
+  - https://dev.hostfully.com/reference/put_7.md
+  - https://dev.hostfully.com/reference/put_8.md
+  - https://dev.hostfully.com/reference/put_9.md
+  - https://dev.hostfully.com/reference/putleadonhold.md
+  - https://dev.hostfully.com/reference/rebook.md
+  - https://dev.hostfully.com/reference/remove-tag-for-object.md
+  - https://dev.hostfully.com/reference/removelead.md
+  - https://dev.hostfully.com/reference/reopen.md
+  - https://dev.hostfully.com/reference/resendmessage.md
+  - https://dev.hostfully.com/reference/set-tags-for-object.md
+  - https://dev.hostfully.com/reference/tags-by-object.md
+  - https://dev.hostfully.com/reference/update.md
+  - https://dev.hostfully.com/reference/updateapiversion.md
+  - https://dev.hostfully.com/reference/updatefee.md
+  - https://dev.hostfully.com/reference/updateowneradjustment.md
+  - https://dev.hostfully.com/reference/updatepropertyinfull.md
+  - https://dev.hostfully.com/reference/updatepropertypartially.md
+  - https://dev.hostfully.com/reference/updatepropertypartially_1.md
+  - https://dev.hostfully.com/reference/updatepropertyrule.md
+  - https://dev.hostfully.com/reference/updateratemultipliers.md
+  - https://dev.hostfully.com/reference/updaterentalagreementurl.md
+  merge:
+    pages: 176
+    deduped: 773
+    conflicts_kept_first: 0
