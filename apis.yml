@@ -358,6 +358,8 @@ apis:
   description: The Amenities API from Hostfully — 2 operation(s) for amenities.
   humanURL: https://dev.hostfully.com/reference/getting-started
   tags:
+  - amenities
+  tags_raw:
   - Amenities
   properties:
   - type: OpenAPI
@@ -612,6 +614,8 @@ apis:
   description: The Jobs API from Hostfully — 5 operation(s) for jobs.
   humanURL: https://dev.hostfully.com/reference/getting-started
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -675,6 +679,8 @@ apis:
   description: The Messages API from Hostfully — 3 operation(s) for messages.
   humanURL: https://dev.hostfully.com/reference/getting-started
   tags:
+  - Message
+  tags_raw:
   - Messages
   properties:
   - type: OpenAPI
@@ -738,6 +744,8 @@ apis:
   description: The Orders API from Hostfully — 1 operation(s) for orders.
   humanURL: https://dev.hostfully.com/reference/getting-started
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -885,6 +893,8 @@ apis:
   description: The PromoCodes API from Hostfully — 2 operation(s) for promocodes.
   humanURL: https://dev.hostfully.com/reference/getting-started
   tags:
+  - Promo Codes
+  tags_raw:
   - PromoCodes
   properties:
   - type: OpenAPI
@@ -1055,6 +1065,8 @@ apis:
   description: The Quote API from Hostfully — 1 operation(s) for quote.
   humanURL: https://dev.hostfully.com/reference/getting-started
   tags:
+  - Quotes
+  tags_raw:
   - Quote
   properties:
   - type: OpenAPI
@@ -1286,6 +1298,8 @@ apis:
   description: The Transactions API from Hostfully — 2 operation(s) for transactions.
   humanURL: https://dev.hostfully.com/reference/getting-started
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
@@ -1370,6 +1384,8 @@ apis:
   description: The Webhooks API from Hostfully — 2 operation(s) for webhooks.
   humanURL: https://dev.hostfully.com/reference/getting-started
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
@@ -1391,6 +1407,8 @@ apis:
   description: The Graph QL API from Hostfully — 1 operation(s) for graph ql.
   humanURL: https://dev.hostfully.com/reference/getting-started
   tags:
+  - GraphQL
+  tags_raw:
   - Graph QL
   properties:
   - type: OpenAPI
