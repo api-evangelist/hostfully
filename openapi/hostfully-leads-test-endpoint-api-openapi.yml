@@ -51,272 +51,6 @@ paths:
           description: OK
 components:
   schemas:
-    LeadApiV3GroupBookingCreationDto:
-      required:
-      - agencyUid
-      - propertyUid
-      - status
-      - subLeads
-      type: object
-      properties:
-        propertyUid:
-          type: string
-        agencyUid:
-          type: string
-        checkInLocalDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        checkOutLocalDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        checkInLocalDate:
-          type: string
-          description: Check in date. For specifying time, use checkInLocalDateTime.
-          format: date
-        checkOutLocalDate:
-          type: string
-          description: Check out date. For specifying time, use checkOutLocalDateTime.
-          format: date
-        status:
-          type: string
-          enum:
-          - BLOCKED
-          - NEW
-          - ON_HOLD
-          - CLOSED
-          - PENDING
-          - PENDING_APPROVED
-          - DECLINED
-          - BOOKED
-          - CANCELLED
-          - IGNORED
-          - DUPLICATE
-          - SAMPLE
-        guestInformation:
-          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
-        bookedUtcDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        externalBookingId:
-          type: string
-          description: Ignored for BLOCK type of a lead
-        notes:
-          type: string
-        extraNotes:
-          type: string
-        quoteOverrides:
-          $ref: '#/components/schemas/QuoteOverridesApi3Dto'
-        referrer:
-          type: string
-        channel:
-          type: string
-          description: Represents the list of known channels in Lead API V3. This enum may be extended with additional values in API versions.API Clients must gracefully handle unmapped or unexpected entries with fallback or defaulting strategy to ensure safe behavior
-          enum:
-          - HOSTFULLY
-          - AIRBNB
-          - BOOKING_COM
-          - VRBO
-          - HVMB
-          - GOOGLE
-          - FIND_RENTALS
-          - FLATAWAY
-          - GOLIGHTLY
-          - HOMADS
-          - TRIP_ADVISOR
-          - VACAYMYMAY
-          - STAYMENTITY
-          - GETAWAYGOGO
-          - EVERYSTAY
-          - REDAWNING
-          - MISTERBNB
-          - WHIMSTAY
-          - KOPA
-          - OWNERDIRECT
-          - B0ARDING
-          - TRAVELSTAYTION
-          - BNBFINDER
-          - LODGELOVERS
-          - LAKE
-          - MINISTAYS
-          - TRAMONA
-          - NEXTPAX
-          - RENTALS_UNITED
-          - HOUFY
-          - VRASIO
-          - STAYNEARN
-          - BLUEGROUND
-          - ANYSTAY
-          - STAY
-          - CREWDOGS
-        hotelUid:
-          type: string
-          description: In case hotelUid is not supplied, group-booking will assume that request is a master/sub property reservation
-        assigneeUid:
-          type: string
-          description: Identifier of user assigned to lead in UID format
-        subLeads:
-          type: array
-          description: List of sub-leads belonging to the group-booking
-          items:
-            $ref: '#/components/schemas/LeadApiV3SubLeadCreationDto'
-      description: Requires propertyUid and hotelUid for a hotel reservation, send hotelUid null for master/sub reservation
-    PriceOverridesApi3Dto:
-      required:
-      - netPrice
-      type: object
-      properties:
-        netPrice:
-          type: number
-        taxationRate:
-          type: number
-    LeadApiV3GroupBookingSubLeadDto:
-      type: object
-      properties:
-        uid:
-          type: string
-          description: Identifier generated for each lead. In UID format
-        groupUid:
-          type: string
-          description: Identifier in UID format for indexing the group-booking, uses UID of the main lead
-        propertyUid:
-          type: string
-          description: UID of UNIT when master/sub. UID of the UNIT_TYPE when hotel
-        agencyUid:
-          type: string
-        unitUid:
-          type: string
-          description: Identifier of the chosen Unit (SUB UNIT UID for master/sub properties, and UNIT for hotels). UID format
-        checkInZonedDateTime:
-          type: string
-          description: Check in datetime with the timezone offset
-          format: date-time
-        checkOutZonedDateTime:
-          type: string
-          description: Check out datetime with the timezone offset
-          format: date-time
-        checkInLocalDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        checkOutLocalDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        externalBookingId:
-          type: string
-        notes:
-          type: string
-          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
-        extraNotes:
-          type: string
-          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
-        assignee:
-          $ref: '#/components/schemas/LeadApiV3AssigneeDto'
-        guestInformation:
-          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
-      description: Returns the reservation data of the sub-lead, along with its respective groupUid
-    LeadApiV3AssigneeDto:
-      type: object
-      properties:
-        uid:
-          type: string
-        type:
-          type: string
-          enum:
-          - EMPLOYEE
-          - OWNER
-          - AGENT
-    LeadApiV3SubLeadCreationDto:
-      required:
-      - propertyUid
-      - status
-      - unitUid
-      type: object
-      properties:
-        propertyUid:
-          type: string
-        unitUid:
-          type: string
-        checkInLocalDate:
-          type: string
-          description: Check in date. Not Specifying Time.
-          format: date
-        checkOutLocalDate:
-          type: string
-          description: Check out date. Not Specifying Time.
-          format: date
-        status:
-          type: string
-          enum:
-          - BLOCKED
-          - NEW
-          - ON_HOLD
-          - CLOSED
-          - PENDING
-          - PENDING_APPROVED
-          - DECLINED
-          - BOOKED
-          - CANCELLED
-          - IGNORED
-          - DUPLICATE
-          - SAMPLE
-        guestInformation:
-          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
-        externalBookingId:
-          type: string
-          description: Ignored for BLOCK type of a lead
-      description: List of sub-leads belonging to the group-booking
-    LeadMetadataApiV3Dto:
-      type: object
-      properties:
-        createdUtcDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        updatedUtcDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        creationCircumstances:
-          type: string
-          description: Optional type defining what process created the lead.
-          enum:
-          - IMPORTED_FROM_CSV
-          - CREATED_WHILE_CHANNEL_ON
-          - IMPORTED_UPON_CHANNEL_CONNECTION
-    QuoteOverridesApi3Dto:
-      type: object
-      properties:
-        rent:
-          $ref: '#/components/schemas/QuoteRentOverridesApi3Dto'
-        securityDeposit:
-          type: number
-        fees:
-          $ref: '#/components/schemas/QuoteFeesOverridesApi3Dto'
-        totalPrice:
-          type: number
-        force100PercentPaymentAtReservation:
-          type: boolean
-    QuoteFeesOverridesApi3Dto:
-      type: object
-      properties:
-        cleaningFee:
-          $ref: '#/components/schemas/PriceOverridesApi3Dto'
-        otherFees:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuoteFeeOverridesApi3Dto'
-    QuoteRentOverridesApi3Dto:
-      type: object
-      properties:
-        rentBaseNetPrice:
-          type: number
-        rentNetPrice:
-          type: number
-        extraGuestsNetPrice:
-          type: number
-        taxationRate:
-          type: number
-        taxAmount:
-          type: number
-        extraGuestsBaseNetPrice:
-          type: number
     QuoteFeeOverridesApi3Dto:
       type: object
       properties:
@@ -1022,6 +756,79 @@ components:
           type: string
           example: '2026-04-20T11:52:36'
       description: Ignored for BLOCK type of a lead
+    LeadApiV3AssigneeDto:
+      type: object
+      properties:
+        uid:
+          type: string
+        type:
+          type: string
+          enum:
+          - EMPLOYEE
+          - OWNER
+          - AGENT
+    PriceOverridesApi3Dto:
+      required:
+      - netPrice
+      type: object
+      properties:
+        netPrice:
+          type: number
+        taxationRate:
+          type: number
+    LeadApiV3SubLeadCreationDto:
+      required:
+      - propertyUid
+      - status
+      - unitUid
+      type: object
+      properties:
+        propertyUid:
+          type: string
+        unitUid:
+          type: string
+        checkInLocalDate:
+          type: string
+          description: Check in date. Not Specifying Time.
+          format: date
+        checkOutLocalDate:
+          type: string
+          description: Check out date. Not Specifying Time.
+          format: date
+        status:
+          type: string
+          enum:
+          - BLOCKED
+          - NEW
+          - ON_HOLD
+          - CLOSED
+          - PENDING
+          - PENDING_APPROVED
+          - DECLINED
+          - BOOKED
+          - CANCELLED
+          - IGNORED
+          - DUPLICATE
+          - SAMPLE
+        guestInformation:
+          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
+        externalBookingId:
+          type: string
+          description: Ignored for BLOCK type of a lead
+      description: List of sub-leads belonging to the group-booking
+    QuoteOverridesApi3Dto:
+      type: object
+      properties:
+        rent:
+          $ref: '#/components/schemas/QuoteRentOverridesApi3Dto'
+        securityDeposit:
+          type: number
+        fees:
+          $ref: '#/components/schemas/QuoteFeesOverridesApi3Dto'
+        totalPrice:
+          type: number
+        force100PercentPaymentAtReservation:
+          type: boolean
     LeadApiV3GroupBookingDto:
       type: object
       properties:
@@ -1153,6 +960,199 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LeadApiV3GroupBookingSubLeadDto'
+    LeadMetadataApiV3Dto:
+      type: object
+      properties:
+        createdUtcDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        updatedUtcDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        creationCircumstances:
+          type: string
+          description: Optional type defining what process created the lead.
+          enum:
+          - IMPORTED_FROM_CSV
+          - CREATED_WHILE_CHANNEL_ON
+          - IMPORTED_UPON_CHANNEL_CONNECTION
+    LeadApiV3GroupBookingSubLeadDto:
+      type: object
+      properties:
+        uid:
+          type: string
+          description: Identifier generated for each lead. In UID format
+        groupUid:
+          type: string
+          description: Identifier in UID format for indexing the group-booking, uses UID of the main lead
+        propertyUid:
+          type: string
+          description: UID of UNIT when master/sub. UID of the UNIT_TYPE when hotel
+        agencyUid:
+          type: string
+        unitUid:
+          type: string
+          description: Identifier of the chosen Unit (SUB UNIT UID for master/sub properties, and UNIT for hotels). UID format
+        checkInZonedDateTime:
+          type: string
+          description: Check in datetime with the timezone offset
+          format: date-time
+        checkOutZonedDateTime:
+          type: string
+          description: Check out datetime with the timezone offset
+          format: date-time
+        checkInLocalDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        checkOutLocalDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        externalBookingId:
+          type: string
+        notes:
+          type: string
+          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
+        extraNotes:
+          type: string
+          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
+        assignee:
+          $ref: '#/components/schemas/LeadApiV3AssigneeDto'
+        guestInformation:
+          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
+      description: Returns the reservation data of the sub-lead, along with its respective groupUid
+    QuoteRentOverridesApi3Dto:
+      type: object
+      properties:
+        rentBaseNetPrice:
+          type: number
+        rentNetPrice:
+          type: number
+        extraGuestsNetPrice:
+          type: number
+        taxationRate:
+          type: number
+        taxAmount:
+          type: number
+        extraGuestsBaseNetPrice:
+          type: number
+    LeadApiV3GroupBookingCreationDto:
+      required:
+      - agencyUid
+      - propertyUid
+      - status
+      - subLeads
+      type: object
+      properties:
+        propertyUid:
+          type: string
+        agencyUid:
+          type: string
+        checkInLocalDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        checkOutLocalDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        checkInLocalDate:
+          type: string
+          description: Check in date. For specifying time, use checkInLocalDateTime.
+          format: date
+        checkOutLocalDate:
+          type: string
+          description: Check out date. For specifying time, use checkOutLocalDateTime.
+          format: date
+        status:
+          type: string
+          enum:
+          - BLOCKED
+          - NEW
+          - ON_HOLD
+          - CLOSED
+          - PENDING
+          - PENDING_APPROVED
+          - DECLINED
+          - BOOKED
+          - CANCELLED
+          - IGNORED
+          - DUPLICATE
+          - SAMPLE
+        guestInformation:
+          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
+        bookedUtcDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        externalBookingId:
+          type: string
+          description: Ignored for BLOCK type of a lead
+        notes:
+          type: string
+        extraNotes:
+          type: string
+        quoteOverrides:
+          $ref: '#/components/schemas/QuoteOverridesApi3Dto'
+        referrer:
+          type: string
+        channel:
+          type: string
+          description: Represents the list of known channels in Lead API V3. This enum may be extended with additional values in API versions.API Clients must gracefully handle unmapped or unexpected entries with fallback or defaulting strategy to ensure safe behavior
+          enum:
+          - HOSTFULLY
+          - AIRBNB
+          - BOOKING_COM
+          - VRBO
+          - HVMB
+          - GOOGLE
+          - FIND_RENTALS
+          - FLATAWAY
+          - GOLIGHTLY
+          - HOMADS
+          - TRIP_ADVISOR
+          - VACAYMYMAY
+          - STAYMENTITY
+          - GETAWAYGOGO
+          - EVERYSTAY
+          - REDAWNING
+          - MISTERBNB
+          - WHIMSTAY
+          - KOPA
+          - OWNERDIRECT
+          - B0ARDING
+          - TRAVELSTAYTION
+          - BNBFINDER
+          - LODGELOVERS
+          - LAKE
+          - MINISTAYS
+          - TRAMONA
+          - NEXTPAX
+          - RENTALS_UNITED
+          - HOUFY
+          - VRASIO
+          - STAYNEARN
+          - BLUEGROUND
+          - ANYSTAY
+          - STAY
+          - CREWDOGS
+        hotelUid:
+          type: string
+          description: In case hotelUid is not supplied, group-booking will assume that request is a master/sub property reservation
+        assigneeUid:
+          type: string
+          description: Identifier of user assigned to lead in UID format
+        subLeads:
+          type: array
+          description: List of sub-leads belonging to the group-booking
+          items:
+            $ref: '#/components/schemas/LeadApiV3SubLeadCreationDto'
+      description: Requires propertyUid and hotelUid for a hotel reservation, send hotelUid null for master/sub reservation
+    QuoteFeesOverridesApi3Dto:
+      type: object
+      properties:
+        cleaningFee:
+          $ref: '#/components/schemas/PriceOverridesApi3Dto'
+        otherFees:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteFeeOverridesApi3Dto'
   securitySchemes:
     JWT-Authentication:
       type: apiKey
@@ -1167,190 +1167,6 @@ components:
 externalDocs:
   description: Hostfully Documentation
   url: https://dev.hostfully.com/v3.0/reference
-x-provenance:
-  method: searched
-  source: https://dev.hostfully.com/reference
-  harvested: '2026-10-14'
-  tool: harvest-readme-openapi.py
-  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
-  assembled_from:
-  - https://dev.hostfully.com/reference/acceptbookingrequest.md
-  - https://dev.hostfully.com/reference/acceptjob.md
-  - https://dev.hostfully.com/reference/calculatequote.md
-  - https://dev.hostfully.com/reference/cancel.md
-  - https://dev.hostfully.com/reference/cancelgroupbooking.md
-  - https://dev.hostfully.com/reference/changedates.md
-  - https://dev.hostfully.com/reference/close.md
-  - https://dev.hostfully.com/reference/create.md
-  - https://dev.hostfully.com/reference/create_1.md
-  - https://dev.hostfully.com/reference/createfee.md
-  - https://dev.hostfully.com/reference/creategroupbookinglead.md
-  - https://dev.hostfully.com/reference/createlead.md
-  - https://dev.hostfully.com/reference/createmessage.md
-  - https://dev.hostfully.com/reference/createorderadjustment.md
-  - https://dev.hostfully.com/reference/createowneradjustment.md
-  - https://dev.hostfully.com/reference/createproperty.md
-  - https://dev.hostfully.com/reference/createpropertyrule.md
-  - https://dev.hostfully.com/reference/currentapiversion.md
-  - https://dev.hostfully.com/reference/declinebookingrequest.md
-  - https://dev.hostfully.com/reference/declinejob.md
-  - https://dev.hostfully.com/reference/delete.md
-  - https://dev.hostfully.com/reference/delete_1.md
-  - https://dev.hostfully.com/reference/delete_10.md
-  - https://dev.hostfully.com/reference/delete_11.md
-  - https://dev.hostfully.com/reference/delete_12.md
-  - https://dev.hostfully.com/reference/delete_13.md
-  - https://dev.hostfully.com/reference/delete_14.md
-  - https://dev.hostfully.com/reference/delete_15.md
-  - https://dev.hostfully.com/reference/delete_2.md
-  - https://dev.hostfully.com/reference/delete_3.md
-  - https://dev.hostfully.com/reference/delete_4.md
-  - https://dev.hostfully.com/reference/delete_5.md
-  - https://dev.hostfully.com/reference/delete_6.md
-  - https://dev.hostfully.com/reference/delete_7.md
-  - https://dev.hostfully.com/reference/delete_8.md
-  - https://dev.hostfully.com/reference/delete_9.md
-  - https://dev.hostfully.com/reference/deleteall.md
-  - https://dev.hostfully.com/reference/deletebyuid.md
-  - https://dev.hostfully.com/reference/deletefee.md
-  - https://dev.hostfully.com/reference/deleteorderadjustment.md
-  - https://dev.hostfully.com/reference/deleteowneradjustmentbyuid.md
-  - https://dev.hostfully.com/reference/deletepropertybyuid.md
-  - https://dev.hostfully.com/reference/deletepropertybyuid_1.md
-  - https://dev.hostfully.com/reference/deletepropertyrule.md
-  - https://dev.hostfully.com/reference/execute.md
-  - https://dev.hostfully.com/reference/extendhold.md
-  - https://dev.hostfully.com/reference/fetchextraguestsbylead.md
-  - https://dev.hostfully.com/reference/findall.md
-  - https://dev.hostfully.com/reference/findall_1.md
-  - https://dev.hostfully.com/reference/findall_2.md
-  - https://dev.hostfully.com/reference/findall_3.md
-  - https://dev.hostfully.com/reference/findall_4.md
-  - https://dev.hostfully.com/reference/findall_5.md
-  - https://dev.hostfully.com/reference/findall_6.md
-  - https://dev.hostfully.com/reference/findall_7.md
-  - https://dev.hostfully.com/reference/findall_8.md
-  - https://dev.hostfully.com/reference/findallmessagesforagency.md
-  - https://dev.hostfully.com/reference/findbyagencyuid.md
-  - https://dev.hostfully.com/reference/findbyhoteluid.md
-  - https://dev.hostfully.com/reference/findbypropertyuid.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_1.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_2.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_3.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_4.md
-  - https://dev.hostfully.com/reference/findbyuid.md
-  - https://dev.hostfully.com/reference/findbyuid_1.md
-  - https://dev.hostfully.com/reference/findbyuid_2.md
-  - https://dev.hostfully.com/reference/findbyuid_3.md
-  - https://dev.hostfully.com/reference/findbyuid_4.md
-  - https://dev.hostfully.com/reference/findbywebhookuid.md
-  - https://dev.hostfully.com/reference/findgroupbookingleads.md
-  - https://dev.hostfully.com/reference/findhotelsbyagencyuid.md
-  - https://dev.hostfully.com/reference/findlead.md
-  - https://dev.hostfully.com/reference/findleads.md
-  - https://dev.hostfully.com/reference/findmessagesbyuid.md
-  - https://dev.hostfully.com/reference/findthreadbyuid.md
-  - https://dev.hostfully.com/reference/findthreads.md
-  - https://dev.hostfully.com/reference/findunitbyuid.md
-  - https://dev.hostfully.com/reference/findunitsbyunittype.md
-  - https://dev.hostfully.com/reference/findupdatetaskstatusbyuid.md
-  - https://dev.hostfully.com/reference/getagencies.md
-  - https://dev.hostfully.com/reference/getagency.md
-  - https://dev.hostfully.com/reference/getagencydbssettings.md
-  - https://dev.hostfully.com/reference/getall.md
-  - https://dev.hostfully.com/reference/getall_1.md
-  - https://dev.hostfully.com/reference/getall_10.md
-  - https://dev.hostfully.com/reference/getall_11.md
-  - https://dev.hostfully.com/reference/getall_12.md
-  - https://dev.hostfully.com/reference/getall_13.md
-  - https://dev.hostfully.com/reference/getall_14.md
-  - https://dev.hostfully.com/reference/getall_15.md
-  - https://dev.hostfully.com/reference/getall_16.md
-  - https://dev.hostfully.com/reference/getall_17.md
-  - https://dev.hostfully.com/reference/getall_18.md
-  - https://dev.hostfully.com/reference/getall_19.md
-  - https://dev.hostfully.com/reference/getall_2.md
-  - https://dev.hostfully.com/reference/getall_3.md
-  - https://dev.hostfully.com/reference/getall_4.md
-  - https://dev.hostfully.com/reference/getall_5.md
-  - https://dev.hostfully.com/reference/getall_6.md
-  - https://dev.hostfully.com/reference/getall_7.md
-  - https://dev.hostfully.com/reference/getall_8.md
-  - https://dev.hostfully.com/reference/getall_9.md
-  - https://dev.hostfully.com/reference/getgroupbooking.md
-  - https://dev.hostfully.com/reference/getone.md
-  - https://dev.hostfully.com/reference/getone_1.md
-  - https://dev.hostfully.com/reference/getone_10.md
-  - https://dev.hostfully.com/reference/getone_11.md
-  - https://dev.hostfully.com/reference/getone_2.md
-  - https://dev.hostfully.com/reference/getone_3.md
-  - https://dev.hostfully.com/reference/getone_4.md
-  - https://dev.hostfully.com/reference/getone_5.md
-  - https://dev.hostfully.com/reference/getone_6.md
-  - https://dev.hostfully.com/reference/getone_7.md
-  - https://dev.hostfully.com/reference/getone_8.md
-  - https://dev.hostfully.com/reference/getone_9.md
-  - https://dev.hostfully.com/reference/getorderadjustments.md
-  - https://dev.hostfully.com/reference/getpropertydbssettings.md
-  - https://dev.hostfully.com/reference/getstatistics.md
-  - https://dev.hostfully.com/reference/ignore.md
-  - https://dev.hostfully.com/reference/markasbooked.md
-  - https://dev.hostfully.com/reference/markasdone.md
-  - https://dev.hostfully.com/reference/markprearrivalformcompleted.md
-  - https://dev.hostfully.com/reference/patch.md
-  - https://dev.hostfully.com/reference/patch_1.md
-  - https://dev.hostfully.com/reference/patch_2.md
-  - https://dev.hostfully.com/reference/patch_3.md
-  - https://dev.hostfully.com/reference/patchlead.md
-  - https://dev.hostfully.com/reference/patchpropertyrule.md
-  - https://dev.hostfully.com/reference/post.md
-  - https://dev.hostfully.com/reference/post_1.md
-  - https://dev.hostfully.com/reference/post_10.md
-  - https://dev.hostfully.com/reference/post_11.md
-  - https://dev.hostfully.com/reference/post_12.md
-  - https://dev.hostfully.com/reference/post_13.md
-  - https://dev.hostfully.com/reference/post_14.md
-  - https://dev.hostfully.com/reference/post_15.md
-  - https://dev.hostfully.com/reference/post_16.md
-  - https://dev.hostfully.com/reference/post_2.md
-  - https://dev.hostfully.com/reference/post_3.md
-  - https://dev.hostfully.com/reference/post_4.md
-  - https://dev.hostfully.com/reference/post_5.md
-  - https://dev.hostfully.com/reference/post_6.md
-  - https://dev.hostfully.com/reference/post_7.md
-  - https://dev.hostfully.com/reference/post_8.md
-  - https://dev.hostfully.com/reference/post_9.md
-  - https://dev.hostfully.com/reference/put.md
-  - https://dev.hostfully.com/reference/put_1.md
-  - https://dev.hostfully.com/reference/put_10.md
-  - https://dev.hostfully.com/reference/put_11.md
-  - https://dev.hostfully.com/reference/put_2.md
-  - https://dev.hostfully.com/reference/put_3.md
-  - https://dev.hostfully.com/reference/put_4.md
-  - https://dev.hostfully.com/reference/put_5.md
-  - https://dev.hostfully.com/reference/put_6.md
-  - https://dev.hostfully.com/reference/put_7.md
-  - https://dev.hostfully.com/reference/put_8.md
-  - https://dev.hostfully.com/reference/put_9.md
-  - https://dev.hostfully.com/reference/putleadonhold.md
-  - https://dev.hostfully.com/reference/rebook.md
-  - https://dev.hostfully.com/reference/remove-tag-for-object.md
-  - https://dev.hostfully.com/reference/removelead.md
-  - https://dev.hostfully.com/reference/reopen.md
-  - https://dev.hostfully.com/reference/resendmessage.md
-  - https://dev.hostfully.com/reference/set-tags-for-object.md
-  - https://dev.hostfully.com/reference/tags-by-object.md
-  - https://dev.hostfully.com/reference/update.md
-  - https://dev.hostfully.com/reference/updateapiversion.md
-  - https://dev.hostfully.com/reference/updatefee.md
-  - https://dev.hostfully.com/reference/updateowneradjustment.md
-  - https://dev.hostfully.com/reference/updatepropertyinfull.md
-  - https://dev.hostfully.com/reference/updatepropertypartially.md
-  - https://dev.hostfully.com/reference/updatepropertypartially_1.md
-  - https://dev.hostfully.com/reference/updatepropertyrule.md
-  - https://dev.hostfully.com/reference/updateratemultipliers.md
-  - https://dev.hostfully.com/reference/updaterentalagreementurl.md
-  merge:
-    pages: 176
-    deduped: 773
-    conflicts_kept_first: 0
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true

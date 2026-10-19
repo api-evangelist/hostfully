@@ -131,6 +131,338 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/set-rental-conditions:
+    post:
+      tags:
+      - Leads
+      summary: Update rental agreement URL
+      description: Allows the rental agreement URL to be update for lead directly
+      operationId: updateRentalAgreementUrl
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeadApiV3RentalConditionsDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/reopen:
+    post:
+      tags:
+      - Leads
+      summary: Reopen inquiry
+      description: Reopens the inquiry
+      operationId: reopen
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/rebook:
+    post:
+      tags:
+      - Leads
+      summary: Rebook cancelled booking
+      description: Rebooks cancelled booking
+      operationId: rebook
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/put-on-hold:
+    post:
+      tags:
+      - Leads
+      summary: Place inquiry on hold
+      description: Places an inquiry on hold. The holds lasts 24h by default, but can be changed in agency's settings
+      operationId: putLeadOnHold
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/mark-paf-completed:
+    post:
+      tags:
+      - Leads
+      summary: Mark pre-arrival form completed
+      description: Pre arrival form is a form that is filled in by guest upon Property Manager request with details about the stay, such as exact arrival/departure times, rental agreement signatures and populating custom-data fields.
+      operationId: markPreArrivalFormCompleted
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/mark-as-booked:
+    post:
+      tags:
+      - Leads
+      summary: Transform inquiry to booking
+      description: Transforms the inquiry to a booking
+      operationId: markAsBooked
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/ignore:
+    post:
+      tags:
+      - Leads
+      summary: Mark lead as ignored
+      description: Marks the lead as ignored
+      operationId: ignore
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/extend-hold:
+    post:
+      tags:
+      - Leads
+      summary: Extend hold duration
+      description: Extends the hold to 24h ahead. 24h is the default value. It can be changed in agency's settings
+      operationId: extendHold
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/decline-booking-request:
+    post:
+      tags:
+      - Leads
+      summary: Decline booking request
+      description: Declines the booking request
+      operationId: declineBookingRequest
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/close:
+    post:
+      tags:
+      - Leads
+      summary: Close lead
+      description: Closes the lead.
+      operationId: close
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/cancel:
+    post:
+      tags:
+      - Leads
+      summary: Cancel booking
+      description: Cancels the booking
+      operationId: cancel
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/alteration:
+    post:
+      tags:
+      - Leads
+      summary: Alter lead details
+      description: Allows for changing lead's property, dates or guest data. Successful alteration will result in order recalculation.
+      operationId: changeDates
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeadApiV3_1AlterationRequestDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}/accept-booking-request:
+    post:
+      tags:
+      - Leads
+      summary: Accept booking request
+      description: Accepts the booking request
+      operationId: acceptBookingRequest
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+  /api/v3.3/leads/{leadUid}:
+    get:
+      tags:
+      - Leads
+      summary: Retrieve a lead by UID
+      description: Fetches a single lead by its unique identifier.
+      operationId: findLead
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
+    delete:
+      tags:
+      - Leads
+      summary: Delete obsolete lead
+      description: Deleting of the lead can only be done if the lead is of proper status depending on its type. Block can always be deleted. Inquiry can only be deleted if it's been closed, ignored or rejected. Booking requests be deleted if they were not accepted, meaning if they were not turned into a booking. Booking can only be deleted if it has been cancelled.
+      operationId: removeLead
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    patch:
+      tags:
+      - Leads
+      summary: Partially update lead information
+      description: This call can only update CRUD-type of lead information. It cannot update anything related to lead workflow. This call will only allow for editing personal data if the api client is partner with access to lead's personal data. Otherwise, personal data fields will be ignored.
+      operationId: patchLead
+      parameters:
+      - name: leadUid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeadApiV3PatchDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
   /api/v3.3/leads/group-booking:
     get:
       tags:
@@ -220,644 +552,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3GroupBookingDto'
-  /api/v3.3/leads/{leadUid}:
-    get:
-      tags:
-      - Leads
-      summary: Retrieve a lead by UID
-      description: Fetches a single lead by its unique identifier.
-      operationId: findLead
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-    delete:
-      tags:
-      - Leads
-      summary: Delete obsolete lead
-      description: Deleting of the lead can only be done if the lead is of proper status depending on its type. Block can always be deleted. Inquiry can only be deleted if it's been closed, ignored or rejected. Booking requests be deleted if they were not accepted, meaning if they were not turned into a booking. Booking can only be deleted if it has been cancelled.
-      operationId: removeLead
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-    patch:
-      tags:
-      - Leads
-      summary: Partially update lead information
-      description: This call can only update CRUD-type of lead information. It cannot update anything related to lead workflow. This call will only allow for editing personal data if the api client is partner with access to lead's personal data. Otherwise, personal data fields will be ignored.
-      operationId: patchLead
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LeadApiV3PatchDto'
-        required: true
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/accept-booking-request:
-    post:
-      tags:
-      - Leads
-      summary: Accept booking request
-      description: Accepts the booking request
-      operationId: acceptBookingRequest
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/alteration:
-    post:
-      tags:
-      - Leads
-      summary: Alter lead details
-      description: Allows for changing lead's property, dates or guest data. Successful alteration will result in order recalculation.
-      operationId: changeDates
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LeadApiV3_1AlterationRequestDto'
-        required: true
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/cancel:
-    post:
-      tags:
-      - Leads
-      summary: Cancel booking
-      description: Cancels the booking
-      operationId: cancel
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/close:
-    post:
-      tags:
-      - Leads
-      summary: Close lead
-      description: Closes the lead.
-      operationId: close
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/decline-booking-request:
-    post:
-      tags:
-      - Leads
-      summary: Decline booking request
-      description: Declines the booking request
-      operationId: declineBookingRequest
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/extend-hold:
-    post:
-      tags:
-      - Leads
-      summary: Extend hold duration
-      description: Extends the hold to 24h ahead. 24h is the default value. It can be changed in agency's settings
-      operationId: extendHold
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/ignore:
-    post:
-      tags:
-      - Leads
-      summary: Mark lead as ignored
-      description: Marks the lead as ignored
-      operationId: ignore
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/mark-as-booked:
-    post:
-      tags:
-      - Leads
-      summary: Transform inquiry to booking
-      description: Transforms the inquiry to a booking
-      operationId: markAsBooked
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/mark-paf-completed:
-    post:
-      tags:
-      - Leads
-      summary: Mark pre-arrival form completed
-      description: Pre arrival form is a form that is filled in by guest upon Property Manager request with details about the stay, such as exact arrival/departure times, rental agreement signatures and populating custom-data fields.
-      operationId: markPreArrivalFormCompleted
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/put-on-hold:
-    post:
-      tags:
-      - Leads
-      summary: Place inquiry on hold
-      description: Places an inquiry on hold. The holds lasts 24h by default, but can be changed in agency's settings
-      operationId: putLeadOnHold
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/rebook:
-    post:
-      tags:
-      - Leads
-      summary: Rebook cancelled booking
-      description: Rebooks cancelled booking
-      operationId: rebook
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/reopen:
-    post:
-      tags:
-      - Leads
-      summary: Reopen inquiry
-      description: Reopens the inquiry
-      operationId: reopen
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
-  /api/v3.3/leads/{leadUid}/set-rental-conditions:
-    post:
-      tags:
-      - Leads
-      summary: Update rental agreement URL
-      description: Allows the rental agreement URL to be update for lead directly
-      operationId: updateRentalAgreementUrl
-      parameters:
-      - name: leadUid
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LeadApiV3RentalConditionsDto'
-        required: true
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LeadApi3SingleResourceResponseLeadApiV3_1Dto'
 components:
   schemas:
-    LeadApiV3GroupBookingSubLeadDto:
-      type: object
-      properties:
-        uid:
-          type: string
-          description: Identifier generated for each lead. In UID format
-        groupUid:
-          type: string
-          description: Identifier in UID format for indexing the group-booking, uses UID of the main lead
-        propertyUid:
-          type: string
-          description: UID of UNIT when master/sub. UID of the UNIT_TYPE when hotel
-        agencyUid:
-          type: string
-        unitUid:
-          type: string
-          description: Identifier of the chosen Unit (SUB UNIT UID for master/sub properties, and UNIT for hotels). UID format
-        checkInZonedDateTime:
-          type: string
-          description: Check in datetime with the timezone offset
-          format: date-time
-        checkOutZonedDateTime:
-          type: string
-          description: Check out datetime with the timezone offset
-          format: date-time
-        checkInLocalDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        checkOutLocalDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        externalBookingId:
-          type: string
-        notes:
-          type: string
-          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
-        extraNotes:
-          type: string
-          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
-        assignee:
-          $ref: '#/components/schemas/LeadApiV3AssigneeDto'
-        guestInformation:
-          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
-      description: Returns the reservation data of the sub-lead, along with its respective groupUid
-    LeadApiV3PatchDto:
-      type: object
-      properties:
-        guestInformation:
-          $ref: '#/components/schemas/LeadGuestInformationForPatchApiV3Dto'
-        notes:
-          type: string
-        extraNotes:
-          type: string
-    QuoteOverridesApi3Dto:
-      type: object
-      properties:
-        rent:
-          $ref: '#/components/schemas/QuoteRentOverridesApi3Dto'
-        securityDeposit:
-          type: number
-        fees:
-          $ref: '#/components/schemas/QuoteFeesOverridesApi3Dto'
-        totalPrice:
-          type: number
-        force100PercentPaymentAtReservation:
-          type: boolean
-    QuoteFeesOverridesApi3Dto:
-      type: object
-      properties:
-        cleaningFee:
-          $ref: '#/components/schemas/PriceOverridesApi3Dto'
-        otherFees:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuoteFeeOverridesApi3Dto'
-    LeadApiV3RentalConditionsDto:
-      required:
-      - rentalConditionsUrl
-      type: object
-      properties:
-        rentalConditionsUrl:
-          type: string
-    LeadApi3ListOfResourcesResponseLeadApiV3GroupBookingDto:
-      type: object
-      properties:
-        leads:
-          type: array
-          items:
-            $ref: '#/components/schemas/LeadApiV3GroupBookingDto'
-        _metadata:
-          $ref: '#/components/schemas/Api3ResponseMetadata'
-        _paging:
-          $ref: '#/components/schemas/Api3ResponsePaging'
-    LeadApiV3GroupBookingDto:
-      type: object
-      properties:
-        uid:
-          type: string
-        propertyUid:
-          type: string
-        agencyUid:
-          type: string
-        checkInZonedDateTime:
-          type: string
-          description: Check in datetime with the timezone offset
-          format: date-time
-        checkOutZonedDateTime:
-          type: string
-          description: Check out datetime with the timezone offset
-          format: date-time
-        checkInLocalDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        checkOutLocalDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        status:
-          type: string
-          enum:
-          - BLOCKED
-          - NEW
-          - ON_HOLD
-          - CLOSED
-          - PENDING
-          - PENDING_APPROVED
-          - DECLINED
-          - BOOKED
-          - CANCELLED
-          - IGNORED
-          - DUPLICATE
-          - SAMPLE
-        type:
-          type: string
-          enum:
-          - INQUIRY
-          - BOOKING_REQUEST
-          - BLOCK
-          - BOOKING
-        source:
-          type: string
-          enum:
-          - HOSTFULLY_UI
-          - HOSTFULLY_DBS
-          - HOSTFULLY_API
-          - HOSTFULLY_LINKED
-          - HOSTFULLY_OWNER_PORTAL
-          - HOSTFULLY_ICAL
-          - DIRECT_HOMETOGO
-          - DIRECT_BOOKINGDOTCOM
-          - DIRECT_AIRBNB
-          - DIRECT_VRBO
-          - DIRECT_HVMI
-          - DIRECT_REDAWNING
-          - DIRECT_GOOGLE
-        channel:
-          type: string
-          description: Represents the list of known channels in Lead API V3. This enum may be extended with additional values in API versions.API Clients must gracefully handle unmapped or unexpected entries with fallback or defaulting strategy to ensure safe behavior
-          enum:
-          - HOSTFULLY
-          - AIRBNB
-          - BOOKING_COM
-          - VRBO
-          - HVMB
-          - GOOGLE
-          - FIND_RENTALS
-          - FLATAWAY
-          - GOLIGHTLY
-          - HOMADS
-          - TRIP_ADVISOR
-          - VACAYMYMAY
-          - STAYMENTITY
-          - GETAWAYGOGO
-          - EVERYSTAY
-          - REDAWNING
-          - MISTERBNB
-          - WHIMSTAY
-          - KOPA
-          - OWNERDIRECT
-          - B0ARDING
-          - TRAVELSTAYTION
-          - BNBFINDER
-          - LODGELOVERS
-          - LAKE
-          - MINISTAYS
-          - TRAMONA
-          - NEXTPAX
-          - RENTALS_UNITED
-          - HOUFY
-          - VRASIO
-          - STAYNEARN
-          - BLUEGROUND
-          - ANYSTAY
-          - STAY
-          - CREWDOGS
-        bookedUtcDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        externalBookingId:
-          type: string
-        notes:
-          type: string
-          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
-        extraNotes:
-          type: string
-          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
-        assignee:
-          $ref: '#/components/schemas/LeadApiV3AssigneeDto'
-        metadata:
-          $ref: '#/components/schemas/LeadMetadataApiV3Dto'
-        guestInformation:
-          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
-        referrer:
-          type: string
-        mainLeadUid:
-          type: string
-        groupUid:
-          type: string
-        hotelUid:
-          type: string
-          description: Returned in case property is Multi-Unit (Hotel), ignored for master/sub properties
-        subLeads:
-          type: array
-          items:
-            $ref: '#/components/schemas/LeadApiV3GroupBookingSubLeadDto'
-    PriceOverridesApi3Dto:
-      required:
-      - netPrice
-      type: object
-      properties:
-        netPrice:
-          type: number
-        taxationRate:
-          type: number
-    LeadMetadataApiV3Dto:
-      type: object
-      properties:
-        createdUtcDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        updatedUtcDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        creationCircumstances:
-          type: string
-          description: Optional type defining what process created the lead.
-          enum:
-          - IMPORTED_FROM_CSV
-          - CREATED_WHILE_CHANNEL_ON
-          - IMPORTED_UPON_CHANNEL_CONNECTION
-    Api3ResponseMetadata:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        totalCount:
-          type: integer
-          format: int32
-    LeadApi3SingleResourceResponseLeadApiV3_1Dto:
-      type: object
-      properties:
-        lead:
-          $ref: '#/components/schemas/LeadApiV3_1Dto'
-    LeadApiV3_1AlterationRequestDto:
-      type: object
-      properties:
-        checkInLocalDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        checkOutLocalDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        checkInLocalDate:
-          type: string
-          description: Check in date. Will apply property's default check in time. For specifying different time, use checkInLocalDateTime.
-          format: date
-        checkOutLocalDate:
-          type: string
-          description: Check in date. Will apply property's default check in time. For specifying different time, use checkInLocalDateTime.
-          format: date
-        propertyUid:
-          type: string
-          description: New property to change the lead to. Lead must meet property requirements and property availability.
-        adultCount:
-          minimum: 1
-          type: integer
-          format: int32
-        childrenCount:
-          minimum: 0
-          type: integer
-          format: int32
-        petCount:
-          minimum: 0
-          type: integer
-          format: int32
-        infantCount:
-          minimum: 0
-          type: integer
-          format: int32
-        quoteOverrides:
-          $ref: '#/components/schemas/QuoteOverridesApi3Dto'
-        unitUid:
-          type: string
-          description: New unit to change the lead to. Unit must meet availability and turnover requirements.
     LeadGuestInformationForPatchApiV3Dto:
       type: object
       properties:
@@ -1496,6 +1192,369 @@ components:
         departureLocalDateTime:
           type: string
           example: '2026-04-20T11:52:36'
+    LeadApiV3AssigneeDto:
+      type: object
+      properties:
+        uid:
+          type: string
+        type:
+          type: string
+          enum:
+          - EMPLOYEE
+          - OWNER
+          - AGENT
+    Api3ResponseMetadata:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int32
+    LeadApiV3PatchDto:
+      type: object
+      properties:
+        guestInformation:
+          $ref: '#/components/schemas/LeadGuestInformationForPatchApiV3Dto'
+        notes:
+          type: string
+        extraNotes:
+          type: string
+    LeadApi3ListOfResourcesResponseLeadApiV3_1Dto:
+      type: object
+      properties:
+        leads:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeadApiV3_1Dto'
+        _metadata:
+          $ref: '#/components/schemas/Api3ResponseMetadata'
+        _paging:
+          $ref: '#/components/schemas/Api3ResponsePaging'
+    Api3ResponsePaging:
+      type: object
+      properties:
+        _limit:
+          type: integer
+          format: int32
+        _nextCursor:
+          type: string
+    QuoteRentOverridesApi3Dto:
+      type: object
+      properties:
+        rentBaseNetPrice:
+          type: number
+        rentNetPrice:
+          type: number
+        extraGuestsNetPrice:
+          type: number
+        taxationRate:
+          type: number
+        taxAmount:
+          type: number
+        extraGuestsBaseNetPrice:
+          type: number
+    LeadApiV3_1CreationDto:
+      required:
+      - agencyUid
+      - propertyUid
+      - status
+      type: object
+      properties:
+        propertyUid:
+          type: string
+        agencyUid:
+          type: string
+        checkInLocalDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        checkOutLocalDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        checkInLocalDate:
+          type: string
+          description: Check in date. For specifying time, use checkInLocalDateTime.
+          format: date
+        checkOutLocalDate:
+          type: string
+          description: Check out date. For specifying time, use checkOutLocalDateTime.
+          format: date
+        status:
+          type: string
+          enum:
+          - BLOCKED
+          - NEW
+          - ON_HOLD
+          - CLOSED
+          - PENDING
+          - PENDING_APPROVED
+          - DECLINED
+          - BOOKED
+          - CANCELLED
+          - IGNORED
+          - DUPLICATE
+          - SAMPLE
+        guestInformation:
+          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
+        bookedUtcDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        externalBookingId:
+          type: string
+          description: Ignored for BLOCK type of a lead
+        notes:
+          type: string
+        extraNotes:
+          type: string
+        quoteOverrides:
+          $ref: '#/components/schemas/QuoteOverridesApi3Dto'
+        referrer:
+          type: string
+        channel:
+          type: string
+          description: Represents the list of known channels in Lead API V3. This enum may be extended with additional values in API versions.API Clients must gracefully handle unmapped or unexpected entries with fallback or defaulting strategy to ensure safe behavior
+          enum:
+          - HOSTFULLY
+          - AIRBNB
+          - BOOKING_COM
+          - VRBO
+          - HVMB
+          - GOOGLE
+          - FIND_RENTALS
+          - FLATAWAY
+          - GOLIGHTLY
+          - HOMADS
+          - TRIP_ADVISOR
+          - VACAYMYMAY
+          - STAYMENTITY
+          - GETAWAYGOGO
+          - EVERYSTAY
+          - REDAWNING
+          - MISTERBNB
+          - WHIMSTAY
+          - KOPA
+          - OWNERDIRECT
+          - B0ARDING
+          - TRAVELSTAYTION
+          - BNBFINDER
+          - LODGELOVERS
+          - LAKE
+          - MINISTAYS
+          - TRAMONA
+          - NEXTPAX
+          - RENTALS_UNITED
+          - HOUFY
+          - VRASIO
+          - STAYNEARN
+          - BLUEGROUND
+          - ANYSTAY
+          - STAY
+          - CREWDOGS
+        unitUid:
+          type: string
+          description: Required when 'propertyUid' filed is a uid of a Unit Type.
+      description: Requires either pair of (checkInLocalDateTime, checkOutLocalDateTime) or (checkInLocalDate, checkOutLocalDate)
+    QuoteFeeOverridesApi3Dto:
+      type: object
+      properties:
+        feeId:
+          type: integer
+          format: int32
+          deprecated: true
+        feeUid:
+          type: string
+        name:
+          type: string
+        amountType:
+          type: string
+          enum:
+          - AMOUNT
+          - TAX
+        amount:
+          type: number
+        taxationRate:
+          type: number
+        scope:
+          type: string
+          enum:
+          - PER_NIGHT
+          - PER_STAY
+          - PER_GUEST_PER_NIGHT
+          - PER_GUEST
+          - PER_PET
+          - PER_PET_PER_NIGHT
+          - PERCENTAGE_OF_TOTAL
+          - PERCENTAGE_OF_RENT
+        type:
+          type: string
+          enum:
+          - CLEANING
+          - EARLY_ARRIVAL
+          - LATE_DEPARTURE
+          - PET
+          - TAX
+          - CUSTOM
+        isOptional:
+          type: boolean
+        netPrice:
+          type: number
+        enabled:
+          type: boolean
+        removed:
+          type: boolean
+    LeadApiV3RentalConditionsDto:
+      required:
+      - rentalConditionsUrl
+      type: object
+      properties:
+        rentalConditionsUrl:
+          type: string
+    LeadApiV3_1Dto:
+      type: object
+      properties:
+        uid:
+          type: string
+        propertyUid:
+          type: string
+        agencyUid:
+          type: string
+        checkInZonedDateTime:
+          type: string
+          description: Check in datetime with the timezone offset
+          format: date-time
+        checkOutZonedDateTime:
+          type: string
+          description: Check out datetime with the timezone offset
+          format: date-time
+        checkInLocalDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        checkOutLocalDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        status:
+          type: string
+          enum:
+          - BLOCKED
+          - NEW
+          - ON_HOLD
+          - CLOSED
+          - PENDING
+          - PENDING_APPROVED
+          - DECLINED
+          - BOOKED
+          - CANCELLED
+          - IGNORED
+          - DUPLICATE
+          - SAMPLE
+        type:
+          type: string
+          enum:
+          - INQUIRY
+          - BOOKING_REQUEST
+          - BLOCK
+          - BOOKING
+        source:
+          type: string
+          enum:
+          - HOSTFULLY_UI
+          - HOSTFULLY_DBS
+          - HOSTFULLY_API
+          - HOSTFULLY_LINKED
+          - HOSTFULLY_OWNER_PORTAL
+          - HOSTFULLY_ICAL
+          - DIRECT_HOMETOGO
+          - DIRECT_BOOKINGDOTCOM
+          - DIRECT_AIRBNB
+          - DIRECT_VRBO
+          - DIRECT_HVMI
+          - DIRECT_REDAWNING
+          - DIRECT_GOOGLE
+        channel:
+          type: string
+          description: Represents the list of known channels in Lead API V3. This enum may be extended with additional values in API versions.API Clients must gracefully handle unmapped or unexpected entries with fallback or defaulting strategy to ensure safe behavior
+          enum:
+          - HOSTFULLY
+          - AIRBNB
+          - BOOKING_COM
+          - VRBO
+          - HVMB
+          - GOOGLE
+          - FIND_RENTALS
+          - FLATAWAY
+          - GOLIGHTLY
+          - HOMADS
+          - TRIP_ADVISOR
+          - VACAYMYMAY
+          - STAYMENTITY
+          - GETAWAYGOGO
+          - EVERYSTAY
+          - REDAWNING
+          - MISTERBNB
+          - WHIMSTAY
+          - KOPA
+          - OWNERDIRECT
+          - B0ARDING
+          - TRAVELSTAYTION
+          - BNBFINDER
+          - LODGELOVERS
+          - LAKE
+          - MINISTAYS
+          - TRAMONA
+          - NEXTPAX
+          - RENTALS_UNITED
+          - HOUFY
+          - VRASIO
+          - STAYNEARN
+          - BLUEGROUND
+          - ANYSTAY
+          - STAY
+          - CREWDOGS
+        bookedUtcDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        externalBookingId:
+          type: string
+        notes:
+          type: string
+          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
+        extraNotes:
+          type: string
+          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
+        assignee:
+          $ref: '#/components/schemas/LeadApiV3AssigneeDto'
+        metadata:
+          $ref: '#/components/schemas/LeadMetadataApiV3Dto'
+        guestInformation:
+          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
+        referrer:
+          type: string
+        unitUid:
+          type: string
+    LeadApi3SingleResourceResponseLeadApiV3GroupBookingDto:
+      type: object
+      properties:
+        lead:
+          $ref: '#/components/schemas/LeadApiV3GroupBookingDto'
+    LeadApi3SingleResourceResponseLeadApiV3_1Dto:
+      type: object
+      properties:
+        lead:
+          $ref: '#/components/schemas/LeadApiV3_1Dto'
+    QuoteOverridesApi3Dto:
+      type: object
+      properties:
+        rent:
+          $ref: '#/components/schemas/QuoteRentOverridesApi3Dto'
+        securityDeposit:
+          type: number
+        fees:
+          $ref: '#/components/schemas/QuoteFeesOverridesApi3Dto'
+        totalPrice:
+          type: number
+        force100PercentPaymentAtReservation:
+          type: boolean
     LeadGuestInformationForCreationApiV3Dto:
       required:
       - email
@@ -2153,22 +2212,27 @@ components:
           type: string
           example: '2026-04-20T11:52:36'
       description: Ignored for BLOCK type of a lead
-    LeadApi3SingleResourceResponseLeadApiV3GroupBookingDto:
-      type: object
-      properties:
-        lead:
-          $ref: '#/components/schemas/LeadApiV3GroupBookingDto'
-    LeadApiV3_1CreationDto:
+    PriceOverridesApi3Dto:
       required:
-      - agencyUid
-      - propertyUid
-      - status
+      - netPrice
       type: object
       properties:
-        propertyUid:
-          type: string
-        agencyUid:
-          type: string
+        netPrice:
+          type: number
+        taxationRate:
+          type: number
+    QuoteFeesOverridesApi3Dto:
+      type: object
+      properties:
+        cleaningFee:
+          $ref: '#/components/schemas/PriceOverridesApi3Dto'
+        otherFees:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteFeeOverridesApi3Dto'
+    LeadApiV3_1AlterationRequestDto:
+      type: object
+      properties:
         checkInLocalDateTime:
           type: string
           example: '2026-04-20T11:52:36'
@@ -2177,118 +2241,48 @@ components:
           example: '2026-04-20T11:52:36'
         checkInLocalDate:
           type: string
-          description: Check in date. For specifying time, use checkInLocalDateTime.
+          description: Check in date. Will apply property's default check in time. For specifying different time, use checkInLocalDateTime.
           format: date
         checkOutLocalDate:
           type: string
-          description: Check out date. For specifying time, use checkOutLocalDateTime.
+          description: Check in date. Will apply property's default check in time. For specifying different time, use checkInLocalDateTime.
           format: date
-        status:
+        propertyUid:
           type: string
-          enum:
-          - BLOCKED
-          - NEW
-          - ON_HOLD
-          - CLOSED
-          - PENDING
-          - PENDING_APPROVED
-          - DECLINED
-          - BOOKED
-          - CANCELLED
-          - IGNORED
-          - DUPLICATE
-          - SAMPLE
-        guestInformation:
-          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
-        bookedUtcDateTime:
-          type: string
-          example: '2026-04-20T11:52:36'
-        externalBookingId:
-          type: string
-          description: Ignored for BLOCK type of a lead
-        notes:
-          type: string
-        extraNotes:
-          type: string
+          description: New property to change the lead to. Lead must meet property requirements and property availability.
+        adultCount:
+          minimum: 1
+          type: integer
+          format: int32
+        childrenCount:
+          minimum: 0
+          type: integer
+          format: int32
+        petCount:
+          minimum: 0
+          type: integer
+          format: int32
+        infantCount:
+          minimum: 0
+          type: integer
+          format: int32
         quoteOverrides:
           $ref: '#/components/schemas/QuoteOverridesApi3Dto'
-        referrer:
-          type: string
-        channel:
-          type: string
-          description: Represents the list of known channels in Lead API V3. This enum may be extended with additional values in API versions.API Clients must gracefully handle unmapped or unexpected entries with fallback or defaulting strategy to ensure safe behavior
-          enum:
-          - HOSTFULLY
-          - AIRBNB
-          - BOOKING_COM
-          - VRBO
-          - HVMB
-          - GOOGLE
-          - FIND_RENTALS
-          - FLATAWAY
-          - GOLIGHTLY
-          - HOMADS
-          - TRIP_ADVISOR
-          - VACAYMYMAY
-          - STAYMENTITY
-          - GETAWAYGOGO
-          - EVERYSTAY
-          - REDAWNING
-          - MISTERBNB
-          - WHIMSTAY
-          - KOPA
-          - OWNERDIRECT
-          - B0ARDING
-          - TRAVELSTAYTION
-          - BNBFINDER
-          - LODGELOVERS
-          - LAKE
-          - MINISTAYS
-          - TRAMONA
-          - NEXTPAX
-          - RENTALS_UNITED
-          - HOUFY
-          - VRASIO
-          - STAYNEARN
-          - BLUEGROUND
-          - ANYSTAY
-          - STAY
-          - CREWDOGS
         unitUid:
           type: string
-          description: Required when 'propertyUid' filed is a uid of a Unit Type.
-      description: Requires either pair of (checkInLocalDateTime, checkOutLocalDateTime) or (checkInLocalDate, checkOutLocalDate)
-    LeadApi3ListOfResourcesResponseLeadApiV3_1Dto:
+          description: New unit to change the lead to. Unit must meet availability and turnover requirements.
+    LeadApi3ListOfResourcesResponseLeadApiV3GroupBookingDto:
       type: object
       properties:
         leads:
           type: array
           items:
-            $ref: '#/components/schemas/LeadApiV3_1Dto'
+            $ref: '#/components/schemas/LeadApiV3GroupBookingDto'
         _metadata:
           $ref: '#/components/schemas/Api3ResponseMetadata'
         _paging:
           $ref: '#/components/schemas/Api3ResponsePaging'
-    Api3ResponsePaging:
-      type: object
-      properties:
-        _limit:
-          type: integer
-          format: int32
-        _nextCursor:
-          type: string
-    LeadApiV3AssigneeDto:
-      type: object
-      properties:
-        uid:
-          type: string
-        type:
-          type: string
-          enum:
-          - EMPLOYEE
-          - OWNER
-          - AGENT
-    LeadApiV3_1Dto:
+    LeadApiV3GroupBookingDto:
       type: object
       properties:
         uid:
@@ -2408,71 +2402,77 @@ components:
           $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
         referrer:
           type: string
+        mainLeadUid:
+          type: string
+        groupUid:
+          type: string
+        hotelUid:
+          type: string
+          description: Returned in case property is Multi-Unit (Hotel), ignored for master/sub properties
+        subLeads:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeadApiV3GroupBookingSubLeadDto'
+    LeadMetadataApiV3Dto:
+      type: object
+      properties:
+        createdUtcDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        updatedUtcDateTime:
+          type: string
+          example: '2026-04-20T11:52:36'
+        creationCircumstances:
+          type: string
+          description: Optional type defining what process created the lead.
+          enum:
+          - IMPORTED_FROM_CSV
+          - CREATED_WHILE_CHANNEL_ON
+          - IMPORTED_UPON_CHANNEL_CONNECTION
+    LeadApiV3GroupBookingSubLeadDto:
+      type: object
+      properties:
+        uid:
+          type: string
+          description: Identifier generated for each lead. In UID format
+        groupUid:
+          type: string
+          description: Identifier in UID format for indexing the group-booking, uses UID of the main lead
+        propertyUid:
+          type: string
+          description: UID of UNIT when master/sub. UID of the UNIT_TYPE when hotel
+        agencyUid:
+          type: string
         unitUid:
           type: string
-    QuoteRentOverridesApi3Dto:
-      type: object
-      properties:
-        rentBaseNetPrice:
-          type: number
-        rentNetPrice:
-          type: number
-        extraGuestsNetPrice:
-          type: number
-        taxationRate:
-          type: number
-        taxAmount:
-          type: number
-        extraGuestsBaseNetPrice:
-          type: number
-    QuoteFeeOverridesApi3Dto:
-      type: object
-      properties:
-        feeId:
-          type: integer
-          format: int32
-          deprecated: true
-        feeUid:
+          description: Identifier of the chosen Unit (SUB UNIT UID for master/sub properties, and UNIT for hotels). UID format
+        checkInZonedDateTime:
           type: string
-        name:
+          description: Check in datetime with the timezone offset
+          format: date-time
+        checkOutZonedDateTime:
           type: string
-        amountType:
+          description: Check out datetime with the timezone offset
+          format: date-time
+        checkInLocalDateTime:
           type: string
-          enum:
-          - AMOUNT
-          - TAX
-        amount:
-          type: number
-        taxationRate:
-          type: number
-        scope:
+          example: '2026-04-20T11:52:36'
+        checkOutLocalDateTime:
           type: string
-          enum:
-          - PER_NIGHT
-          - PER_STAY
-          - PER_GUEST_PER_NIGHT
-          - PER_GUEST
-          - PER_PET
-          - PER_PET_PER_NIGHT
-          - PERCENTAGE_OF_TOTAL
-          - PERCENTAGE_OF_RENT
-        type:
+          example: '2026-04-20T11:52:36'
+        externalBookingId:
           type: string
-          enum:
-          - CLEANING
-          - EARLY_ARRIVAL
-          - LATE_DEPARTURE
-          - PET
-          - TAX
-          - CUSTOM
-        isOptional:
-          type: boolean
-        netPrice:
-          type: number
-        enabled:
-          type: boolean
-        removed:
-          type: boolean
+        notes:
+          type: string
+          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
+        extraNotes:
+          type: string
+          description: Replaced with 'HIDDEN' if api caller has no access to see lead's personal and confidential information
+        assignee:
+          $ref: '#/components/schemas/LeadApiV3AssigneeDto'
+        guestInformation:
+          $ref: '#/components/schemas/LeadGuestInformationForCreationApiV3Dto'
+      description: Returns the reservation data of the sub-lead, along with its respective groupUid
   securitySchemes:
     JWT-Authentication:
       type: apiKey
@@ -2487,190 +2487,6 @@ components:
 externalDocs:
   description: Hostfully Documentation
   url: https://dev.hostfully.com/v3.0/reference
-x-provenance:
-  method: searched
-  source: https://dev.hostfully.com/reference
-  harvested: '2026-10-14'
-  tool: harvest-readme-openapi.py
-  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
-  assembled_from:
-  - https://dev.hostfully.com/reference/acceptbookingrequest.md
-  - https://dev.hostfully.com/reference/acceptjob.md
-  - https://dev.hostfully.com/reference/calculatequote.md
-  - https://dev.hostfully.com/reference/cancel.md
-  - https://dev.hostfully.com/reference/cancelgroupbooking.md
-  - https://dev.hostfully.com/reference/changedates.md
-  - https://dev.hostfully.com/reference/close.md
-  - https://dev.hostfully.com/reference/create.md
-  - https://dev.hostfully.com/reference/create_1.md
-  - https://dev.hostfully.com/reference/createfee.md
-  - https://dev.hostfully.com/reference/creategroupbookinglead.md
-  - https://dev.hostfully.com/reference/createlead.md
-  - https://dev.hostfully.com/reference/createmessage.md
-  - https://dev.hostfully.com/reference/createorderadjustment.md
-  - https://dev.hostfully.com/reference/createowneradjustment.md
-  - https://dev.hostfully.com/reference/createproperty.md
-  - https://dev.hostfully.com/reference/createpropertyrule.md
-  - https://dev.hostfully.com/reference/currentapiversion.md
-  - https://dev.hostfully.com/reference/declinebookingrequest.md
-  - https://dev.hostfully.com/reference/declinejob.md
-  - https://dev.hostfully.com/reference/delete.md
-  - https://dev.hostfully.com/reference/delete_1.md
-  - https://dev.hostfully.com/reference/delete_10.md
-  - https://dev.hostfully.com/reference/delete_11.md
-  - https://dev.hostfully.com/reference/delete_12.md
-  - https://dev.hostfully.com/reference/delete_13.md
-  - https://dev.hostfully.com/reference/delete_14.md
-  - https://dev.hostfully.com/reference/delete_15.md
-  - https://dev.hostfully.com/reference/delete_2.md
-  - https://dev.hostfully.com/reference/delete_3.md
-  - https://dev.hostfully.com/reference/delete_4.md
-  - https://dev.hostfully.com/reference/delete_5.md
-  - https://dev.hostfully.com/reference/delete_6.md
-  - https://dev.hostfully.com/reference/delete_7.md
-  - https://dev.hostfully.com/reference/delete_8.md
-  - https://dev.hostfully.com/reference/delete_9.md
-  - https://dev.hostfully.com/reference/deleteall.md
-  - https://dev.hostfully.com/reference/deletebyuid.md
-  - https://dev.hostfully.com/reference/deletefee.md
-  - https://dev.hostfully.com/reference/deleteorderadjustment.md
-  - https://dev.hostfully.com/reference/deleteowneradjustmentbyuid.md
-  - https://dev.hostfully.com/reference/deletepropertybyuid.md
-  - https://dev.hostfully.com/reference/deletepropertybyuid_1.md
-  - https://dev.hostfully.com/reference/deletepropertyrule.md
-  - https://dev.hostfully.com/reference/execute.md
-  - https://dev.hostfully.com/reference/extendhold.md
-  - https://dev.hostfully.com/reference/fetchextraguestsbylead.md
-  - https://dev.hostfully.com/reference/findall.md
-  - https://dev.hostfully.com/reference/findall_1.md
-  - https://dev.hostfully.com/reference/findall_2.md
-  - https://dev.hostfully.com/reference/findall_3.md
-  - https://dev.hostfully.com/reference/findall_4.md
-  - https://dev.hostfully.com/reference/findall_5.md
-  - https://dev.hostfully.com/reference/findall_6.md
-  - https://dev.hostfully.com/reference/findall_7.md
-  - https://dev.hostfully.com/reference/findall_8.md
-  - https://dev.hostfully.com/reference/findallmessagesforagency.md
-  - https://dev.hostfully.com/reference/findbyagencyuid.md
-  - https://dev.hostfully.com/reference/findbyhoteluid.md
-  - https://dev.hostfully.com/reference/findbypropertyuid.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_1.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_2.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_3.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_4.md
-  - https://dev.hostfully.com/reference/findbyuid.md
-  - https://dev.hostfully.com/reference/findbyuid_1.md
-  - https://dev.hostfully.com/reference/findbyuid_2.md
-  - https://dev.hostfully.com/reference/findbyuid_3.md
-  - https://dev.hostfully.com/reference/findbyuid_4.md
-  - https://dev.hostfully.com/reference/findbywebhookuid.md
-  - https://dev.hostfully.com/reference/findgroupbookingleads.md
-  - https://dev.hostfully.com/reference/findhotelsbyagencyuid.md
-  - https://dev.hostfully.com/reference/findlead.md
-  - https://dev.hostfully.com/reference/findleads.md
-  - https://dev.hostfully.com/reference/findmessagesbyuid.md
-  - https://dev.hostfully.com/reference/findthreadbyuid.md
-  - https://dev.hostfully.com/reference/findthreads.md
-  - https://dev.hostfully.com/reference/findunitbyuid.md
-  - https://dev.hostfully.com/reference/findunitsbyunittype.md
-  - https://dev.hostfully.com/reference/findupdatetaskstatusbyuid.md
-  - https://dev.hostfully.com/reference/getagencies.md
-  - https://dev.hostfully.com/reference/getagency.md
-  - https://dev.hostfully.com/reference/getagencydbssettings.md
-  - https://dev.hostfully.com/reference/getall.md
-  - https://dev.hostfully.com/reference/getall_1.md
-  - https://dev.hostfully.com/reference/getall_10.md
-  - https://dev.hostfully.com/reference/getall_11.md
-  - https://dev.hostfully.com/reference/getall_12.md
-  - https://dev.hostfully.com/reference/getall_13.md
-  - https://dev.hostfully.com/reference/getall_14.md
-  - https://dev.hostfully.com/reference/getall_15.md
-  - https://dev.hostfully.com/reference/getall_16.md
-  - https://dev.hostfully.com/reference/getall_17.md
-  - https://dev.hostfully.com/reference/getall_18.md
-  - https://dev.hostfully.com/reference/getall_19.md
-  - https://dev.hostfully.com/reference/getall_2.md
-  - https://dev.hostfully.com/reference/getall_3.md
-  - https://dev.hostfully.com/reference/getall_4.md
-  - https://dev.hostfully.com/reference/getall_5.md
-  - https://dev.hostfully.com/reference/getall_6.md
-  - https://dev.hostfully.com/reference/getall_7.md
-  - https://dev.hostfully.com/reference/getall_8.md
-  - https://dev.hostfully.com/reference/getall_9.md
-  - https://dev.hostfully.com/reference/getgroupbooking.md
-  - https://dev.hostfully.com/reference/getone.md
-  - https://dev.hostfully.com/reference/getone_1.md
-  - https://dev.hostfully.com/reference/getone_10.md
-  - https://dev.hostfully.com/reference/getone_11.md
-  - https://dev.hostfully.com/reference/getone_2.md
-  - https://dev.hostfully.com/reference/getone_3.md
-  - https://dev.hostfully.com/reference/getone_4.md
-  - https://dev.hostfully.com/reference/getone_5.md
-  - https://dev.hostfully.com/reference/getone_6.md
-  - https://dev.hostfully.com/reference/getone_7.md
-  - https://dev.hostfully.com/reference/getone_8.md
-  - https://dev.hostfully.com/reference/getone_9.md
-  - https://dev.hostfully.com/reference/getorderadjustments.md
-  - https://dev.hostfully.com/reference/getpropertydbssettings.md
-  - https://dev.hostfully.com/reference/getstatistics.md
-  - https://dev.hostfully.com/reference/ignore.md
-  - https://dev.hostfully.com/reference/markasbooked.md
-  - https://dev.hostfully.com/reference/markasdone.md
-  - https://dev.hostfully.com/reference/markprearrivalformcompleted.md
-  - https://dev.hostfully.com/reference/patch.md
-  - https://dev.hostfully.com/reference/patch_1.md
-  - https://dev.hostfully.com/reference/patch_2.md
-  - https://dev.hostfully.com/reference/patch_3.md
-  - https://dev.hostfully.com/reference/patchlead.md
-  - https://dev.hostfully.com/reference/patchpropertyrule.md
-  - https://dev.hostfully.com/reference/post.md
-  - https://dev.hostfully.com/reference/post_1.md
-  - https://dev.hostfully.com/reference/post_10.md
-  - https://dev.hostfully.com/reference/post_11.md
-  - https://dev.hostfully.com/reference/post_12.md
-  - https://dev.hostfully.com/reference/post_13.md
-  - https://dev.hostfully.com/reference/post_14.md
-  - https://dev.hostfully.com/reference/post_15.md
-  - https://dev.hostfully.com/reference/post_16.md
-  - https://dev.hostfully.com/reference/post_2.md
-  - https://dev.hostfully.com/reference/post_3.md
-  - https://dev.hostfully.com/reference/post_4.md
-  - https://dev.hostfully.com/reference/post_5.md
-  - https://dev.hostfully.com/reference/post_6.md
-  - https://dev.hostfully.com/reference/post_7.md
-  - https://dev.hostfully.com/reference/post_8.md
-  - https://dev.hostfully.com/reference/post_9.md
-  - https://dev.hostfully.com/reference/put.md
-  - https://dev.hostfully.com/reference/put_1.md
-  - https://dev.hostfully.com/reference/put_10.md
-  - https://dev.hostfully.com/reference/put_11.md
-  - https://dev.hostfully.com/reference/put_2.md
-  - https://dev.hostfully.com/reference/put_3.md
-  - https://dev.hostfully.com/reference/put_4.md
-  - https://dev.hostfully.com/reference/put_5.md
-  - https://dev.hostfully.com/reference/put_6.md
-  - https://dev.hostfully.com/reference/put_7.md
-  - https://dev.hostfully.com/reference/put_8.md
-  - https://dev.hostfully.com/reference/put_9.md
-  - https://dev.hostfully.com/reference/putleadonhold.md
-  - https://dev.hostfully.com/reference/rebook.md
-  - https://dev.hostfully.com/reference/remove-tag-for-object.md
-  - https://dev.hostfully.com/reference/removelead.md
-  - https://dev.hostfully.com/reference/reopen.md
-  - https://dev.hostfully.com/reference/resendmessage.md
-  - https://dev.hostfully.com/reference/set-tags-for-object.md
-  - https://dev.hostfully.com/reference/tags-by-object.md
-  - https://dev.hostfully.com/reference/update.md
-  - https://dev.hostfully.com/reference/updateapiversion.md
-  - https://dev.hostfully.com/reference/updatefee.md
-  - https://dev.hostfully.com/reference/updateowneradjustment.md
-  - https://dev.hostfully.com/reference/updatepropertyinfull.md
-  - https://dev.hostfully.com/reference/updatepropertypartially.md
-  - https://dev.hostfully.com/reference/updatepropertypartially_1.md
-  - https://dev.hostfully.com/reference/updatepropertyrule.md
-  - https://dev.hostfully.com/reference/updateratemultipliers.md
-  - https://dev.hostfully.com/reference/updaterentalagreementurl.md
-  merge:
-    pages: 176
-    deduped: 773
-    conflicts_kept_first: 0
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true

@@ -1,0 +1,12 @@
+{
+ "url": "https://dev.hostfully.com/openapi/69e0c82ecbd69b36f3b38964",
+ "final": "https://dev.hostfully.com/openapi/69e0c82ecbd69b36f3b38964",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 247126,
+ "sha256": "13eac8b16fce6e1f7f096016fc6dc2687a957677a0777469ae7b9914ce9c1204",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}

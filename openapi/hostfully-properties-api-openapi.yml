@@ -13,65 +13,6 @@ security:
 tags:
 - name: Properties
 paths:
-  /api/v3.3/properties:
-    get:
-      tags:
-      - Properties
-      summary: List properties by agency
-      description: Retrieves list of properties for an agency with optional updatedSince filter
-      operationId: findByAgencyUid
-      parameters:
-      - name: agencyUid
-        in: query
-        required: true
-        schema:
-          type: string
-      - name: updatedSince
-        in: query
-        required: false
-        schema:
-          type: string
-          example: '2023-09-28T10:31:01'
-        example: '2023-09-28T10:31:01'
-      - name: _cursor
-        in: query
-        description: Cursor for pagination
-        required: false
-        schema:
-          type: string
-          description: Cursor for pagination
-      - name: _limit
-        in: query
-        description: Limit for pagination
-        required: false
-        schema:
-          type: string
-          description: Limit for pagination
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/PropertiesApiV3ResponseWrapper'
-    post:
-      tags:
-      - Properties
-      summary: Create new property
-      operationId: createProperty
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PropertiesCreationApi3Dto'
-        required: true
-      responses:
-        '201':
-          description: Created
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/PropertyApiV3ResponseWrapper'
   /api/v3.3/properties/{propertyUid}:
     get:
       tags:
@@ -156,610 +97,76 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PropertyApiV3ResponseWrapper'
+  /api/v3.3/properties:
+    get:
+      tags:
+      - Properties
+      summary: List properties by agency
+      description: Retrieves list of properties for an agency with optional updatedSince filter
+      operationId: findByAgencyUid
+      parameters:
+      - name: agencyUid
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: updatedSince
+        in: query
+        required: false
+        schema:
+          type: string
+          example: '2023-09-28T10:31:01'
+        example: '2023-09-28T10:31:01'
+      - name: _cursor
+        in: query
+        description: Cursor for pagination
+        required: false
+        schema:
+          type: string
+          description: Cursor for pagination
+      - name: _limit
+        in: query
+        description: Limit for pagination
+        required: false
+        schema:
+          type: string
+          description: Limit for pagination
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PropertiesApiV3ResponseWrapper'
+    post:
+      tags:
+      - Properties
+      summary: Create new property
+      operationId: createProperty
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertiesCreationApi3Dto'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PropertyApiV3ResponseWrapper'
 components:
   schemas:
-    PropertyAvailabilitySettingApi3Dto:
-      required:
-      - baseGuests
-      - maxGuests
+    Api3ResponseMetadata:
       type: object
       properties:
-        baseGuests:
-          maximum: 2147483647
-          minimum: 0
+        count:
           type: integer
           format: int32
-        maxGuests:
-          maximum: 2147483647
-          minimum: 0
+        totalCount:
           type: integer
           format: int32
-        minimumStay:
-          maximum: 2147483647
-          minimum: 0
-          type: integer
-          format: int32
-        dayOfWeekMinimumStay:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
-        maximumStay:
-          maximum: 2147483647
-          minimum: 0
-          type: integer
-          format: int32
-        minimumWeekendStay:
-          type: integer
-          format: int32
-        allowBookingRequestsAboveMaximumStay:
-          type: boolean
-        bookingWindow:
-          type: integer
-          format: int32
-        turnOverDays:
-          type: integer
-          format: int32
-        bookingLeadTime:
-          type: integer
-          format: int32
-        allowBookingRequestWhenOutOfLeadTime:
-          type: boolean
-        checkInTimeStart:
-          type: integer
-          format: int32
-        checkInTimeEnd:
-          type: integer
-          format: int32
-        checkInTimeEndFlexible:
-          type: boolean
-        checkOutTime:
-          type: integer
-          format: int32
-        daysOfTheWeekToCheckInOn:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-            enum:
-            - MONDAY
-            - TUESDAY
-            - WEDNESDAY
-            - THURSDAY
-            - FRIDAY
-            - SATURDAY
-            - SUNDAY
-        hostfullyBookingStrategy:
-          type: string
-          enum:
-          - BOOKING_INQUIRY
-          - BOOKING_REQUEST
-          - INSTANT_BOOKING
-        airbnbBookingStrategy:
-          type: string
-          enum:
-          - BOOKING_INQUIRY
-          - BOOKING_REQUEST
-          - INSTANT_BOOKING
-        vrboBookingStrategy:
-          type: string
-          enum:
-          - BOOKING_INQUIRY
-          - BOOKING_REQUEST
-          - INSTANT_BOOKING
-        bookingDotComBookingStrategy:
-          type: string
-          enum:
-          - BOOKING_INQUIRY
-          - BOOKING_REQUEST
-          - INSTANT_BOOKING
-    PropertiesPatchApi3Dto:
-      type: object
-      properties:
-        agencyUid:
-          type: string
-        hotelUid:
-          type: string
-        name:
-          type: string
-        address:
-          $ref: '#/components/schemas/PropertyAddressApi3Dto'
-        propertyType:
-          type: string
-          enum:
-          - HOUSE
-          - COTTAGE
-          - CONDO
-          - BEDANDBREAKFAST
-          - VILLA
-          - CHALET
-          - CABIN
-          - STUDIO
-          - ROOM
-          - APARTMENT
-          - HOTEL
-          - HOSTEL
-          - LODGE
-          - TOWNHOUSE
-          - DUPLEX
-          - TRIPLEX
-          - FOURPLEX
-          - BUNGALOW
-          - FARMHOUSE
-          - BOAT
-          - HOUSEBOAT
-          - RESORT
-          - PENTHOUSE
-          - CHATEAU
-          - GUESTHOUSE
-          - HOMESTAY
-          - CAMPGROUND
-          - MOTELROOM
-          - COUNTRYHOUSE
-          - LOFT
-          - DORM
-          - TREEHOUSE
-          - PLANE
-          - IGLOO
-          - RV
-          - LIGHTHOUSE
-          - YURT
-          - TIPI
-          - CAVE
-          - ISLAND
-          - EARTHHOUSE
-          - HUT
-          - TRAIN
-          - TENT
-          - SERVICED_APARTMENT
-          - TINY_HOUSE
-          - BOUTIQUE_HOTEL
-          - APARTHOTEL
-          - DOME_HOUSE
-          - CYCLADIC_HOUSE
-          - DAMMUSO
-          - GUEST_SUITE
-          - HERITAGE_HOTEL
-          - HOLIDAY_PARK
-          - KEZHAN
-          - MINSU
-          - PENSION
-          - RANCH
-          - RELIGIOUS_BUILDING
-          - RIAD
-          - RYOKAN
-          - SHEPHERDS_HUT
-          - SHIPPING_CONTAINER
-          - TOWER
-          - TRULLO
-          - BARN
-          - WINDMILL
-          - CASA_PARTICULAR
-          - SAMPLE
-          - HOLIDAY_HOME
-          - OTHER
-        listingType:
-          type: string
-          enum:
-          - ENTIREHOME
-          - SHAREDROOM
-          - PRIVATEROOM
-          - HOTELROOM
-        roomType:
-          type: string
-          enum:
-          - Apartment
-          - Single
-          - Studio
-          - Family
-          - Twin_Double
-          - Dormitory_room
-          - Bed_in_Dormitory
-          - Bungalow
-          - Chalet
-          - Holiday_home
-          - Villa
-          - Mobile_home
-          - Tent
-          - Quadruple
-          - Suite
-          - Triple
-          - Twin
-          - Double
-        businessType:
-          type: string
-          enum:
-          - HOTEL
-          - UNIT_TYPE
-          - UNIT
-          - STANDALONE_PROPERTY
-          - SUB_UNIT
-        isActive:
-          type: boolean
-        pictureLink:
-          type: string
-        webLink:
-          type: string
-        bedrooms:
-          type: integer
-          format: int32
-        beds:
-          type: integer
-          format: int32
-        bathrooms:
-          type: string
-        numberOfFloors:
-          type: integer
-          format: int32
-        area:
-          $ref: '#/components/schemas/AreaApiTO'
-        rentalLicenseNumber:
-          type: string
-        rentalLicenseExpirationDate:
-          type: string
-          format: date
-        availability:
-          $ref: '#/components/schemas/PropertyAvailabilitySettingApi3Dto'
-        pricing:
-          $ref: '#/components/schemas/PropertyPricingSettingPatchApi3Dto'
-        airbnbData:
-          $ref: '#/components/schemas/PropertyAirbnbDataApi3Dto'
-        bookingDotComData:
-          $ref: '#/components/schemas/PropertyBookingDotComDataAddingApi3Dto'
-        hvmiData:
-          $ref: '#/components/schemas/PropertyHvmiDataApi3Dto'
-        vrboData:
-          $ref: '#/components/schemas/PropertyVrboDataApi3Dto'
-        externalId:
-          type: string
-        accountingId:
-          type: string
-        showPropertyExactLocation:
-          type: boolean
-        agentUid:
-          type: string
-        wifiNetwork:
-          type: string
-        wifiPassword:
-          type: string
-        bookingNotes:
-          type: string
-        extraNotes:
-          type: string
-        ownerNotes:
-          type: string
-        cancellationPolicy:
-          type: string
-        useMinimumPriceRule:
-          type: boolean
-        integrationsData:
-          $ref: '#/components/schemas/IntegrationsApi3DataDto'
-        guideBookUrl:
-          type: string
-        guideBookRecsOnlyUrl:
-          type: string
-    PropertiesApiV3ResponseWrapper:
-      type: object
-      properties:
-        properties:
-          type: array
-          items:
-            $ref: '#/components/schemas/PropertiesApi3ResponseDto'
-        _metadata:
-          $ref: '#/components/schemas/Api3ResponseMetadata'
-        _paging:
-          $ref: '#/components/schemas/Api3ResponsePaging'
-    VrboCustomCancellationPolicyApiDto:
-      type: object
-      properties:
-        refundPercentage:
-          type: integer
-          format: int32
-        refundThreshold:
-          type: integer
-          format: int32
-    PropertyAirbnbDataApi3Dto:
-      type: object
-      properties:
-        activeForAgency:
-          type: boolean
-        active:
-          type: boolean
-        airbnbId:
-          type: string
-        instantBookingGuestRequirement:
-          type: string
-          enum:
-          - EVERYONE
-          - 'OFF'
-          - WELL_REVIEWED_GUESTS
-        checkInOptionType:
-          type: string
-          enum:
-          - doorman_entry
-          - lockbox
-          - smartlock
-          - keypad
-          - host_checkin
-          - other_checkin
-        cancellationPolicy:
-          type: string
-          enum:
-          - flexible
-          - moderate
-          - better_strict_with_grace_period
-          - strict
-          - super_strict_30
-          - super_strict_60
-          - firm_14
-        eligibleForPassThroughTaxes:
-          type: boolean
-        allowBookingRequestAsFallback:
-          type: boolean
-        nonRefundableRateEnabled:
-          type: boolean
-        nonRefundableRateDiscount:
-          type: number
-        flexibleCheckIn:
-          type: boolean
-    AddressApi3Dto:
-      type: object
-      properties:
-        address:
-          type: string
-        address2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zipCode:
-          type: string
-        countryCode:
-          type: string
-          enum:
-          - AF
-          - AL
-          - DZ
-          - AS
-          - AD
-          - AO
-          - AI
-          - AG
-          - AN
-          - AR
-          - AM
-          - AW
-          - AU
-          - AT
-          - AZ
-          - BS
-          - BH
-          - BD
-          - BB
-          - BY
-          - BE
-          - BZ
-          - BJ
-          - BM
-          - BT
-          - BO
-          - BA
-          - BW
-          - BR
-          - BN
-          - BG
-          - BF
-          - BI
-          - BQ
-          - KH
-          - CM
-          - CA
-          - CV
-          - KY
-          - CF
-          - TD
-          - CL
-          - CN
-          - CX
-          - CC
-          - CO
-          - KM
-          - YT
-          - CG
-          - CD
-          - CK
-          - CR
-          - CI
-          - HR
-          - CU
-          - CW
-          - CY
-          - CZ
-          - DK
-          - DJ
-          - DM
-          - DO
-          - EC
-          - EG
-          - SV
-          - GQ
-          - ER
-          - EE
-          - ET
-          - FJ
-          - FI
-          - FK
-          - FO
-          - FR
-          - GF
-          - GA
-          - GM
-          - GE
-          - DE
-          - GH
-          - GI
-          - GR
-          - GL
-          - GD
-          - GU
-          - GT
-          - GN
-          - GW
-          - GY
-          - GP
-          - HT
-          - VA
-          - HN
-          - HK
-          - HL
-          - HU
-          - IS
-          - IN
-          - ID
-          - IR
-          - IQ
-          - IE
-          - IL
-          - IT
-          - JM
-          - JP
-          - JO
-          - KZ
-          - KE
-          - KI
-          - KP
-          - KR
-          - KW
-          - KG
-          - LA
-          - LV
-          - LB
-          - LC
-          - LS
-          - LR
-          - LY
-          - LI
-          - LT
-          - LU
-          - MO
-          - MQ
-          - MK
-          - MG
-          - MW
-          - MY
-          - MV
-          - ML
-          - MT
-          - MH
-          - MR
-          - MU
-          - MX
-          - FM
-          - MD
-          - MC
-          - MN
-          - MS
-          - MA
-          - MZ
-          - MM
-          - ME
-          - NA
-          - NR
-          - NP
-          - NL
-          - NC
-          - NZ
-          - NI
-          - NE
-          - NG
-          - NU
-          - NF
-          - 'NO'
-          - OM
-          - PK
-          - PW
-          - PA
-          - PG
-          - PS
-          - PY
-          - PE
-          - PF
-          - PH
-          - PL
-          - PN
-          - PT
-          - PR
-          - QA
-          - RO
-          - RU
-          - RW
-          - KN
-          - WS
-          - RE
-          - PM
-          - SH
-          - ST
-          - SM
-          - SA
-          - SN
-          - RS
-          - SC
-          - SL
-          - SG
-          - SX
-          - SK
-          - SI
-          - SB
-          - SO
-          - ZA
-          - ES
-          - LK
-          - SR
-          - SJ
-          - SZ
-          - SE
-          - CH
-          - SY
-          - TC
-          - TW
-          - TJ
-          - TZ
-          - TH
-          - TG
-          - TO
-          - TT
-          - TN
-          - TR
-          - TM
-          - TV
-          - UG
-          - UA
-          - AE
-          - GB
-          - JE
-          - IM
-          - US
-          - UY
-          - UZ
-          - VC
-          - VU
-          - VE
-          - VN
-          - VG
-          - VI
-          - WF
-          - EH
-          - YE
-          - YU
-          - ZM
-          - ZW
-        longitude:
-          type: number
-          format: double
-        latitude:
-          type: number
-          format: double
     CheckInMethodDto:
       type: object
       properties:
@@ -795,6 +202,22 @@ components:
           - day_of_arrival
         identifier:
           type: string
+    VrboPromotionApiDto:
+      type: object
+      properties:
+        uid:
+          type: string
+          format: uuid
+        type:
+          type: string
+          enum:
+          - MOBILE
+          - MEMBER_BLUE
+          - MEMBER_SILVER
+          - MEMBER_GOLD
+        percentage:
+          type: integer
+          format: int32
     PropertiesApi3ResponseDto:
       type: object
       properties:
@@ -986,293 +409,17 @@ components:
         updatedUtcDateTime:
           type: string
           example: '2026-04-20T11:52:36'
-    PropertiesSavingApi3Dto:
+    AreaApiTO:
       type: object
       properties:
-        agencyUid:
-          type: string
-        hotelUid:
-          type: string
-        name:
-          type: string
-        address:
-          $ref: '#/components/schemas/PropertyAddressApi3Dto'
-        propertyType:
-          type: string
-          enum:
-          - HOUSE
-          - COTTAGE
-          - CONDO
-          - BEDANDBREAKFAST
-          - VILLA
-          - CHALET
-          - CABIN
-          - STUDIO
-          - ROOM
-          - APARTMENT
-          - HOTEL
-          - HOSTEL
-          - LODGE
-          - TOWNHOUSE
-          - DUPLEX
-          - TRIPLEX
-          - FOURPLEX
-          - BUNGALOW
-          - FARMHOUSE
-          - BOAT
-          - HOUSEBOAT
-          - RESORT
-          - PENTHOUSE
-          - CHATEAU
-          - GUESTHOUSE
-          - HOMESTAY
-          - CAMPGROUND
-          - MOTELROOM
-          - COUNTRYHOUSE
-          - LOFT
-          - DORM
-          - TREEHOUSE
-          - PLANE
-          - IGLOO
-          - RV
-          - LIGHTHOUSE
-          - YURT
-          - TIPI
-          - CAVE
-          - ISLAND
-          - EARTHHOUSE
-          - HUT
-          - TRAIN
-          - TENT
-          - SERVICED_APARTMENT
-          - TINY_HOUSE
-          - BOUTIQUE_HOTEL
-          - APARTHOTEL
-          - DOME_HOUSE
-          - CYCLADIC_HOUSE
-          - DAMMUSO
-          - GUEST_SUITE
-          - HERITAGE_HOTEL
-          - HOLIDAY_PARK
-          - KEZHAN
-          - MINSU
-          - PENSION
-          - RANCH
-          - RELIGIOUS_BUILDING
-          - RIAD
-          - RYOKAN
-          - SHEPHERDS_HUT
-          - SHIPPING_CONTAINER
-          - TOWER
-          - TRULLO
-          - BARN
-          - WINDMILL
-          - CASA_PARTICULAR
-          - SAMPLE
-          - HOLIDAY_HOME
-          - OTHER
-        listingType:
-          type: string
-          enum:
-          - ENTIREHOME
-          - SHAREDROOM
-          - PRIVATEROOM
-          - HOTELROOM
-        roomType:
-          type: string
-          enum:
-          - Apartment
-          - Single
-          - Studio
-          - Family
-          - Twin_Double
-          - Dormitory_room
-          - Bed_in_Dormitory
-          - Bungalow
-          - Chalet
-          - Holiday_home
-          - Villa
-          - Mobile_home
-          - Tent
-          - Quadruple
-          - Suite
-          - Triple
-          - Twin
-          - Double
-        businessType:
-          type: string
-          enum:
-          - HOTEL
-          - UNIT_TYPE
-          - UNIT
-          - STANDALONE_PROPERTY
-          - SUB_UNIT
-        isActive:
-          type: boolean
-        pictureLink:
-          type: string
-        webLink:
-          type: string
-        bedrooms:
+        size:
           type: integer
           format: int32
-        beds:
-          type: integer
-          format: int32
-        bathrooms:
-          type: string
-        numberOfFloors:
-          type: integer
-          format: int32
-        area:
-          $ref: '#/components/schemas/AreaApiTO'
-        rentalLicenseNumber:
-          type: string
-        rentalLicenseExpirationDate:
-          type: string
-          format: date
-        availability:
-          $ref: '#/components/schemas/PropertyAvailabilitySettingApi3Dto'
-        pricing:
-          $ref: '#/components/schemas/PropertyPricingSettingApi3Dto'
-        airbnbData:
-          $ref: '#/components/schemas/PropertyAirbnbDataApi3Dto'
-        bookingDotComData:
-          $ref: '#/components/schemas/PropertyBookingDotComDataAddingApi3Dto'
-        hvmiData:
-          $ref: '#/components/schemas/PropertyHvmiDataApi3Dto'
-        vrboData:
-          $ref: '#/components/schemas/PropertyVrboDataApi3Dto'
-        externalId:
-          type: string
-        accountingId:
-          type: string
-        showPropertyExactLocation:
-          type: boolean
-        agentUid:
-          type: string
-        wifiNetwork:
-          type: string
-        wifiPassword:
-          type: string
-        bookingNotes:
-          type: string
-        extraNotes:
-          type: string
-        ownerNotes:
-          type: string
-        cancellationPolicy:
-          type: string
-        useMinimumPriceRule:
-          type: boolean
-        integrationsData:
-          $ref: '#/components/schemas/IntegrationsApi3DataDto'
-        guideBookUrl:
-          type: string
-        guideBookRecsOnlyUrl:
-          type: string
-    PropertyPricingSettingPatchApi3Dto:
-      type: object
-      properties:
-        currency:
+        unitType:
           type: string
           enum:
-          - USD
-          - EUR
-          - GBP
-          - CAD
-          - JPY
-          - INR
-          - MYR
-          - AUD
-          - KES
-          - MXN
-          - HKD
-          - NZD
-          - CHF
-          - BRL
-          - CLP
-          - COP
-          - PEN
-          - ARS
-          - UYU
-          - VEF
-          - CNY
-          - THB
-          - KRW
-          - IDR
-          - SGD
-          - TWD
-          - AED
-          - ZAR
-          - CZK
-          - DKK
-          - DOP
-          - SEK
-          - BGN
-          - ILS
-          - NOK
-          - RON
-          - RUB
-          - PHP
-          - VND
-          - HUF
-          - IKR
-          - PLN
-          - PYG
-          - TRY
-          - GTQ
-          - VUV
-          - JOD
-          - SAR
-          - EGP
-          - TTD
-          - MAD
-          - CVE
-          - BBD
-          - AWG
-          - BHD
-          - NONE
-        dailyRate:
-          maximum: 2147483647
-          minimum: 0
-          type: number
-        weekendAdjustmentRate:
-          maximum: 100
-          minimum: 0
-          type: number
-        taxRate:
-          maximum: 100
-          minimum: 0
-          type: number
-        ignoreTaxRateChargeOverXDays:
-          type: boolean
-        daysOverWhichTaxRateChargeShouldBeIgnored:
-          type: integer
-          format: int32
-        securityDeposit:
-          maximum: 2147483647
-          minimum: 0
-          type: number
-        cleaningFee:
-          maximum: 2147483647
-          minimum: 0
-          type: number
-        cleaningFeeTaxRate:
-          maximum: 100
-          minimum: 0
-          type: number
-        extraGuestFee:
-          maximum: 2147483647
-          minimum: 0
-          type: number
-        percentageUponReservation:
-          maximum: 2147483647
-          minimum: 0
-          type: number
-        fullPaymentTiming:
-          type: integer
-          format: int32
+          - SQUARE_METERS
+          - SQUARE_FEET
     PropertyVrboDataApi3Dto:
       type: object
       properties:
@@ -1297,24 +444,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VrboPromotionApiDto'
-    Api3ResponseMetadata:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        totalCount:
-          type: integer
-          format: int32
-    CheckInMethodsDto:
-      type: object
-      properties:
-        propertyUid:
-          type: string
-        primary:
-          $ref: '#/components/schemas/CheckInMethodDto'
-        alternative:
-          $ref: '#/components/schemas/CheckInMethodDto'
     PropertyAddressApi3Dto:
       required:
       - address
@@ -1579,27 +708,691 @@ components:
         latitude:
           type: number
           format: double
-    IntegrationsApi3DataDto:
+    Api3ResponsePaging:
       type: object
       properties:
-        panoramicDataUrl:
+        _limit:
+          type: integer
+          format: int32
+        _nextCursor:
           type: string
+    PropertyAirbnbDataApi3Dto:
+      type: object
+      properties:
+        activeForAgency:
+          type: boolean
+        active:
+          type: boolean
+        airbnbId:
+          type: string
+        instantBookingGuestRequirement:
+          type: string
+          enum:
+          - EVERYONE
+          - 'OFF'
+          - WELL_REVIEWED_GUESTS
+        checkInOptionType:
+          type: string
+          enum:
+          - doorman_entry
+          - lockbox
+          - smartlock
+          - keypad
+          - host_checkin
+          - other_checkin
+        cancellationPolicy:
+          type: string
+          enum:
+          - flexible
+          - moderate
+          - better_strict_with_grace_period
+          - strict
+          - super_strict_30
+          - super_strict_60
+          - firm_14
+        eligibleForPassThroughTaxes:
+          type: boolean
+        allowBookingRequestAsFallback:
+          type: boolean
+        nonRefundableRateEnabled:
+          type: boolean
+        nonRefundableRateDiscount:
+          type: number
+        flexibleCheckIn:
+          type: boolean
+    PropertyAvailabilitySettingApi3Dto:
+      required:
+      - baseGuests
+      - maxGuests
+      type: object
+      properties:
+        baseGuests:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          format: int32
+        maxGuests:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          format: int32
+        minimumStay:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          format: int32
+        dayOfWeekMinimumStay:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+        maximumStay:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+          format: int32
+        minimumWeekendStay:
+          type: integer
+          format: int32
+        allowBookingRequestsAboveMaximumStay:
+          type: boolean
+        bookingWindow:
+          type: integer
+          format: int32
+        turnOverDays:
+          type: integer
+          format: int32
+        bookingLeadTime:
+          type: integer
+          format: int32
+        allowBookingRequestWhenOutOfLeadTime:
+          type: boolean
+        checkInTimeStart:
+          type: integer
+          format: int32
+        checkInTimeEnd:
+          type: integer
+          format: int32
+        checkInTimeEndFlexible:
+          type: boolean
+        checkOutTime:
+          type: integer
+          format: int32
+        daysOfTheWeekToCheckInOn:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - MONDAY
+            - TUESDAY
+            - WEDNESDAY
+            - THURSDAY
+            - FRIDAY
+            - SATURDAY
+            - SUNDAY
+        hostfullyBookingStrategy:
+          type: string
+          enum:
+          - BOOKING_INQUIRY
+          - BOOKING_REQUEST
+          - INSTANT_BOOKING
+        airbnbBookingStrategy:
+          type: string
+          enum:
+          - BOOKING_INQUIRY
+          - BOOKING_REQUEST
+          - INSTANT_BOOKING
+        vrboBookingStrategy:
+          type: string
+          enum:
+          - BOOKING_INQUIRY
+          - BOOKING_REQUEST
+          - INSTANT_BOOKING
+        bookingDotComBookingStrategy:
+          type: string
+          enum:
+          - BOOKING_INQUIRY
+          - BOOKING_REQUEST
+          - INSTANT_BOOKING
+    VrboCustomCancellationPolicyApiDto:
+      type: object
+      properties:
+        refundPercentage:
+          type: integer
+          format: int32
+        refundThreshold:
+          type: integer
+          format: int32
     IntegrationsApiDataTO:
       type: object
       properties:
         panoramicDataUrl:
           type: string
-    AreaApiTO:
+    PropertiesApiV3ResponseWrapper:
       type: object
       properties:
-        size:
-          type: integer
-          format: int32
-        unitType:
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertiesApi3ResponseDto'
+        _metadata:
+          $ref: '#/components/schemas/Api3ResponseMetadata'
+        _paging:
+          $ref: '#/components/schemas/Api3ResponsePaging'
+    PropertyApiV3ResponseWrapper:
+      type: object
+      properties:
+        property:
+          $ref: '#/components/schemas/PropertiesApi3ResponseDto'
+    PropertyPricingSettingPatchApi3Dto:
+      type: object
+      properties:
+        currency:
           type: string
           enum:
-          - SQUARE_METERS
-          - SQUARE_FEET
+          - USD
+          - EUR
+          - GBP
+          - CAD
+          - JPY
+          - INR
+          - MYR
+          - AUD
+          - KES
+          - MXN
+          - HKD
+          - NZD
+          - CHF
+          - BRL
+          - CLP
+          - COP
+          - PEN
+          - ARS
+          - UYU
+          - VEF
+          - CNY
+          - THB
+          - KRW
+          - IDR
+          - SGD
+          - TWD
+          - AED
+          - ZAR
+          - CZK
+          - DKK
+          - DOP
+          - SEK
+          - BGN
+          - ILS
+          - NOK
+          - RON
+          - RUB
+          - PHP
+          - VND
+          - HUF
+          - IKR
+          - PLN
+          - PYG
+          - TRY
+          - GTQ
+          - VUV
+          - JOD
+          - SAR
+          - EGP
+          - TTD
+          - MAD
+          - CVE
+          - BBD
+          - AWG
+          - BHD
+          - NONE
+        dailyRate:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+        weekendAdjustmentRate:
+          maximum: 100
+          minimum: 0
+          type: number
+        taxRate:
+          maximum: 100
+          minimum: 0
+          type: number
+        ignoreTaxRateChargeOverXDays:
+          type: boolean
+        daysOverWhichTaxRateChargeShouldBeIgnored:
+          type: integer
+          format: int32
+        securityDeposit:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+        cleaningFee:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+        cleaningFeeTaxRate:
+          maximum: 100
+          minimum: 0
+          type: number
+        extraGuestFee:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+        percentageUponReservation:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+        fullPaymentTiming:
+          type: integer
+          format: int32
+    PropertyPricingSettingApi3Dto:
+      required:
+      - dailyRate
+      type: object
+      properties:
+        currency:
+          type: string
+          enum:
+          - USD
+          - EUR
+          - GBP
+          - CAD
+          - JPY
+          - INR
+          - MYR
+          - AUD
+          - KES
+          - MXN
+          - HKD
+          - NZD
+          - CHF
+          - BRL
+          - CLP
+          - COP
+          - PEN
+          - ARS
+          - UYU
+          - VEF
+          - CNY
+          - THB
+          - KRW
+          - IDR
+          - SGD
+          - TWD
+          - AED
+          - ZAR
+          - CZK
+          - DKK
+          - DOP
+          - SEK
+          - BGN
+          - ILS
+          - NOK
+          - RON
+          - RUB
+          - PHP
+          - VND
+          - HUF
+          - IKR
+          - PLN
+          - PYG
+          - TRY
+          - GTQ
+          - VUV
+          - JOD
+          - SAR
+          - EGP
+          - TTD
+          - MAD
+          - CVE
+          - BBD
+          - AWG
+          - BHD
+          - NONE
+        dailyRate:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+        weekendAdjustmentRate:
+          maximum: 100
+          minimum: 0
+          type: number
+        taxRate:
+          maximum: 100
+          minimum: 0
+          type: number
+        ignoreTaxRateChargeOverXDays:
+          type: boolean
+        daysOverWhichTaxRateChargeShouldBeIgnored:
+          type: integer
+          format: int32
+        securityDeposit:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+        cleaningFee:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+        cleaningFeeTaxRate:
+          maximum: 100
+          minimum: 0
+          type: number
+        extraGuestFee:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+        percentageUponReservation:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+        fullPaymentTiming:
+          type: integer
+          format: int32
+    PropertyBookingDotComDataApi3Dto:
+      type: object
+      properties:
+        activeForAgency:
+          type: boolean
+        active:
+          type: boolean
+        roomName:
+          type: string
+        contactEmployeeUid:
+          type: string
+        cancellationPolicyCode:
+          type: integer
+          format: int32
+    AddressApi3Dto:
+      type: object
+      properties:
+        address:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zipCode:
+          type: string
+        countryCode:
+          type: string
+          enum:
+          - AF
+          - AL
+          - DZ
+          - AS
+          - AD
+          - AO
+          - AI
+          - AG
+          - AN
+          - AR
+          - AM
+          - AW
+          - AU
+          - AT
+          - AZ
+          - BS
+          - BH
+          - BD
+          - BB
+          - BY
+          - BE
+          - BZ
+          - BJ
+          - BM
+          - BT
+          - BO
+          - BA
+          - BW
+          - BR
+          - BN
+          - BG
+          - BF
+          - BI
+          - BQ
+          - KH
+          - CM
+          - CA
+          - CV
+          - KY
+          - CF
+          - TD
+          - CL
+          - CN
+          - CX
+          - CC
+          - CO
+          - KM
+          - YT
+          - CG
+          - CD
+          - CK
+          - CR
+          - CI
+          - HR
+          - CU
+          - CW
+          - CY
+          - CZ
+          - DK
+          - DJ
+          - DM
+          - DO
+          - EC
+          - EG
+          - SV
+          - GQ
+          - ER
+          - EE
+          - ET
+          - FJ
+          - FI
+          - FK
+          - FO
+          - FR
+          - GF
+          - GA
+          - GM
+          - GE
+          - DE
+          - GH
+          - GI
+          - GR
+          - GL
+          - GD
+          - GU
+          - GT
+          - GN
+          - GW
+          - GY
+          - GP
+          - HT
+          - VA
+          - HN
+          - HK
+          - HL
+          - HU
+          - IS
+          - IN
+          - ID
+          - IR
+          - IQ
+          - IE
+          - IL
+          - IT
+          - JM
+          - JP
+          - JO
+          - KZ
+          - KE
+          - KI
+          - KP
+          - KR
+          - KW
+          - KG
+          - LA
+          - LV
+          - LB
+          - LC
+          - LS
+          - LR
+          - LY
+          - LI
+          - LT
+          - LU
+          - MO
+          - MQ
+          - MK
+          - MG
+          - MW
+          - MY
+          - MV
+          - ML
+          - MT
+          - MH
+          - MR
+          - MU
+          - MX
+          - FM
+          - MD
+          - MC
+          - MN
+          - MS
+          - MA
+          - MZ
+          - MM
+          - ME
+          - NA
+          - NR
+          - NP
+          - NL
+          - NC
+          - NZ
+          - NI
+          - NE
+          - NG
+          - NU
+          - NF
+          - 'NO'
+          - OM
+          - PK
+          - PW
+          - PA
+          - PG
+          - PS
+          - PY
+          - PE
+          - PF
+          - PH
+          - PL
+          - PN
+          - PT
+          - PR
+          - QA
+          - RO
+          - RU
+          - RW
+          - KN
+          - WS
+          - RE
+          - PM
+          - SH
+          - ST
+          - SM
+          - SA
+          - SN
+          - RS
+          - SC
+          - SL
+          - SG
+          - SX
+          - SK
+          - SI
+          - SB
+          - SO
+          - ZA
+          - ES
+          - LK
+          - SR
+          - SJ
+          - SZ
+          - SE
+          - CH
+          - SY
+          - TC
+          - TW
+          - TJ
+          - TZ
+          - TH
+          - TG
+          - TO
+          - TT
+          - TN
+          - TR
+          - TM
+          - TV
+          - UG
+          - UA
+          - AE
+          - GB
+          - JE
+          - IM
+          - US
+          - UY
+          - UZ
+          - VC
+          - VU
+          - VE
+          - VN
+          - VG
+          - VI
+          - WF
+          - EH
+          - YE
+          - YU
+          - ZM
+          - ZW
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
+    CheckInMethodsDto:
+      type: object
+      properties:
+        propertyUid:
+          type: string
+        primary:
+          $ref: '#/components/schemas/CheckInMethodDto'
+        alternative:
+          $ref: '#/components/schemas/CheckInMethodDto'
+    PropertyBookingDotComDataAddingApi3Dto:
+      type: object
+      properties:
+        activeForAgency:
+          type: boolean
+        active:
+          type: boolean
+        roomName:
+          type: string
+        checkInMethods:
+          $ref: '#/components/schemas/CheckInMethodsDto'
+        contactEmployeeUid:
+          type: string
+        cancellationPolicyCode:
+          type: integer
+          format: int32
+    IntegrationsApi3DataDto:
+      type: object
+      properties:
+        panoramicDataUrl:
+          type: string
     PropertyHvmiDataApi3Dto:
       type: object
       properties:
@@ -1795,169 +1588,376 @@ components:
           type: string
         guideBookRecsOnlyUrl:
           type: string
-    Api3ResponsePaging:
+    PropertiesPatchApi3Dto:
       type: object
       properties:
-        _limit:
-          type: integer
-          format: int32
-        _nextCursor:
+        agencyUid:
           type: string
-    PropertyApiV3ResponseWrapper:
-      type: object
-      properties:
-        property:
-          $ref: '#/components/schemas/PropertiesApi3ResponseDto'
-    PropertyBookingDotComDataApi3Dto:
-      type: object
-      properties:
-        activeForAgency:
-          type: boolean
-        active:
-          type: boolean
-        roomName:
+        hotelUid:
           type: string
-        contactEmployeeUid:
+        name:
           type: string
-        cancellationPolicyCode:
-          type: integer
-          format: int32
-    PropertyBookingDotComDataAddingApi3Dto:
-      type: object
-      properties:
-        activeForAgency:
-          type: boolean
-        active:
-          type: boolean
-        roomName:
-          type: string
-        checkInMethods:
-          $ref: '#/components/schemas/CheckInMethodsDto'
-        contactEmployeeUid:
-          type: string
-        cancellationPolicyCode:
-          type: integer
-          format: int32
-    PropertyPricingSettingApi3Dto:
-      required:
-      - dailyRate
-      type: object
-      properties:
-        currency:
+        address:
+          $ref: '#/components/schemas/PropertyAddressApi3Dto'
+        propertyType:
           type: string
           enum:
-          - USD
-          - EUR
-          - GBP
-          - CAD
-          - JPY
-          - INR
-          - MYR
-          - AUD
-          - KES
-          - MXN
-          - HKD
-          - NZD
-          - CHF
-          - BRL
-          - CLP
-          - COP
-          - PEN
-          - ARS
-          - UYU
-          - VEF
-          - CNY
-          - THB
-          - KRW
-          - IDR
-          - SGD
-          - TWD
-          - AED
-          - ZAR
-          - CZK
-          - DKK
-          - DOP
-          - SEK
-          - BGN
-          - ILS
-          - NOK
-          - RON
-          - RUB
-          - PHP
-          - VND
-          - HUF
-          - IKR
-          - PLN
-          - PYG
-          - TRY
-          - GTQ
-          - VUV
-          - JOD
-          - SAR
-          - EGP
-          - TTD
-          - MAD
-          - CVE
-          - BBD
-          - AWG
-          - BHD
-          - NONE
-        dailyRate:
-          maximum: 2147483647
-          minimum: 0
-          type: number
-        weekendAdjustmentRate:
-          maximum: 100
-          minimum: 0
-          type: number
-        taxRate:
-          maximum: 100
-          minimum: 0
-          type: number
-        ignoreTaxRateChargeOverXDays:
-          type: boolean
-        daysOverWhichTaxRateChargeShouldBeIgnored:
-          type: integer
-          format: int32
-        securityDeposit:
-          maximum: 2147483647
-          minimum: 0
-          type: number
-        cleaningFee:
-          maximum: 2147483647
-          minimum: 0
-          type: number
-        cleaningFeeTaxRate:
-          maximum: 100
-          minimum: 0
-          type: number
-        extraGuestFee:
-          maximum: 2147483647
-          minimum: 0
-          type: number
-        percentageUponReservation:
-          maximum: 2147483647
-          minimum: 0
-          type: number
-        fullPaymentTiming:
-          type: integer
-          format: int32
-    VrboPromotionApiDto:
-      type: object
-      properties:
-        uid:
-          type: string
-          format: uuid
-        type:
+          - HOUSE
+          - COTTAGE
+          - CONDO
+          - BEDANDBREAKFAST
+          - VILLA
+          - CHALET
+          - CABIN
+          - STUDIO
+          - ROOM
+          - APARTMENT
+          - HOTEL
+          - HOSTEL
+          - LODGE
+          - TOWNHOUSE
+          - DUPLEX
+          - TRIPLEX
+          - FOURPLEX
+          - BUNGALOW
+          - FARMHOUSE
+          - BOAT
+          - HOUSEBOAT
+          - RESORT
+          - PENTHOUSE
+          - CHATEAU
+          - GUESTHOUSE
+          - HOMESTAY
+          - CAMPGROUND
+          - MOTELROOM
+          - COUNTRYHOUSE
+          - LOFT
+          - DORM
+          - TREEHOUSE
+          - PLANE
+          - IGLOO
+          - RV
+          - LIGHTHOUSE
+          - YURT
+          - TIPI
+          - CAVE
+          - ISLAND
+          - EARTHHOUSE
+          - HUT
+          - TRAIN
+          - TENT
+          - SERVICED_APARTMENT
+          - TINY_HOUSE
+          - BOUTIQUE_HOTEL
+          - APARTHOTEL
+          - DOME_HOUSE
+          - CYCLADIC_HOUSE
+          - DAMMUSO
+          - GUEST_SUITE
+          - HERITAGE_HOTEL
+          - HOLIDAY_PARK
+          - KEZHAN
+          - MINSU
+          - PENSION
+          - RANCH
+          - RELIGIOUS_BUILDING
+          - RIAD
+          - RYOKAN
+          - SHEPHERDS_HUT
+          - SHIPPING_CONTAINER
+          - TOWER
+          - TRULLO
+          - BARN
+          - WINDMILL
+          - CASA_PARTICULAR
+          - SAMPLE
+          - HOLIDAY_HOME
+          - OTHER
+        listingType:
           type: string
           enum:
-          - MOBILE
-          - MEMBER_BLUE
-          - MEMBER_SILVER
-          - MEMBER_GOLD
-        percentage:
+          - ENTIREHOME
+          - SHAREDROOM
+          - PRIVATEROOM
+          - HOTELROOM
+        roomType:
+          type: string
+          enum:
+          - Apartment
+          - Single
+          - Studio
+          - Family
+          - Twin_Double
+          - Dormitory_room
+          - Bed_in_Dormitory
+          - Bungalow
+          - Chalet
+          - Holiday_home
+          - Villa
+          - Mobile_home
+          - Tent
+          - Quadruple
+          - Suite
+          - Triple
+          - Twin
+          - Double
+        businessType:
+          type: string
+          enum:
+          - HOTEL
+          - UNIT_TYPE
+          - UNIT
+          - STANDALONE_PROPERTY
+          - SUB_UNIT
+        isActive:
+          type: boolean
+        pictureLink:
+          type: string
+        webLink:
+          type: string
+        bedrooms:
           type: integer
           format: int32
+        beds:
+          type: integer
+          format: int32
+        bathrooms:
+          type: string
+        numberOfFloors:
+          type: integer
+          format: int32
+        area:
+          $ref: '#/components/schemas/AreaApiTO'
+        rentalLicenseNumber:
+          type: string
+        rentalLicenseExpirationDate:
+          type: string
+          format: date
+        availability:
+          $ref: '#/components/schemas/PropertyAvailabilitySettingApi3Dto'
+        pricing:
+          $ref: '#/components/schemas/PropertyPricingSettingPatchApi3Dto'
+        airbnbData:
+          $ref: '#/components/schemas/PropertyAirbnbDataApi3Dto'
+        bookingDotComData:
+          $ref: '#/components/schemas/PropertyBookingDotComDataAddingApi3Dto'
+        hvmiData:
+          $ref: '#/components/schemas/PropertyHvmiDataApi3Dto'
+        vrboData:
+          $ref: '#/components/schemas/PropertyVrboDataApi3Dto'
+        externalId:
+          type: string
+        accountingId:
+          type: string
+        showPropertyExactLocation:
+          type: boolean
+        agentUid:
+          type: string
+        wifiNetwork:
+          type: string
+        wifiPassword:
+          type: string
+        bookingNotes:
+          type: string
+        extraNotes:
+          type: string
+        ownerNotes:
+          type: string
+        cancellationPolicy:
+          type: string
+        useMinimumPriceRule:
+          type: boolean
+        integrationsData:
+          $ref: '#/components/schemas/IntegrationsApi3DataDto'
+        guideBookUrl:
+          type: string
+        guideBookRecsOnlyUrl:
+          type: string
+    PropertiesSavingApi3Dto:
+      type: object
+      properties:
+        agencyUid:
+          type: string
+        hotelUid:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/PropertyAddressApi3Dto'
+        propertyType:
+          type: string
+          enum:
+          - HOUSE
+          - COTTAGE
+          - CONDO
+          - BEDANDBREAKFAST
+          - VILLA
+          - CHALET
+          - CABIN
+          - STUDIO
+          - ROOM
+          - APARTMENT
+          - HOTEL
+          - HOSTEL
+          - LODGE
+          - TOWNHOUSE
+          - DUPLEX
+          - TRIPLEX
+          - FOURPLEX
+          - BUNGALOW
+          - FARMHOUSE
+          - BOAT
+          - HOUSEBOAT
+          - RESORT
+          - PENTHOUSE
+          - CHATEAU
+          - GUESTHOUSE
+          - HOMESTAY
+          - CAMPGROUND
+          - MOTELROOM
+          - COUNTRYHOUSE
+          - LOFT
+          - DORM
+          - TREEHOUSE
+          - PLANE
+          - IGLOO
+          - RV
+          - LIGHTHOUSE
+          - YURT
+          - TIPI
+          - CAVE
+          - ISLAND
+          - EARTHHOUSE
+          - HUT
+          - TRAIN
+          - TENT
+          - SERVICED_APARTMENT
+          - TINY_HOUSE
+          - BOUTIQUE_HOTEL
+          - APARTHOTEL
+          - DOME_HOUSE
+          - CYCLADIC_HOUSE
+          - DAMMUSO
+          - GUEST_SUITE
+          - HERITAGE_HOTEL
+          - HOLIDAY_PARK
+          - KEZHAN
+          - MINSU
+          - PENSION
+          - RANCH
+          - RELIGIOUS_BUILDING
+          - RIAD
+          - RYOKAN
+          - SHEPHERDS_HUT
+          - SHIPPING_CONTAINER
+          - TOWER
+          - TRULLO
+          - BARN
+          - WINDMILL
+          - CASA_PARTICULAR
+          - SAMPLE
+          - HOLIDAY_HOME
+          - OTHER
+        listingType:
+          type: string
+          enum:
+          - ENTIREHOME
+          - SHAREDROOM
+          - PRIVATEROOM
+          - HOTELROOM
+        roomType:
+          type: string
+          enum:
+          - Apartment
+          - Single
+          - Studio
+          - Family
+          - Twin_Double
+          - Dormitory_room
+          - Bed_in_Dormitory
+          - Bungalow
+          - Chalet
+          - Holiday_home
+          - Villa
+          - Mobile_home
+          - Tent
+          - Quadruple
+          - Suite
+          - Triple
+          - Twin
+          - Double
+        businessType:
+          type: string
+          enum:
+          - HOTEL
+          - UNIT_TYPE
+          - UNIT
+          - STANDALONE_PROPERTY
+          - SUB_UNIT
+        isActive:
+          type: boolean
+        pictureLink:
+          type: string
+        webLink:
+          type: string
+        bedrooms:
+          type: integer
+          format: int32
+        beds:
+          type: integer
+          format: int32
+        bathrooms:
+          type: string
+        numberOfFloors:
+          type: integer
+          format: int32
+        area:
+          $ref: '#/components/schemas/AreaApiTO'
+        rentalLicenseNumber:
+          type: string
+        rentalLicenseExpirationDate:
+          type: string
+          format: date
+        availability:
+          $ref: '#/components/schemas/PropertyAvailabilitySettingApi3Dto'
+        pricing:
+          $ref: '#/components/schemas/PropertyPricingSettingApi3Dto'
+        airbnbData:
+          $ref: '#/components/schemas/PropertyAirbnbDataApi3Dto'
+        bookingDotComData:
+          $ref: '#/components/schemas/PropertyBookingDotComDataAddingApi3Dto'
+        hvmiData:
+          $ref: '#/components/schemas/PropertyHvmiDataApi3Dto'
+        vrboData:
+          $ref: '#/components/schemas/PropertyVrboDataApi3Dto'
+        externalId:
+          type: string
+        accountingId:
+          type: string
+        showPropertyExactLocation:
+          type: boolean
+        agentUid:
+          type: string
+        wifiNetwork:
+          type: string
+        wifiPassword:
+          type: string
+        bookingNotes:
+          type: string
+        extraNotes:
+          type: string
+        ownerNotes:
+          type: string
+        cancellationPolicy:
+          type: string
+        useMinimumPriceRule:
+          type: boolean
+        integrationsData:
+          $ref: '#/components/schemas/IntegrationsApi3DataDto'
+        guideBookUrl:
+          type: string
+        guideBookRecsOnlyUrl:
+          type: string
   securitySchemes:
     JWT-Authentication:
       type: apiKey
@@ -1972,190 +1972,6 @@ components:
 externalDocs:
   description: Hostfully Documentation
   url: https://dev.hostfully.com/v3.0/reference
-x-provenance:
-  method: searched
-  source: https://dev.hostfully.com/reference
-  harvested: '2026-10-14'
-  tool: harvest-readme-openapi.py
-  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
-  assembled_from:
-  - https://dev.hostfully.com/reference/acceptbookingrequest.md
-  - https://dev.hostfully.com/reference/acceptjob.md
-  - https://dev.hostfully.com/reference/calculatequote.md
-  - https://dev.hostfully.com/reference/cancel.md
-  - https://dev.hostfully.com/reference/cancelgroupbooking.md
-  - https://dev.hostfully.com/reference/changedates.md
-  - https://dev.hostfully.com/reference/close.md
-  - https://dev.hostfully.com/reference/create.md
-  - https://dev.hostfully.com/reference/create_1.md
-  - https://dev.hostfully.com/reference/createfee.md
-  - https://dev.hostfully.com/reference/creategroupbookinglead.md
-  - https://dev.hostfully.com/reference/createlead.md
-  - https://dev.hostfully.com/reference/createmessage.md
-  - https://dev.hostfully.com/reference/createorderadjustment.md
-  - https://dev.hostfully.com/reference/createowneradjustment.md
-  - https://dev.hostfully.com/reference/createproperty.md
-  - https://dev.hostfully.com/reference/createpropertyrule.md
-  - https://dev.hostfully.com/reference/currentapiversion.md
-  - https://dev.hostfully.com/reference/declinebookingrequest.md
-  - https://dev.hostfully.com/reference/declinejob.md
-  - https://dev.hostfully.com/reference/delete.md
-  - https://dev.hostfully.com/reference/delete_1.md
-  - https://dev.hostfully.com/reference/delete_10.md
-  - https://dev.hostfully.com/reference/delete_11.md
-  - https://dev.hostfully.com/reference/delete_12.md
-  - https://dev.hostfully.com/reference/delete_13.md
-  - https://dev.hostfully.com/reference/delete_14.md
-  - https://dev.hostfully.com/reference/delete_15.md
-  - https://dev.hostfully.com/reference/delete_2.md
-  - https://dev.hostfully.com/reference/delete_3.md
-  - https://dev.hostfully.com/reference/delete_4.md
-  - https://dev.hostfully.com/reference/delete_5.md
-  - https://dev.hostfully.com/reference/delete_6.md
-  - https://dev.hostfully.com/reference/delete_7.md
-  - https://dev.hostfully.com/reference/delete_8.md
-  - https://dev.hostfully.com/reference/delete_9.md
-  - https://dev.hostfully.com/reference/deleteall.md
-  - https://dev.hostfully.com/reference/deletebyuid.md
-  - https://dev.hostfully.com/reference/deletefee.md
-  - https://dev.hostfully.com/reference/deleteorderadjustment.md
-  - https://dev.hostfully.com/reference/deleteowneradjustmentbyuid.md
-  - https://dev.hostfully.com/reference/deletepropertybyuid.md
-  - https://dev.hostfully.com/reference/deletepropertybyuid_1.md
-  - https://dev.hostfully.com/reference/deletepropertyrule.md
-  - https://dev.hostfully.com/reference/execute.md
-  - https://dev.hostfully.com/reference/extendhold.md
-  - https://dev.hostfully.com/reference/fetchextraguestsbylead.md
-  - https://dev.hostfully.com/reference/findall.md
-  - https://dev.hostfully.com/reference/findall_1.md
-  - https://dev.hostfully.com/reference/findall_2.md
-  - https://dev.hostfully.com/reference/findall_3.md
-  - https://dev.hostfully.com/reference/findall_4.md
-  - https://dev.hostfully.com/reference/findall_5.md
-  - https://dev.hostfully.com/reference/findall_6.md
-  - https://dev.hostfully.com/reference/findall_7.md
-  - https://dev.hostfully.com/reference/findall_8.md
-  - https://dev.hostfully.com/reference/findallmessagesforagency.md
-  - https://dev.hostfully.com/reference/findbyagencyuid.md
-  - https://dev.hostfully.com/reference/findbyhoteluid.md
-  - https://dev.hostfully.com/reference/findbypropertyuid.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_1.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_2.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_3.md
-  - https://dev.hostfully.com/reference/findbypropertyuid_4.md
-  - https://dev.hostfully.com/reference/findbyuid.md
-  - https://dev.hostfully.com/reference/findbyuid_1.md
-  - https://dev.hostfully.com/reference/findbyuid_2.md
-  - https://dev.hostfully.com/reference/findbyuid_3.md
-  - https://dev.hostfully.com/reference/findbyuid_4.md
-  - https://dev.hostfully.com/reference/findbywebhookuid.md
-  - https://dev.hostfully.com/reference/findgroupbookingleads.md
-  - https://dev.hostfully.com/reference/findhotelsbyagencyuid.md
-  - https://dev.hostfully.com/reference/findlead.md
-  - https://dev.hostfully.com/reference/findleads.md
-  - https://dev.hostfully.com/reference/findmessagesbyuid.md
-  - https://dev.hostfully.com/reference/findthreadbyuid.md
-  - https://dev.hostfully.com/reference/findthreads.md
-  - https://dev.hostfully.com/reference/findunitbyuid.md
-  - https://dev.hostfully.com/reference/findunitsbyunittype.md
-  - https://dev.hostfully.com/reference/findupdatetaskstatusbyuid.md
-  - https://dev.hostfully.com/reference/getagencies.md
-  - https://dev.hostfully.com/reference/getagency.md
-  - https://dev.hostfully.com/reference/getagencydbssettings.md
-  - https://dev.hostfully.com/reference/getall.md
-  - https://dev.hostfully.com/reference/getall_1.md
-  - https://dev.hostfully.com/reference/getall_10.md
-  - https://dev.hostfully.com/reference/getall_11.md
-  - https://dev.hostfully.com/reference/getall_12.md
-  - https://dev.hostfully.com/reference/getall_13.md
-  - https://dev.hostfully.com/reference/getall_14.md
-  - https://dev.hostfully.com/reference/getall_15.md
-  - https://dev.hostfully.com/reference/getall_16.md
-  - https://dev.hostfully.com/reference/getall_17.md
-  - https://dev.hostfully.com/reference/getall_18.md
-  - https://dev.hostfully.com/reference/getall_19.md
-  - https://dev.hostfully.com/reference/getall_2.md
-  - https://dev.hostfully.com/reference/getall_3.md
-  - https://dev.hostfully.com/reference/getall_4.md
-  - https://dev.hostfully.com/reference/getall_5.md
-  - https://dev.hostfully.com/reference/getall_6.md
-  - https://dev.hostfully.com/reference/getall_7.md
-  - https://dev.hostfully.com/reference/getall_8.md
-  - https://dev.hostfully.com/reference/getall_9.md
-  - https://dev.hostfully.com/reference/getgroupbooking.md
-  - https://dev.hostfully.com/reference/getone.md
-  - https://dev.hostfully.com/reference/getone_1.md
-  - https://dev.hostfully.com/reference/getone_10.md
-  - https://dev.hostfully.com/reference/getone_11.md
-  - https://dev.hostfully.com/reference/getone_2.md
-  - https://dev.hostfully.com/reference/getone_3.md
-  - https://dev.hostfully.com/reference/getone_4.md
-  - https://dev.hostfully.com/reference/getone_5.md
-  - https://dev.hostfully.com/reference/getone_6.md
-  - https://dev.hostfully.com/reference/getone_7.md
-  - https://dev.hostfully.com/reference/getone_8.md
-  - https://dev.hostfully.com/reference/getone_9.md
-  - https://dev.hostfully.com/reference/getorderadjustments.md
-  - https://dev.hostfully.com/reference/getpropertydbssettings.md
-  - https://dev.hostfully.com/reference/getstatistics.md
-  - https://dev.hostfully.com/reference/ignore.md
-  - https://dev.hostfully.com/reference/markasbooked.md
-  - https://dev.hostfully.com/reference/markasdone.md
-  - https://dev.hostfully.com/reference/markprearrivalformcompleted.md
-  - https://dev.hostfully.com/reference/patch.md
-  - https://dev.hostfully.com/reference/patch_1.md
-  - https://dev.hostfully.com/reference/patch_2.md
-  - https://dev.hostfully.com/reference/patch_3.md
-  - https://dev.hostfully.com/reference/patchlead.md
-  - https://dev.hostfully.com/reference/patchpropertyrule.md
-  - https://dev.hostfully.com/reference/post.md
-  - https://dev.hostfully.com/reference/post_1.md
-  - https://dev.hostfully.com/reference/post_10.md
-  - https://dev.hostfully.com/reference/post_11.md
-  - https://dev.hostfully.com/reference/post_12.md
-  - https://dev.hostfully.com/reference/post_13.md
-  - https://dev.hostfully.com/reference/post_14.md
-  - https://dev.hostfully.com/reference/post_15.md
-  - https://dev.hostfully.com/reference/post_16.md
-  - https://dev.hostfully.com/reference/post_2.md
-  - https://dev.hostfully.com/reference/post_3.md
-  - https://dev.hostfully.com/reference/post_4.md
-  - https://dev.hostfully.com/reference/post_5.md
-  - https://dev.hostfully.com/reference/post_6.md
-  - https://dev.hostfully.com/reference/post_7.md
-  - https://dev.hostfully.com/reference/post_8.md
-  - https://dev.hostfully.com/reference/post_9.md
-  - https://dev.hostfully.com/reference/put.md
-  - https://dev.hostfully.com/reference/put_1.md
-  - https://dev.hostfully.com/reference/put_10.md
-  - https://dev.hostfully.com/reference/put_11.md
-  - https://dev.hostfully.com/reference/put_2.md
-  - https://dev.hostfully.com/reference/put_3.md
-  - https://dev.hostfully.com/reference/put_4.md
-  - https://dev.hostfully.com/reference/put_5.md
-  - https://dev.hostfully.com/reference/put_6.md
-  - https://dev.hostfully.com/reference/put_7.md
-  - https://dev.hostfully.com/reference/put_8.md
-  - https://dev.hostfully.com/reference/put_9.md
-  - https://dev.hostfully.com/reference/putleadonhold.md
-  - https://dev.hostfully.com/reference/rebook.md
-  - https://dev.hostfully.com/reference/remove-tag-for-object.md
-  - https://dev.hostfully.com/reference/removelead.md
-  - https://dev.hostfully.com/reference/reopen.md
-  - https://dev.hostfully.com/reference/resendmessage.md
-  - https://dev.hostfully.com/reference/set-tags-for-object.md
-  - https://dev.hostfully.com/reference/tags-by-object.md
-  - https://dev.hostfully.com/reference/update.md
-  - https://dev.hostfully.com/reference/updateapiversion.md
-  - https://dev.hostfully.com/reference/updatefee.md
-  - https://dev.hostfully.com/reference/updateowneradjustment.md
-  - https://dev.hostfully.com/reference/updatepropertyinfull.md
-  - https://dev.hostfully.com/reference/updatepropertypartially.md
-  - https://dev.hostfully.com/reference/updatepropertypartially_1.md
-  - https://dev.hostfully.com/reference/updatepropertyrule.md
-  - https://dev.hostfully.com/reference/updateratemultipliers.md
-  - https://dev.hostfully.com/reference/updaterentalagreementurl.md
-  merge:
-    pages: 176
-    deduped: 773
-    conflicts_kept_first: 0
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true

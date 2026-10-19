@@ -1407,8 +1407,6 @@ apis:
   description: The Graph QL API from Hostfully — 1 operation(s) for graph ql.
   humanURL: https://dev.hostfully.com/reference/getting-started
   tags:
-  - GraphQL
-  tags_raw:
   - Graph QL
   properties:
   - type: OpenAPI
