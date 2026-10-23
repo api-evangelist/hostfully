@@ -55,3 +55,9 @@ externalDocs:
 x-readme:
   explorer-enabled: true
   proxy-enabled: true
+x-provenance:
+  method: harvested
+  publisher: Hostfully
+  source: https://dev.hostfully.com/openapi/69e0c82ecbd69b36f3b38964
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
